@@ -1,0 +1,12 @@
+# Tooling / agent state
+.tmp/
+.sisyphus/
+.playwright-mcp/
+.codegraph/
+.omo/
+
+# Obsidian machine-local state (shared config stays tracked)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
