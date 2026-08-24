@@ -2,9 +2,9 @@
 title: Repo Standard Files
 type: reference
 tags: [conventions, development, standards]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Repo Standard Files
@@ -40,6 +40,36 @@ trim_trailing_whitespace = false
 
 (MD keeps trailing whitespace: two spaces are hard line breaks.)
 
+Web block, when the repo has a frontend:
+
+```editorconfig
+[*.js]
+[*.ts]
+[*.json]
+[*.yml]
+indent_style = space
+indent_size = 2
+```
+
+## `.gitattributes`
+
+Closes the LF-enforcement gap: `.editorconfig` guides editors only —
+this file makes git itself normalize line endings (see the
+[`01-git.md`](01-git.md) cross-platform rule).
+
+```gitattributes
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.db binary
+*.sqlite binary
+```
+
 ## `.gitignore` (Python app baseline)
 
 ```gitignore
@@ -53,12 +83,16 @@ __pycache__/
 .tmp/
 .sisyphus/
 .playwright-mcp/
+.codegraph/
 .pytest_cache/
 .ruff_cache/
 
-# Node (when frontend present)
-node_modules/
+# Build output (any ecosystem)
+build/
 dist/
+
+# Frontend deps
+node_modules/
 
 # Runtime data & secrets
 data/
@@ -80,6 +114,8 @@ Add per-project entries on top; delete what does not apply.
 .sisyphus
 .venv
 __pycache__
+build
+dist
 *.db
 *.sqlite
 data/
@@ -103,9 +139,17 @@ TOR_PROXY=socks5h://127.0.0.1:9050
 
 Real `.env` and `secrets/` are gitignored, always.
 
+## `LICENSE`
+
+Every repo declares its license explicitly — pick from the decision
+table in [`12-licensing.md`](12-licensing.md) and SPDX-declare in
+`pyproject.toml` / `package.json` when those manifests exist.
+
 ## `AGENTS.md` / `README.md`
 
-Required content defined in [`06-documentation.md`](06-documentation.md).
+Required content defined in [`06-documentation.md`](06-documentation.md);
+CI-enabled repos additionally carry the automation contract there
+([`11-task-automation.md`](11-task-automation.md)).
 
 ## Rule of origin
 
