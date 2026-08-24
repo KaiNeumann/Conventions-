@@ -2,9 +2,9 @@
 title: Task Automation and CI
 type: reference
 tags: [conventions, development, ci, automation]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Task Automation and CI
@@ -72,7 +72,7 @@ Workflow template:
 on: [push]
 jobs:
   test:
-    runs-on: python-ci        # label provided by the vishnu runner
+    runs-on: python-ci
     strategy:
       matrix:
         python: ["3.11", "3.13"]
@@ -80,6 +80,27 @@ jobs:
       - uses: https://data.forgejo.org/actions/checkout@v4
       - run: pip install -e '.[dev]' && tools/check.py
 ```
+
+## Packaging entry point (strong recommendation)
+
+Projects that produce artifacts (executables, images) **SHOULD** expose
+one canonical package command — for example `tools/package.py` wrapping
+the real builder:
+
+```bash
+python tools/package.py   # = pyinstaller --noconfirm markview.spec
+```
+
+1. The build recipe lives in tracked spec files (`markview.spec`,
+   `Dockerfile`); nobody improvises builder flags on the command line,
+   humans and agents included.
+2. While no artifact pipeline exists yet (see Open decisions), this
+   command **is** the build interface for manual and agent-driven builds.
+3. When tag-gated CI builds arrive, they call the same command — one
+   definition of "built", like layer 1 is one definition of "verified".
+4. Prerequisites that CI does not need (e.g. `pyinstaller`) are installed
+   on demand and documented in the repo's `AGENTS.md`, keeping per-push
+   CI installs lean.
 
 ## Agent rules (rule)
 
