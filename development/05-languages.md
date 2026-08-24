@@ -2,7 +2,7 @@
 title: Language Standards
 type: reference
 tags: [conventions, development, languages]
-status: draft
+status: accepted
 created: 2026-08-23
 updated: 2026-08-23
 ---
@@ -18,12 +18,18 @@ portability/safety points that bind everywhere.
 
 1. **Version**: current stable as floor (`requires-python = ">=3.11"`),
    build/bundle on the exact minor used in production images (e.g. 3.12).
-2. **Packaging**: `pyproject.toml` only. Backends seen in practice:
+2. **Packaging**: `pyproject.toml` only, once a project is packaged —
+   unpackaged stdlib micro apps are exempt until then
+   ([`03-project-structure.md`](03-project-structure.md) flat-root
+   allowance). Backends seen in practice:
    hatchling (libraries/apps) or setuptools (monorepos). Pick one per
    repo.
 3. **Dependencies**: ranged pins `>=x.y,<next-major`. Extras groups:
    `dev` (pytest, linters, build), plus optional runtime extras (`web`,
    `ui`, `ocr`, …) so base installs stay lean.
+   *(rule)* **Declared dev dependencies** — test/dev tooling lives in
+   tracked files (`requirements-dev.txt`, `[dev]` extra); pipelines
+   install from tracked files only, never ad-hoc installs in CI steps.
 4. **Layout**: `src/` layout, pytest with `testpaths` configured in
    pyproject. Repo-local `.venv` for runs (RAT rule: use the repo venv if
    present).

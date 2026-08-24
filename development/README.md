@@ -2,7 +2,7 @@
 title: Development Conventions
 type: reference
 tags: [conventions, development]
-status: draft
+status: accepted
 created: 2026-08-23
 updated: 2026-08-23
 ---
