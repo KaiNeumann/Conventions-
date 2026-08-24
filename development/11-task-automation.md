@@ -92,6 +92,23 @@ jobs:
    ([`04-repo-standard-files.md`](04-repo-standard-files.md)) once the
    project has anything worth testing.
 
+## Open decisions
+
+1. *(planned default)* **Artifact builds vs tests:** tests run on every
+   push; artifact builds (Docker images, binaries) run only on version
+   tags (`v*`) or explicit trigger — never per-push, never in the hot
+   path.
+2. *(planned)* **Windows .exe strategy:** target is Wine-based
+   cross-builds on a **Linux** runner (Docker + Wine, proven by RAT's
+   `tools/build/package.py --win`), so producing Windows binaries never
+   depends on owning a Windows machine — deliberate given the planned
+   migration away from Windows. Native Windows runners are not planned
+   unless cross-builds prove impractical.
+3. *(interim accepted)* While an app is unstable and needs executables
+   for frequent manual testing, building locally on the dev desktop via
+   the project's canonical package command is fine — the runner takeover
+   happens once the build recipe is proven.
+
 ## Rationale
 
 Token math: today each commit costs an agent-run pytest/build/push loop —
