@@ -2,9 +2,9 @@
 title: Notes and Structure
 type: reference
 tags: [conventions, wiki, structure]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Notes and Structure
@@ -55,6 +55,9 @@ topics are not.
 2. Every folder with more than ~7 notes gets a `README.md` index listing
    its notes with one-line descriptions.
 3. Standalone notes stay as plain `.md` files beside their siblings.
+4. A **page bundle counts as one unit** in folder arithmetic: one slot
+   toward the index threshold, no extra depth level, and its internal
+   assets are invisible to folder rules.
 
 ## Page bundles (rule)
 

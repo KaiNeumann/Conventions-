@@ -28,6 +28,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 4. [`04-versioning-and-history.md`](04-versioning-and-history.md) — git versioning, documenting changes
 5. [`05-human-agent-collaboration.md`](05-human-agent-collaboration.md) — who does what, safety rules
 6. [`06-dynamic-views.md`](06-dynamic-views.md) — queries over curation (Dataview/Bases)
+7. [`07-markdown-flavor.md`](07-markdown-flavor.md) — the house Markdown dialect and its extensions
 
 ## Core principles
 
