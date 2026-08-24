@@ -2,9 +2,9 @@
 title: Frontmatter
 type: reference
 tags: [conventions, wiki, metadata]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Frontmatter
@@ -23,7 +23,6 @@ rules (valid YAML, preserve keys, no secrets) are rules.
 ---
 title: Payment document extraction
 type: note          # note | meeting | decision | howto | reference | person | project
-tags: [pdf, extraction]
 created: 2026-08-23
 updated: 2026-08-23
 ---
@@ -33,13 +32,15 @@ updated: 2026-08-23
 |---|---|
 | `title` | Human-readable title. SHOULD match the first `#` heading. |
 | `type` | One fixed value from the list above. Drives views and templates. |
-| `tags` | List, lowercase, hyphen-separated (`payment-docs`, not `Payment Docs`). No free-form duplicates of `type`. |
 | `created` | Date the note was created, ISO 8601 (`YYYY-MM-DD`). Set once, never edit. |
 | `updated` | Date of last substantive change. Bump on content edits. |
 
 Optional keys — add only when a view or workflow consumes them:
 
-- `status: draft | accepted | deprecated` — for decisions and specs
+- `tags: [topic, …]` — lowercase-hyphen, never duplicating `type`
+- `realm: Kai \| Family \| Shared` — access scope mirroring realm
+  folders; agent/RAG tooling filters on it **before** reading a note
+- `status: draft \| accepted \| deprecated` — for decisions and specs
 - `source: <url or path>` — where external content came from
 - `project: <name>` — link to a project note
 - `aliases: [...]` — alternative names for linking
