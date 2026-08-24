@@ -35,7 +35,7 @@ build — for example `tools/check.py`, `just check`, or `make check`.
 - The command exits non-zero on any failure and prints a short summary —
   designed so an agent can act on the tail of the output alone.
 
-### 2. Local pre-push hook (default)
+### 2. Local pre-push hook (optional)
 
 Committed under `.githooks/`, activated once per clone:
 
@@ -46,12 +46,15 @@ git config core.hooksPath .githooks
 `.githooks/pre-push` calls the task entry point; a non-zero exit blocks
 the push. Broken code never reaches the remote.
 
+- Optional infrastructure, not a default: adopt where early local
+  feedback is worth the setup; the Forgejo gate (layer 3) remains the
+  authoritative check either way.
 - Hook scripts are Python or PowerShell — no bash-only constructs
   (Windows-first rule from [`09-cross-platform.md`](09-cross-platform.md)).
-- Hooks are advisory-by-nature (`--no-verify` exists); the authoritative
-  gate is layer 3. Bypassing a hook requires explicit human instruction.
-- Mention activation in the repo README (one line), since clones don't
-  inherit `core.hooksPath`.
+- Hooks are advisory-by-nature (`--no-verify` exists). Bypassing a hook
+  requires explicit human instruction.
+- Repos that ship hooks MUST document activation in their README (one
+  line), since clones don't inherit `core.hooksPath`.
 
 ### 3. Server-side gate (default for repos with a remote)
 
@@ -72,14 +75,22 @@ Workflow template:
 on: [push]
 jobs:
   test:
-    runs-on: python-ci
-    strategy:
-      matrix:
-        python: ["3.11", "3.13"]
+    runs-on: python-ci        # label provided by the vishnu runner
     steps:
       - uses: https://data.forgejo.org/actions/checkout@v4
       - run: pip install -e '.[dev]' && tools/check.py
+      # add a strategy.matrix over Python versions only when a repo
+      # actually supports multiple versions
 ```
+
+### Verification contract in AGENTS.md (rule)
+
+A repo that enables a CI workflow **MUST** state its automation contract
+in `AGENTS.md` — at minimum: *pushes trigger CI; agents do not pre-run
+the full suite on routine changes; failures are fixed from the failing
+step's log tail.* Reference implementation: `kai/MarkdownViewer`,
+`AGENTS.md`. Without this note, agents default to hand-running
+everything and the token savings never materialize.
 
 ## Packaging entry point (strong recommendation)
 
