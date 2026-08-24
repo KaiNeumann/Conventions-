@@ -2,7 +2,7 @@
 title: Documentation Standards
 type: reference
 tags: [conventions, development, documentation]
-status: draft
+status: accepted
 created: 2026-08-23
 updated: 2026-08-23
 ---
@@ -34,10 +34,11 @@ One paragraph: what it is, for whom.
 *(rule)* Quickstart commands are tested and claims match reality ("zero
 dependencies", "offline" must be true).
 
-## AGENTS.md (agent-worked repos) (default)
+## AGENTS.md (rule for agent-worked repos)
 
-Short, practical rules for automated changes (RAT style). When a repo
-has an `AGENTS.md`, these ordering/content rules apply:
+Every repo an agent regularly works in **MUST** have an `AGENTS.md` —
+short, practical rules for automated changes (RAT style). Required
+sections:
 
 1. *(rule)* **Safety gates first** — non-negotiables up top (e.g. RAT's vault
    rule: never access secrets without explicit approval; ScraperCMS:
@@ -71,13 +72,15 @@ Keep it under ~200 lines; depth belongs in docs/.
 
 1. Numbered series for journeys (`2026-setup/00-architecture/…`,
    `01-install`, …) with a `README.md` reading-order index.
-2. Decision records: significant choices get a note with context,
-   decision, consequences (`docs/adr/NNNN-title.md` or a "Key Decisions"
-   section — either is fine, pick per repo).
+2. Decision records: house default is a **Key Decisions** list (one line
+   each, in `README.md` or `AGENTS.md`). A decision needing more than a
+   paragraph of context escalates to a numbered doc under `docs/`
+   (context / decision / consequences), referenced from that list.
 3. Topical troubleshooting/handbooks live under `docs/<area>/`.
-4. Root-level status docs allowed for active efforts
-   (`PROJECT_STATUS.md`, `TROUBLESHOOTING_*.md`) — move them into docs/
-   once settled.
+4. *(rule)* **No root-level clutter:** everything except `README.md` and
+   `AGENTS.md` lives under `docs/` from day one — including status
+   snapshots and troubleshooting guides (`docs/status/…`,
+   `docs/<area>/troubleshooting.md`). Roots stay scannable.
 
 ## Up-to-dateness rule (rule)
 
