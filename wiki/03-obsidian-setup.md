@@ -55,5 +55,6 @@ the repo root.
 
 1. No CDN links, no external services required to read notes — the vault
    renders offline (same rule as Markview: vendor or go without).
-2. Images and PDFs are stored inside the vault (`attachments/`), not
-   hot-linked.
+2. Supporting files are stored **inside the vault as page bundles**
+   ([`02-notes-and-structure.md`](02-notes-and-structure.md)) — never
+   hot-linked, never scattered into a central attachments dump.

@@ -54,5 +54,31 @@ topics are not.
    `howto/linux/`).
 2. Every folder with more than ~7 notes gets a `README.md` index listing
    its notes with one-line descriptions.
-3. Attachments live in `attachments/` at the vault root, referenced by
-   relative link.
+3. Standalone notes stay as plain `.md` files beside their siblings.
+
+## Page bundles (rule)
+
+An entry that carries **supporting files** (images, data, examples,
+exports, …) MUST live as a **page bundle**: a subfolder named after the
+entry containing the main `.md` plus everything that belongs to it.
+
+```
+projects/2026-homeserver/
+├── README.md
+└── boot-safety/
+    ├── boot-safety.md
+    ├── layout.png
+    └── sample-crypttab.txt
+```
+
+1. Bundle name = entry name (`boot-safety/` ↔ `boot-safety.md`).
+2. Reference supporting files with **relative links** — they survive
+   moving the whole bundle anywhere in the vault.
+3. Moving, renaming, or archiving an entry happens in **one filesystem
+   operation**; nothing that belongs together can be left behind.
+4. **No central attachment folders** — no `attachments/`, no `_shared/`,
+   no per-area dumps. At hundreds-or-thousands scale those become
+   unmanageable junk drawers. An asset used by several bundles gets
+   duplicated into each one (storage is cheap, locality is valuable); if
+   it's substantial enough to warrant single ownership, it becomes its
+   own page bundle that others link to.
