@@ -1,4 +1,4 @@
-﻿---
+---
 title: Project Structure
 type: reference
 tags: [conventions, development, structure]
@@ -16,17 +16,17 @@ adopt them when convenient. The naming discipline at the end is a rule.
 
 ```
 project/
-â”œâ”€â”€ src/<package>/        # all application code (src layout, import as src.<package>â€¦)
-â”œâ”€â”€ tests/                # pytest suite (unit + integration subfolders when large)
-â”œâ”€â”€ docs/                 # architecture notes, howtos, decision records
-â”œâ”€â”€ tools/                # dev/build scripts (packaging, codegen, housekeeping)
-â”œâ”€â”€ data/                 # runtime data â€” gitignored
-â”œâ”€â”€ pyproject.toml        # single source of truth: deps, entry points, pytest config
-â”œâ”€â”€ README.md
-â”œâ”€â”€ AGENTS.md             # when agents work here (see documentation conventions)
-â”œâ”€â”€ .gitignore / .dockerignore / .editorconfig
-â”œâ”€â”€ Dockerfile            # when deployable
-â””â”€â”€ docker-compose.yml    # when it has services/state
+├── src/<package>/        # all application code (src layout, import as src.<package>…)
+├── tests/                # pytest suite (unit + integration subfolders when large)
+├── docs/                 # architecture notes, howtos, decision records
+├── tools/                # dev/build scripts (packaging, codegen, housekeeping)
+├── data/                 # runtime data — gitignored
+├── pyproject.toml        # single source of truth: deps, entry points, pytest config
+├── README.md
+├── AGENTS.md             # when agents work here (see documentation conventions)
+├── .gitignore / .dockerignore / .editorconfig
+├── Dockerfile            # when deployable
+└── docker-compose.yml    # when it has services/state
 ```
 
 - Entry points via `[project.scripts]`; runnable as module too
@@ -45,10 +45,10 @@ project/
 
 ```
 frontend/  (or backend/ + frontend/)
-â”œâ”€â”€ src/                  # React/Vite source
-â”œâ”€â”€ tests/ or e2e/        # Playwright smoke tests
-â”œâ”€â”€ package.json          # pinned deps, npm scripts: dev / build / test
-â””â”€â”€ vite.config.ts
+├── src/                  # React/Vite source
+├── tests/ or e2e/        # Playwright smoke tests
+├── package.json          # pinned deps, npm scripts: dev / build / test
+└── vite.config.ts
 ```
 
 Fullstack splits backend/frontend into sibling folders (ScraperCMS
@@ -61,25 +61,25 @@ code.
 
 ```
 repo/
-â”œâ”€â”€ src/shared/           # canonical shared namespace (imports: src.shared.*)
-â”œâ”€â”€ src/<app>/            # one folder per app
-â”œâ”€â”€ adapters|plugins_ext/ # external overlay plugins, loaded without patching core
-â”œâ”€â”€ packaging/<app>/      # per-app PyInstaller specs
-â””â”€â”€ tools/build/          # canonical packager
+├── src/shared/           # canonical shared namespace (imports: src.shared.*)
+├── src/<app>/            # one folder per app
+├── adapters|plugins_ext/ # external overlay plugins, loaded without patching core
+├── packaging/<app>/      # per-app PyInstaller specs
+└── tools/build/          # canonical packager
 ```
 
 Rules (from RAT):
 1. One canonical import namespace (`src.shared.runtime.*`); legacy
-   namespaces are unsupported â€” never reintroduce aliases.
-2. Overlay/external plugin folders override specific namespaces only â€”
+   namespaces are unsupported — never reintroduce aliases.
+2. Overlay/external plugin folders override specific namespaces only —
    no global `sys.path` hacks.
 
 ## Growth rule (default)
 
-Start simple â€” stdlib-only micro apps **may** keep entry modules at
+Start simple — stdlib-only micro apps **may** keep entry modules at
 repo root (markdownviewer, organizer pattern). Move into `src/` once a
 second module or packaging appears; split into the standard layout when
-two top-level concerns exist. Promote structure when it hurts â€” don't
+two top-level concerns exist. Promote structure when it hurts — don't
 pre-build empty scaffolding.
 
 ## Naming discipline (rule)

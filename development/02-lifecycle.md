@@ -1,4 +1,4 @@
-﻿---
+---
 title: Development Lifecycle
 type: reference
 tags: [conventions, development, process]
@@ -12,28 +12,28 @@ updated: 2026-08-24
 ## Stages (default)
 
 ```
-idea â†’ plan â†’ implement â†’ verify â†’ document â†’ commit â†’ deploy
+idea → plan → implement → verify → document → commit → deploy
 ```
 
-1. **Idea** â€” capture it (issue or `TODO-backlog.md`), one line is enough.
+1. **Idea** — capture it (issue or `TODO-backlog.md`), one line is enough.
    Don't build it yet.
-2. **Plan** â€” for anything beyond a trivial fix: bullet list of steps +
+2. **Plan** — for anything beyond a trivial fix: bullet list of steps +
    acceptance criteria in the issue/TODO item. Agents state the plan
    before touching code.
-3. **Implement** â€” smallest change that satisfies the plan. Follow
+3. **Implement** — smallest change that satisfies the plan. Follow
    project-structure and language conventions. Tests alongside code, not
    "later".
-4. **Verify** â€” quick local sanity on touched files (compile/lint);
+4. **Verify** — quick local sanity on touched files (compile/lint);
    authoritative verification is the CI result on push
    ([`11-task-automation.md`](11-task-automation.md)). Local full-suite
    runs happen only in repos without CI or while debugging a red
    pipeline. Agents report evidence (command/CI output), not claims.
-5. **Document** â€” README/AGENTS.md/docs updated in the same change if
+5. **Document** — README/AGENTS.md/docs updated in the same change if
    behavior, structure, or safety rules changed
    ([documentation conventions](06-documentation.md)).
-6. **Commit** â€” per [git conventions](01-git.md); small atomic commits with evidence
+6. **Commit** — per [git conventions](01-git.md); small atomic commits with evidence
    reviewed (`git status --short --ignored`).
-7. **Deploy** â€” docker compose rebuild / packager run per packaging
+7. **Deploy** — docker compose rebuild / packager run per packaging
    conventions ([web](07-packaging-web.md), [desktop](08-packaging-desktop.md));
    verify healthz after deploy.
 
@@ -49,18 +49,18 @@ A task is done when ALL are true:
 - [ ] No secrets/local artifacts staged
 - [ ] Committed per [git conventions](01-git.md)
 
-(Small scripts and one-off tools may deliberately skip tests/docs â€”
+(Small scripts and one-off tools may deliberately skip tests/docs —
 say so, don't silently skip.)
 
 ## Iteration discipline
 
-1. *(default)* Work in small vertical slices â€” a working increment beats a big-bang
+1. *(default)* Work in small vertical slices — a working increment beats a big-bang
    branch.
-2. *(rule)* Failed fix attempts: 3 strikes â†’ stop, revert to last known good,
+2. *(rule)* Failed fix attempts: 3 strikes → stop, revert to last known good,
    re-analyze before another change. No shotgun debugging.
-3. *(default)* Deprecation path for replaced functionality: mark deprecated â†’
-   migrate users/data â†’ delete in a later commit ([naming
+3. *(default)* Deprecation path for replaced functionality: mark deprecated →
+   migrate users/data → delete in a later commit ([naming
    discipline](03-project-structure.md):
    no `_v2` twins living forever).
-4. *(default)* Keep a session log only when work spans sessions â€” otherwise git
+4. *(default)* Keep a session log only when work spans sessions — otherwise git
    history IS the log.

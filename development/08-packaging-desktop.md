@@ -1,5 +1,5 @@
-﻿---
-title: Packaging â€” Native Desktop Apps
+---
+title: Packaging — Native Desktop Apps
 type: reference
 tags: [conventions, development, packaging]
 status: accepted
@@ -7,10 +7,10 @@ created: 2026-08-23
 updated: 2026-08-24
 ---
 
-# Packaging â€” Native Desktop Apps
+# Packaging — Native Desktop Apps
 
 For when a desktop app makes sense. One part of the "one core, many
-shells" model â€” the same core also ships as web app
+shells" model — the same core also ships as web app
 ([`07-packaging-web.md`](07-packaging-web.md)) and usually a headless CLI
 (see [`05-languages.md`](05-languages.md)). Proven by RAT (PySide6
 desktop) and Markview (pywebview over a static frontend).
@@ -18,13 +18,13 @@ desktop) and Markview (pywebview over a static frontend).
 ## Approach (default)
 
 1. Prefer a **shared frontend**:
-   - Web-tech UI â†’ wrap with **pywebview** (WebView2 on Windows,
-     WebKitGTK on Linux, WebKit on macOS) â€” one HTML/JS frontend serves
+   - Web-tech UI → wrap with **pywebview** (WebView2 on Windows,
+     WebKitGTK on Linux, WebKit on macOS) — one HTML/JS frontend serves
      browser, Docker, and desktop (Markview pattern).
-   - Rich native Python desktop â†’ **PySide6/Qt** (RAT Qt default), with
+   - Rich native Python desktop → **PySide6/Qt** (RAT Qt default), with
      a fallback launcher story if needed.
 2. Desktop shells add only platform bridges (open dialog, live reload,
-   window state) behind a small JS bridge API â€” business logic stays in
+   window state) behind a small JS bridge API — business logic stays in
    the core.
 3. Portable binaries via **PyInstaller** per-app spec files
    (`markview.spec`, `packaging/<app>/<app>.spec`).
@@ -33,7 +33,7 @@ desktop) and Markview (pywebview over a static frontend).
 
 Every desktop app exposes **one canonical package command** (for example
 `tools/package.py` or `build.ps1`) wrapping `pyinstaller --noconfirm
-<app>.spec`. Build recipes live in tracked spec files â€” nobody
+<app>.spec`. Build recipes live in tracked spec files — nobody
 improvises builder flags, humans and agents included.
 
 ## Release machinery (default once binaries ship publicly)
@@ -48,7 +48,7 @@ inventory (contents, size, hash) and run the offline smoke test against
 the produced binary (RAT qt_inventory/qt_smoke pattern). Ship
 third-party license notices in bundles (`THIRD_PARTY_NOTICES.md`).
 
-macOS is treated as preview tier unless explicitly supported â€” say so in
+macOS is treated as preview tier unless explicitly supported — say so in
 the README instead of silently shipping broken builds.
 
 Cross-platform constraints that apply here: see
