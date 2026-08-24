@@ -2,9 +2,9 @@
 title: Versioning and History
 type: reference
 tags: [conventions, wiki, git]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Versioning and History
@@ -24,10 +24,15 @@ changelog — do not maintain a parallel one.
 
 ## Commit habits (default)
 
-1. One logical change per commit ("Add tor-routing note"), messages per
+1. One logical change per commit; messages per
    [`../development/01-git.md`](../development/01-git.md).
 2. Small frequent syncs: commit and push after each working session;
    long-lived local divergence is how conflicts happen.
+3. **Lean bundled assets**: compress images before committing
+   (screenshots rarely need full resolution); megabyte-scale media
+   (video, huge scans) lives outside the vault and gets linked from the
+   bundle instead. Keeps clone/push fast without breaking
+   self-containment for ordinary notes.
 
 ## Deprecation instead of deletion (rule)
 
