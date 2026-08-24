@@ -2,9 +2,9 @@
 title: Git Conventions
 type: reference
 tags: [conventions, development, git]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Git Conventions
@@ -34,7 +34,13 @@ updated: 2026-08-23
    what is staged. Never commit: secrets, tokens, `.env`, local agent
    state (`.tmp/`, `.sisyphus/`, `.playwright-mcp/`), build output,
    venvs, databases/SQLite files.
-4. *(rule)* Never amend/force-push shared history on `main`. Fix forward.
+4. *(rule)* Pushed history on shared `main` is immutable — fix forward.
+   **Solo exception:** when working alone you may rewrite your own
+   pushed `main` with `--force-with-lease` (never plain `--force`),
+   provided no other machine has pulled recently.
+5. *(default)* No AI-attribution trailers (`Co-authored-by:` naming an
+   agent, "generated with…" footers). Commit messages stay minimal;
+   authorship is visible through git author config alone.
 
 ## Branching (default)
 
