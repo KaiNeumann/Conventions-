@@ -1,15 +1,15 @@
----
+﻿---
 title: Cross-Platform Rules
 type: reference
 tags: [conventions, development, portability]
-status: draft
+status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-24
 ---
 
 # Cross-Platform Rules
 
-Bind across all delivery modes (web, desktop, CLI — see
+Bind across all delivery modes (web, desktop, CLI â€” see
 [`07-packaging-web.md`](07-packaging-web.md),
 [`08-packaging-desktop.md`](08-packaging-desktop.md)) and complement the
 language-level standards in [`05-languages.md`](05-languages.md).
