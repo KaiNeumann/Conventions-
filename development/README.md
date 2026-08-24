@@ -34,6 +34,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 9. [`09-cross-platform.md`](09-cross-platform.md) — portability rules for all delivery modes
 10. [`10-ci.md`](10-ci.md) — CI and release pipelines
 11. [`11-task-automation.md`](11-task-automation.md) — token-saving automation: task entry point, pre-push hook, Forgejo Actions gate
+12. [`12-licensing.md`](12-licensing.md) — license selection by repo category, SPDX mechanics, target state for existing repos
 
 ## Core principles
 
