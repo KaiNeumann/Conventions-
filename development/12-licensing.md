@@ -59,7 +59,8 @@ automatically:
 
 | Repo(s) | Today | Target |
 |---|---|---|
-| homeserver, conventions, money, Finanzen, Blutwerte, … private set | undeclared | declare all-rights-reserved |
+| homeserver, money, Finanzen, Blutwerte, … private set | undeclared | declare all-rights-reserved |
+| conventions (documentation pool — pure prose meant for propagation) | briefly all-rights | **CC-BY-SA-4.0** (2026-08-24): row-5 prose rule wins over private-set classification; no sensitive content, dissemination is the design goal |
 | RAT (public on Codeberg) | Proprietary | GPL-3.0 — users gain freedom, forks stay open, exposure unchanged (source was already public) |
 | markdownviewer, organizer, rss-creator (community standalone tools) | undeclared | GPL-3.0 |
 | GoldsteinCMS | AGPL-3.0 | already conforms |

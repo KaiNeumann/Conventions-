@@ -82,3 +82,10 @@ Unmarked prose is descriptive context, not a rule.
 - Grounded in real practice: defaults and patterns reflect what existing
   projects (homeserver, rss-creator, fotozahlungen, GoldsteinCMS, RAT,
   ScraperCMS, …) already do unless a rule explicitly changes that.
+
+## License
+
+Code: none (this repo contains no software). Documentation and
+conventions text: **CC-BY-SA-4.0** — attribute
+(Kai Uwe Neumann / KaiNeumann), share adaptations under the same
+license. See `LICENSE`.
