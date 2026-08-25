@@ -80,8 +80,12 @@ Unmarked prose is descriptive context, not a rule.
 - Entries carry rationale and examples; tier markers classify each
   section (see above).
 - Grounded in real practice: defaults and patterns reflect what existing
-  projects (homeserver, rss-creator, fotozahlungen, GoldsteinCMS, RAT,
-  ScraperCMS, …) already do unless a rule explicitly changes that.
+  projects already do unless a rule explicitly changes that.
+- **Encoding** *(rule)*: all Markdown files are UTF-8 **without BOM**;
+  prefer ASCII punctuation. Scripted/bulk edits MUST read and write
+  explicit UTF-8 (never shell-default encodings) and are followed by a
+  mojibake scan (`[\u00C0-\u00FF\u0152\u0153\u20AC\uFFFD]` must find
+  nothing).
 
 ## License
 
