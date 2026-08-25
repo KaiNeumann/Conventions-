@@ -22,8 +22,8 @@ Tkinter desktop) and Markview (pywebview over a static frontend).
      WebKitGTK on Linux, WebKit on macOS) — one HTML/JS frontend serves
      browser, Docker, and desktop (Markview pattern).
    - Rich native Python desktop → **Tkinter/ttk** with sv-ttk theming
-     (RAT's production-proven line); PySide6 exists only as an
-     experimental packaged target, not production-proven.
+     (worked well at RAT scale); PySide6 exists only as an experimental
+     packaged target, never shipped to production.
 2. Desktop shells add only platform bridges (open dialog, live reload,
    window state) behind a small JS bridge API — business logic stays in
    the core.
