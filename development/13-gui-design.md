@@ -2,7 +2,7 @@
 title: GUI Design
 type: reference
 tags: [conventions, development, gui, ux]
-status: accepted
+status: draft
 created: 2026-08-24
 updated: 2026-08-24
 ---
@@ -117,30 +117,32 @@ never hardcode colors.
 - Prefer one window with panes over many windows; wizards only for
   genuinely sequential setup flows.
 
-## Native track specifics *(Tk — input, adopt selectively)*
+## Desktop toolkit notes *(historical input — adopt selectively)*
 
-Input from RAT's mature 0.19.1 Tkinter line (PySide6 was packaged but
-never reached production). These are patterns that worked in practice —
-take the good parts, evolve from there; they are **not** blanket law.
-One item is non-negotiable because Tk itself demands it:
+**No toolkit is house-mandated.** Simple shells skip native toolkits
+entirely (pywebview over a static frontend — organizer/markdownviewer
+needed none). Dense apps choose a toolkit per app and document the
+choice in their README; the trajectory at RAT — the largest desktop
+here — is *away* from Tkinter toward PySide6 (experimental, unproven).
+For reference only: what a mature Tkinter codebase (RAT 0.19.1)
+converged on, mostly transferable to any single-threaded UI toolkit:
 
-- **(rule) Main-thread marshaling** — widgets are touched only on the
-  Tk main thread, marshaled through an executor (`call`,
-  `debounce(key, delay)`, `cancel`) pumping a cross-thread queue;
-  worker threads post events and never touch widgets directly.
-- *(pattern)* Theming: sv-ttk light/dark following the OS via
-  darkdetect; one semantic palette dict in a shared theme module;
-  popups themed through a helper instead of ad-hoc styling.
+- **(rule, when on Tk) Main-thread marshaling** — widgets are touched
+  only on the UI thread via an executor (`call`, `debounce`,
+  `cancel`) pumping a cross-thread queue; workers post events, never
+  touch widgets. Every mainstream toolkit has an equivalent rule.
+- *(pattern)* Light/dark theming following the OS, driven by one
+  semantic palette dict in a shared module; popups themed through a
+  helper.
 - *(pattern)* User font-size deltas relative to the theme baseline, so
-  theme switches never compound sizes.
-- *(pattern)* Toasts near the triggering point with auto-dismiss;
-  statusbar counters; inline validation over modal spam.
+  switches never compound.
+- *(pattern)* Toasts near the triggering point; statusbar counters;
+  inline validation over modal spam.
 - *(pattern)* Modals centered over their parent, clamped to screen
-  bounds with sane minimums.
-- *(pattern)* Settings forms generated from a spec shared with the CLI —
-  one settings truth.
-- *(pattern)* Reusable widgets live in a shared ui package so sibling
-  apps stay visually consistent.
+  bounds.
+- *(pattern)* Settings forms generated from a spec shared with the CLI.
+- *(pattern)* Reusable widgets live in a shared package so sibling apps
+  stay visually consistent.
 
 ## Tooltips *(default)*
 
