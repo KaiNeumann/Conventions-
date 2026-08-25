@@ -2,7 +2,7 @@
 title: Settings & Persistence
 type: reference
 tags: [conventions, development, settings]
-status: draft
+status: accepted
 created: 2026-08-24
 updated: 2026-08-24
 ---
@@ -26,6 +26,9 @@ boundary in [`09-cross-platform.md`](09-cross-platform.md).
    back to the profile dir automatically and say so once.
 4. Multi-app repositories may share one `common` settings file beside
    per-app files (RAT: `common_settings.ini` + per-app INIs).
+5. Sidecar naming and format are free per app but **MUST be documented
+   in the README** — agents and scripts locate settings through that
+   documentation.
 
 ## Format *(default)*
 
@@ -52,11 +55,14 @@ boundary in [`09-cross-platform.md`](09-cross-platform.md).
 
 1. Passwords, tokens, and similar credentials are **never stored
    plaintext** inside regular settings files.
-2. Preferred order: OS credential store/keychain → app-level encryption
-   with a master password (RAT pattern: encrypted settings blob +
-   `/unlock` prompt) → at minimum a separate credential file with
+2. **Portability-aware choice**:
+   - Installed apps → prefer the OS credential store/keychain.
+   - Portable sidecar apps → app-level encryption with a master password
+     (RAT pattern: encrypted blob + unlock prompt) — an OS store would
+     break folder-copy portability.
+3. Minimum fallback everywhere: a separate credential file with
    restrictive permissions, excluded from backups/exports.
-3. Encryption keys are never derived from anything committed to the
+4. Encryption keys are never derived from anything committed to the
    repo.
 
 ## One settings truth *(rule)*
