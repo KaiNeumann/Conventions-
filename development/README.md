@@ -35,6 +35,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 10. [`10-ci.md`](10-ci.md) — CI and release pipelines
 11. [`11-task-automation.md`](11-task-automation.md) — token-saving automation: task entry point, pre-push hook, Forgejo Actions gate
 12. [`12-licensing.md`](12-licensing.md) — license selection by repo category, SPDX mechanics, target state for existing repos
+13. [`13-gui-design.md`](13-gui-design.md) — GUI principles, visual tokens, keyboard-first interaction, accessibility baseline
 
 ## Core principles
 
