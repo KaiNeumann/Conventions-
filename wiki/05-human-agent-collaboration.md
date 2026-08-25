@@ -55,7 +55,7 @@ Secrets/personal-data prohibitions apply in **all** tiers.
 4. **No silent deletions.** Removing content requires explicit
    instruction. Otherwise: mark `status: deprecated` with a reason, or ask.
 5. **No secrets, no personal data** in notes — same bar as code repos
-   (RAT rule: no usernames, no account data; use `<user>` placeholders).
+   (no usernames, no account data; use `<user>` placeholders).
 6. **Small reviewable changes.** One logical change per commit so the
    human reviews diffs, not essays.
 7. **Flag staleness, don't guess.** If content looks wrong but can't be

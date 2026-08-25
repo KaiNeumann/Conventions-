@@ -29,11 +29,11 @@ Applies when a project ships as a Dockerized web app.
    settings via mounted config files, secrets via `secrets/` mount or
    `.env` (gitignored, `.env.example` committed).
 6. *(default)* Ports stay on internal networks; TLS + auth terminate at
-   the edge reverse proxy (Traefik/Authelia on the homeserver). Apps must
+   the edge reverse proxy / auth service. Apps must
    be reverse-proxy-ready (trust proxy headers, relative URLs where sane).
-7. *(rule)* Network segmentation for sensitive flows (ScraperCMS
-   pattern): isolated internal networks, exactly one dual-homed gateway
-   service (e.g. tor); no blanket external egress.
+7. *(rule)* Network segmentation for sensitive flows: isolated
+   internal networks, exactly one dual-homed gateway service; no
+   blanket external egress.
 8. *(default)* Public images tag `latest` (WUD-friendly); pinned tags
    need a documented exception.
 

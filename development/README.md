@@ -44,7 +44,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 - **Boring and reproducible.** Standard layouts, standard tools, pinned
   versions. A stranger (or agent) must be productive in minutes.
 - **One core, many shells.** Business logic lives in a library core;
-  desktop GUI, CLI, and web UI are thin shells over it (RAT pattern).
+  desktop GUI, CLI, and web UI are thin shells over it.
 - **Docker-first for anything with a UI or service**; native desktop apps
   where a desktop makes sense — same frontend, different shell.
 - **Agent-safe by construction.** Repos carry `AGENTS.md`, safety gates,

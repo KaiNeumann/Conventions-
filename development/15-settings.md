@@ -17,7 +17,7 @@ boundary in [`09-cross-platform.md`](09-cross-platform.md).
 ## Location *(default)*
 
 1. **Portable apps** (run from a folder/exe): sidecar file(s) **next to
-   the executable** — `organizer.json`, `Markview.json` pattern. Copying
+   the executable** — a `<app>.json` sidecar. Copying
    the folder copies the app *with* its settings.
 2. **Installed apps**: settings in the per-user profile directory
    (`%APPDATA%\<app>\`, `~/.config/<app>/`). Never write next to program
@@ -25,7 +25,7 @@ boundary in [`09-cross-platform.md`](09-cross-platform.md).
 3. If the portable location is not writable (read-only medium), fall
    back to the profile dir automatically and say so once.
 4. Multi-app repositories may share one `common` settings file beside
-   per-app files (RAT: `common_settings.ini` + per-app INIs).
+   per-app files.
 5. Sidecar naming and format are free per app but **MUST be documented
    in the README** — agents and scripts locate settings through that
    documentation.
@@ -58,7 +58,7 @@ boundary in [`09-cross-platform.md`](09-cross-platform.md).
 2. **Portability-aware choice**:
    - Installed apps → prefer the OS credential store/keychain.
    - Portable sidecar apps → app-level encryption with a master password
-     (RAT pattern: encrypted blob + unlock prompt) — an OS store would
+     (encrypted blob + unlock prompt) — an OS store would
      break folder-copy portability.
 3. Minimum fallback everywhere: a separate credential file with
    restrictive permissions, excluded from backups/exports.

@@ -42,7 +42,7 @@ topics are not.
 1. File names lowercase `kebab-case.md` (`boot-safety-meta-rules.md`);
    ASCII-safe characters preferred.
 2. Name notes as the question they answer or the thing they describe
-   (`tor-routing.md`, `2026-homeserver-setup.md`) — never `notes.md`,
+   (`tor-routing.md`, `server-backup-policy.md`) — never `notes.md`,
    `untitled.md`, `misc.md`.
 3. Numbered prefixes (`01-`, `02-`, …) only for ordered material: reading
    paths, step-by-step setup series — never plain topical notes.
@@ -50,7 +50,7 @@ topics are not.
 
 ## Folders (default)
 
-1. Group by **area**, max ~3 levels deep (`projects/2026-homeserver/`,
+1. Group by **area**, max ~3 levels deep (`projects/server-setup/`,
    `howto/linux/`).
 2. Every folder with more than ~7 notes gets a `README.md` index listing
    its notes with one-line descriptions.
@@ -66,7 +66,7 @@ exports, …) MUST live as a **page bundle**: a subfolder named after the
 entry containing the main `.md` plus everything that belongs to it.
 
 ```
-projects/2026-homeserver/
+projects/server-setup/
 ├── README.md
 └── boot-safety/
     ├── boot-safety.md

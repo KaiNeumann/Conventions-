@@ -32,7 +32,7 @@ Additional rules:
 2. Repos whose prose differs from their code carry a one-line footer:
    `License: code GPL-3.0 · docs CC-BY-SA-4.0`.
 3. Shipped binaries bundle third-party material: include
-   `THIRD_PARTY_NOTICES.md` (RAT pattern).
+   `THIRD_PARTY_NOTICES.md`.
 4. Relicensing a public repository is a significant event: human
    sign-off required, announced in the repo's README or changelog.
 5. German/EU moral rights (Urheberrecht) are non-waivable but fully
@@ -59,11 +59,11 @@ automatically:
 
 | Repo(s) | Today | Target |
 |---|---|---|
-| homeserver, money, Finanzen, Blutwerte, … private set | undeclared | declare all-rights-reserved |
-| conventions (documentation pool — pure prose meant for propagation) | briefly all-rights | **CC-BY-SA-4.0** (2026-08-24): row-5 prose rule wins over private-set classification; no sensitive content, dissemination is the design goal |
-| RAT (public on Codeberg) | Proprietary | GPL-3.0 — users gain freedom, forks stay open, exposure unchanged (source was already public) |
-| markdownviewer, organizer, rss-creator (community standalone tools) | undeclared | GPL-3.0 |
-| GoldsteinCMS | AGPL-3.0 | already conforms |
-| agent-skills, OpenClaw-Skills, reusable templates | undeclared | MIT |
+| Private infra & personal tool repos | undeclared | declare all-rights-reserved |
+| Documentation pools (pure prose meant for propagation) | varies | CC-BY-SA-4.0 — the prose rule wins over private-set classification |
+| Public community tool (previously source-available) | Proprietary | GPL-3.0 — users gain freedom, forks stay open; exposure unchanged when source was already public |
+| Community standalone tools | undeclared | GPL-3.0 |
+| Network-served community app | AGPL-3.0 | conforms |
+| Skills/templates others build upon | undeclared | MIT |
 | All docs/wiki prose inside mixed repos | n/a | CC-BY-SA-4.0 footnote |
-| Food-and-Nutrition | MIT | keep (declared licenses stand unless owner opts to migrate) |
+| Already-declared repos | various | declared licenses stand unless owner migrates |

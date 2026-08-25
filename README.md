@@ -81,6 +81,9 @@ Unmarked prose is descriptive context, not a rule.
   section (see above).
 - Grounded in real practice: defaults and patterns reflect what existing
   projects already do unless a rule explicitly changes that.
+- **Standalone** *(rule)*: these documents name no concrete personal
+  projects, apps, hosts, or accounts. Patterns describe shape; grounding
+  examples live where the projects live.
 - **Encoding** *(rule)*: all Markdown files are UTF-8 **without BOM**;
   prefer ASCII punctuation. Scripted/bulk edits MUST read and write
   explicit UTF-8 (never shell-default encodings) and are followed by a
@@ -91,5 +94,5 @@ Unmarked prose is descriptive context, not a rule.
 
 Code: none (this repo contains no software). Documentation and
 conventions text: **CC-BY-SA-4.0** — attribute
-(Kai Uwe Neumann / KaiNeumann), share adaptations under the same
+(the author), share adaptations under the same
 license. See `LICENSE`.

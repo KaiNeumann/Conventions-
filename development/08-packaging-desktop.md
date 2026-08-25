@@ -12,8 +12,8 @@ updated: 2026-08-24
 For when a desktop app makes sense. One part of the "one core, many
 shells" model — the same core also ships as web app
 ([`07-packaging-web.md`](07-packaging-web.md)) and usually a headless CLI
-(see [`05-languages.md`](05-languages.md)). Proven by RAT (mature
-Tkinter desktop) and Markview (pywebview over a static frontend).
+(see [`05-languages.md`](05-languages.md)). Proven approaches: a
+mature Tkinter desktop and a pywebview-over-static-frontend viewer.
 
 ## Approach (default)
 
@@ -22,7 +22,7 @@ Tkinter desktop) and Markview (pywebview over a static frontend).
      WebKitGTK on Linux, WebKit on macOS) — one HTML/JS frontend serves
      browser, Docker, and desktop (Markview pattern).
    - Rich native Python desktop → toolkit chosen **per app** and
-     documented in its README. Tkinter/ttk + sv-ttk worked at RAT scale
+     documented in its README. Tkinter/ttk + sv-ttk worked at large scale
      but is being moved away from there; PySide6 is the current
      experimental candidate for dense apps. Nothing is house-mandated.
 2. Desktop shells add only platform bridges (open dialog, live reload,
@@ -41,13 +41,13 @@ improvises builder flags, humans and agents included.
 ## Release machinery (default once binaries ship publicly)
 
 Apps distributed beyond the dev desktop upgrade to the full release
-pattern (RAT): one canonical packager script (`tools/build/package.py`)
+pattern: one canonical packager script (`tools/build/package.py`)
 that reads the version from code (single source), stages executables
 under `out/<app>/stage/portable/`, emits versioned artifacts
 (`App_v0.15.exe` + `.zip` / `.tar.gz`), and supports cross-builds via
 Docker (`--win` / `--linux`). Before publishing: record artifact
 inventory (contents, size, hash) and run the offline smoke test against
-the produced binary (RAT qt_inventory/qt_smoke pattern). Ship
+the produced binary (offline inventory + smoke runner). Ship
 third-party license notices in bundles (`THIRD_PARTY_NOTICES.md`).
 
 macOS is treated as preview tier unless explicitly supported — say so in

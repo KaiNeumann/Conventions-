@@ -22,4 +22,4 @@ language-level standards in [`05-languages.md`](05-languages.md).
    where we work); test Linux paths via Docker.
 4. *(default)* Config via persisted settings files (portable INI/YAML
    next to app or in profile dir); env-var config only inside
-   containers/test harnesses (RAT portability rule).
+   containers/test harnesses.

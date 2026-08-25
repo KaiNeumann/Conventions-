@@ -37,12 +37,13 @@ dependencies", "offline" must be true).
 ## AGENTS.md (rule for agent-worked repos)
 
 Every repo an agent regularly works in **MUST** have an `AGENTS.md` —
-short, practical rules for automated changes (RAT style). Required
+short, practical rules for automated changes. Required
 sections:
 
-1. *(rule)* **Safety gates first** — non-negotiables up top (e.g. RAT's vault
-   rule: never access secrets without explicit approval; ScraperCMS:
-   Tor-only networking). An agent must hit these in the first lines.
+1. *(rule)* **Safety gates first** — non-negotiables up top (never
+   access secret stores without explicit approval; network-restricted
+   tools keep their routing rules). An agent must hit these in the first
+   lines.
 2. **Global rules** — environment (venv path, OS/shell assumptions),
    portability (no hardcoded paths, no env-var app config), testing
    policy (deterministic vs live-network), destructive-command ban.

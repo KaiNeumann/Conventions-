@@ -11,7 +11,7 @@ updated: 2026-08-24
 
 ## Remotes and hosting (default)
 
-1. Default host: self-hosted **Forgejo** (`git.kaiuweneumann.de`) or
+1. Default host: self-hosted **Forgejo** or
    Codeberg; public projects may mirror to GitHub. Any other host is
    fine when the project calls for it — this is the default, not a rule.
 2. Git operations use **SSH**, not HTTPS where the host supports it
@@ -54,7 +54,7 @@ updated: 2026-08-24
 1. Commit with LF (`end_of_line = lf` via `.editorconfig`,
    `.gitattributes` for text=auto). Do not "fix" line-ending churn from
    WSL/Windows index normalization by staging it — leave those files out
-   of unrelated pushes (homeserver README rule).
+   of unrelated pushes (established repo rule).
 2. Windows worktree is primary; WSL is used deliberately (e.g. SSH git),
    not accidentally.
 
@@ -64,6 +64,6 @@ updated: 2026-08-24
    session; keep a short `TODO-backlog.md` in-repo for agent-visible
    work items.
 2. *(rule)* **No personal data, no usernames** in issue titles, bodies,
-   comments, or quoted logs — use `<user>` placeholders (RAT rule).
+   comments, or quoted logs — use `<user>` placeholders.
 3. *(rule)* API tokens for issue tooling come via `--token-file`, never
    env vars, never hardcoded paths.

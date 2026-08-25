@@ -48,9 +48,8 @@ Optional keys — add only when a view or workflow consumes them:
 ## Handling (rule)
 
 1. Frontmatter **MUST** be valid YAML. Beware YAML quoting gotchas: in
-   single-quoted strings `\` is literal (no escapes) — see RAT `AGENTS.md`
-   for the failure table. Prefer double quotes when values contain `:`,
-   `#`, or `\`.
+   single-quoted strings `\` is literal (no escapes). Prefer double
+   quotes when values contain `:`, `#`, or `\`.
 2. **NEVER** store secrets, personal data, or long prose in frontmatter.
    It is metadata, not content.
 3. Agents **MUST** preserve existing frontmatter keys when editing a note

@@ -58,11 +58,11 @@ the push. Broken code never reaches the remote.
 
 ### 3. Server-side gate (default for repos with a remote)
 
-Self-hosted **Forgejo Actions** on `git.kaiuweneumann.de`: workflows in
-`.forgejo/workflows/*.yml`, executed by the runner on vishnu (runner runs
-on vishnu because every push already requires vishnu online — no extra
-availability machinery; see the 2026-homeserver design doc,
-`docs/2026-setup`, "Forgejo Actions & Runner").
+The self-hosted **Forgejo** instance runs Actions: workflows in
+`.forgejo/workflows/*.yml`, executed by a self-hosted runner placed on
+the same host as the forge: every push already requires that host
+online (git SSH), so no extra availability machinery is needed.
+Deployment design lives with the infrastructure repository.
 
 - Repos hosted on Codeberg use Codeberg's hosted CI instead — same
   workflow syntax, no self-hosted runner needed.
@@ -75,7 +75,7 @@ Workflow template:
 on: [push]
 jobs:
   test:
-    runs-on: python-ci        # label provided by the vishnu runner
+    runs-on: python-ci        # label provided by your registered runner
     steps:
       - uses: https://data.forgejo.org/actions/checkout@v4
       - run: pip install -e '.[dev]' && tools/check.py
@@ -88,8 +88,7 @@ jobs:
 A repo that enables a CI workflow **MUST** state its automation contract
 in `AGENTS.md` — at minimum: *pushes trigger CI; agents do not pre-run
 the full suite on routine changes; failures are fixed from the failing
-step's log tail.* Reference implementation: `kai/MarkdownViewer`,
-`AGENTS.md`. Without this note, agents default to hand-running
+step's log tail.* Keep this wording identical across repositories so agents can rely on it. Without this note, agents default to hand-running
 everything and the token savings never materialize.
 
 ## Packaging entry point (strong recommendation)
@@ -131,7 +130,7 @@ python tools/package.py   # = pyinstaller --noconfirm markview.spec
    tags (`v*`) or explicit trigger — never per-push, never in the hot
    path.
 2. *(planned)* **Windows .exe strategy:** target is Wine-based
-   cross-builds on a **Linux** runner (Docker + Wine, proven by RAT's
+   cross-builds on a **Linux** runner (Docker + Wine, an approach
    `tools/build/package.py --win`), so producing Windows binaries never
    depends on owning a Windows machine — deliberate given the planned
    migration away from Windows. Native Windows runners are not planned

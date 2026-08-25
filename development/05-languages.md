@@ -31,8 +31,7 @@ portability/safety points that bind everywhere.
    tracked files (`requirements-dev.txt`, `[dev]` extra); pipelines
    install from tracked files only, never ad-hoc installs in CI steps.
 4. **Layout**: `src/` layout, pytest with `testpaths` configured in
-   pyproject. Repo-local `.venv` for runs (RAT rule: use the repo venv if
-   present).
+   pyproject. Repo-local `.venv` for runs (use the repo venv if present).
 5. **Stack choices** (proven in this workspace):
    - CLI: `typer`
    - HTTP API: `fastapi` + `uvicorn`
@@ -43,12 +42,12 @@ portability/safety points that bind everywhere.
    public APIs.
 7. *(rule)* **Text handling**: explicit `encoding="utf-8"` on all file IO;
    never rely on the Windows ANSI codepage. ASCII default unless content
-   needs Unicode (RAT encoding rule).
+   needs Unicode.
 
 ## TypeScript / frontend
 
 1. **Default**: React + Vite + Tailwind CSS, strict `tsconfig`
-   (GoldsteinCMS stack). Pinned exact versions in `package.json`.
+. Pinned exact versions in `package.json`.
 2. **Offline/small tools**: vendored zero-build static SPA (Markview
    pattern) — no CDN, no required build step, dependencies committed
    under `vendor/`.
@@ -62,7 +61,7 @@ portability/safety points that bind everywhere.
    paths.
 2. Bash for Linux/server scripts; POSIX-compatible unless bash features
    are needed.
-3. Ansible for infrastructure provisioning (homeserver pattern);
+3. Ansible for infrastructure provisioning;
    day-2 ops changes flow back into playbooks, not hand-edits.
 
 ## Choosing a language (default)
