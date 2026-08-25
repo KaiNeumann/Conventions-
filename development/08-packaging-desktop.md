@@ -12,8 +12,8 @@ updated: 2026-08-24
 For when a desktop app makes sense. One part of the "one core, many
 shells" model — the same core also ships as web app
 ([`07-packaging-web.md`](07-packaging-web.md)) and usually a headless CLI
-(see [`05-languages.md`](05-languages.md)). Proven by RAT (PySide6
-desktop) and Markview (pywebview over a static frontend).
+(see [`05-languages.md`](05-languages.md)). Proven by RAT (mature
+Tkinter desktop) and Markview (pywebview over a static frontend).
 
 ## Approach (default)
 
@@ -21,8 +21,9 @@ desktop) and Markview (pywebview over a static frontend).
    - Web-tech UI → wrap with **pywebview** (WebView2 on Windows,
      WebKitGTK on Linux, WebKit on macOS) — one HTML/JS frontend serves
      browser, Docker, and desktop (Markview pattern).
-   - Rich native Python desktop → **PySide6/Qt** (RAT Qt default), with
-     a fallback launcher story if needed.
+   - Rich native Python desktop → **Tkinter/ttk** with sv-ttk theming
+     (RAT's production-proven line); PySide6 exists only as an
+     experimental packaged target, not production-proven.
 2. Desktop shells add only platform bridges (open dialog, live reload,
    window state) behind a small JS bridge API — business logic stays in
    the core.
