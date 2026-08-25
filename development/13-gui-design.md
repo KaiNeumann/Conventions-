@@ -22,7 +22,7 @@ model more than any framework choice.
 | Audience | the power user who chose it, daily | mixed, unknown, often phones |
 | Session shape | long, high-frequency operations | short, task-oriented visits |
 | Primary input | **keyboard-first** | **touch & pointer first** |
-| Examples | organizer, markdownviewer, RAT | GoldsteinCMS, ScraperCMS UI |
+| Examples | local file/document tools, readers | community sites, admin consoles |
 
 Sections below are marked *(desktop)*, *(web)*, *(Tk)*, or *(web-tech)*;
 unmarked rules apply to both classes.
@@ -31,9 +31,9 @@ unmarked rules apply to both classes.
 
 1. **Keyboard-first** *(desktop, default)* — every action reachable
    without the mouse: single keys for high-frequency operations
-   (organizer: `1`–`0`/`a`–`z` to file items), `Ctrl+` combos for meta
-   actions, `Esc` closes/cancels. Every binding is listed in the help
-   overlay (see below) and mirrored in a README table.
+   (e.g., number/letter keys to file or step through items), `Ctrl+`
+   combos for meta actions, `Esc` closes/cancels. Every binding is
+   listed in the help overlay (see below) and mirrored in a README table.
 2. **Touch & pointer first** *(web, default)* — every primary action
    works one-handed on a phone: hit targets ≥ 44px, visible text labels
    over icon-only buttons, hover never carries information, and bare
@@ -64,7 +64,7 @@ never hardcode colors.
 
 - **Semantic names**: `--bg --bg-elev --bg-side --text --text-dim
   --border --accent --accent-soft --mark --code-bg --shadow`
-  (markdownviewer set is the reference implementation).
+  (a proven starter set — extend per app).
 - **Mandatory themes**: light and dark, plus follow-system; extras
   optional (e.g. sepia). Each sets `color-scheme`.
 - **Accent variants** derive from `--accent` via `color-mix()` for
@@ -93,7 +93,8 @@ never hardcode colors.
 - **Errors inline**, near their cause; reserve dialogs for decisions,
   not notifications.
 - *(Tk)* Preserve established visual language, glyphs, and tab order
-  during refactors (RAT rule); long operations run off the main thread
+  during refactors (established-visual-language rule); long operations
+  run off the main thread
   with progress + cancel.
 
 ## Icons *(web-tech)*
@@ -120,11 +121,11 @@ never hardcode colors.
 ## Desktop toolkit notes *(historical input — adopt selectively)*
 
 **No toolkit is house-mandated.** Simple shells skip native toolkits
-entirely (pywebview over a static frontend — organizer/markdownviewer
+entirely (pywebview over a static frontend — the newest small apps
 needed none). Dense apps choose a toolkit per app and document the
-choice in their README; the trajectory at RAT — the largest desktop
-here — is *away* from Tkinter toward PySide6 (experimental, unproven).
-For reference only: what a mature Tkinter codebase (RAT 0.19.1)
+choice in their README. Note: large Tkinter apps commonly outgrow it
+toward richer toolkits (e.g., PySide6) — weigh that migration risk when choosing.
+For reference only: what a mature Tkinter codebase
 converged on, mostly transferable to any single-threaded UI toolkit:
 
 - **(rule, when on Tk) Main-thread marshaling** — widgets are touched
@@ -158,7 +159,7 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 5. *(web-tech)* Native `title` attributes for lightweight hints;
    custom-styled tooltip components only when styling genuinely demands
    it, and they must appear on keyboard focus too, not just hover.
-6. *(Tk)* Use one shared tooltip helper (RAT's `shared/ui/tooltips.py`
+6. *(Tk)* Use one shared tooltip helper (a shared tooltip-helper module
    pattern) so timing and styling stay consistent app-wide.
 
 ## Accessibility baseline *(rule)*
@@ -174,5 +175,5 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 - Confirm-dialog spam, wizard-for-a-single-field, modal error popups for
   recoverable issues.
 - Component frameworks/heavy UI libs for what ~200 lines of vanilla
-  HTML/CSS/JS do (organizer ships a three-pane app with zero deps).
+  HTML/CSS/JS do (a three-pane tool ships fine with zero UI dependencies).
 - Telemetry, update pings, or network calls in offline tools.
