@@ -158,6 +158,12 @@ no second hardcoded palette anywhere.
   goes into `THIRD_PARTY_NOTICES.md`.
 - Every icon is labeled: `aria-label` when interactive, `aria-hidden`
   when decorative. Tk uses raster assets via `iconphoto`/`PhotoImage`.
+- **App identity** *(default)*: every GUI app gets one identifying mark.
+  It anchors the **top-left of the app's top bar** and doubles as the
+  desktop/window icon (`iconphoto`/`PhotoImage` on Tk, window icon in
+  pywebview, `.ico` via the PyInstaller spec for packaged builds). One
+  master asset (SVG or high-res PNG) derives all sizes — never diverging
+  copies.
 
 ## Layout patterns
 
