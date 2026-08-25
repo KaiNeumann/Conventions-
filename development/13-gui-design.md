@@ -2,7 +2,7 @@
 title: GUI Design
 type: reference
 tags: [conventions, development, gui, ux]
-status: draft
+status: accepted
 created: 2026-08-24
 updated: 2026-08-24
 ---
@@ -141,6 +141,11 @@ no second hardcoded palette anywhere.
   next/previous navigation (`F3`/`Shift+F3`); no reloads, no modals.
 - **Media previews inline**: images/video/PDF/text render inside the
   pane (iframe/object/pre) instead of shelling out.
+- **Drag & drop** *(desktop, default)* — apps whose subject is
+   files/items accept them via drag & drop onto the workspace; drop
+   targets indicate themselves visually during hover (highlighted
+   panels, insertion markers). Web-first accepts drops where the browser
+   allows it, but never relies on them.
 - **Errors inline**, near their cause; reserve dialogs for decisions,
   not notifications.
 - *(Tk)* Preserve established visual language, glyphs, and tab order
