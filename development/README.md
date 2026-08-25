@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-25
 ---
 
 # Development Conventions
@@ -28,15 +28,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 1. [`01-git.md`](01-git.md) — git usage, remotes, commits
 2. [`02-lifecycle.md`](02-lifecycle.md) — from idea to shipped, definition of done
 3. [`03-project-structure.md`](03-project-structure.md) — standard layout (`src/`, `tests/`, docs)
-4. [`04-repo-standard-files.md`](04-repo-standard-files.md) — `.gitignore`, `.dockerignore`, `.editorconfig` templates
-5. [`05-languages.md`](05-languages.md) — per-language standards (Python, TypeScript, …)
-6. [`06-documentation.md`](06-documentation.md) — README, AGENTS.md, inline comments, decision records
-**Foundations**
-
-1. [`01-git.md`](01-git.md) — git usage, remotes, commits
-2. [`02-lifecycle.md`](02-lifecycle.md) — from idea to shipped, definition of done
-3. [`03-project-structure.md`](03-project-structure.md) — standard layout (`src/`, `tests/`, docs)
-4. [`04-repo-standard-files.md`](04-repo-standard-files.md) — `.gitignore`, `.gitattributes`, `.editorconfig` templates
+4. [`04-repo-standard-files.md`](04-repo-standard-files.md) — standard files & templates (`.gitignore`, `.gitattributes`, `.editorconfig`, `LICENSE`, `.env.example`)
 5. [`05-languages.md`](05-languages.md) — per-language standards (Python, TypeScript, …)
 
 ### Craft
