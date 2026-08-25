@@ -78,10 +78,14 @@ never hardcode colors.
 ## Interaction standards
 
 - **Help overlay** *(desktop — rule for keyboard-driven apps)*: `?`
-  toggles an always-available overlay listing **every** keybinding,
-  grouped by task, reachable from any state including open panels. The
-  same list is mirrored in the README; adding or changing a binding
-  updates both in the same commit.
+  toggles an always-available overlay listing **every** keybinding —
+  **one command/key per line** (key column left, description right),
+  grouped by task. Visually calm: no tables-with-borders, no animation,
+  muted colors on the standard surface. If the list exceeds the parent
+  window's vertical space, the overlay scrolls; it never resizes or
+  reflows the app behind it. Reachable from any state, including open
+  panels. The same list is mirrored in the README; adding or changing a
+  binding updates both in the same commit.
 - **Search**: filter/highlight as-you-type with match count and
   next/previous navigation (`F3`/`Shift+F3`); no reloads, no modals.
 - **Media previews inline**: images/video/PDF/text render inside the
