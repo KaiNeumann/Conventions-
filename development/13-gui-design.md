@@ -21,38 +21,62 @@ model more than any framework choice.
 | Runs | installed shell next to the user's files (pywebview/Tkinter) | in a browser tab, reached over a network |
 | Audience | the power user who chose it, daily | mixed, unknown, often phones |
 | Session shape | long, high-frequency operations | short, task-oriented visits |
-| Primary input | **keyboard-first** | **touch & pointer first** |
+| Primary input | keyboard-first | touch & pointer first |
+| Data & persistence | local files on one machine; single writer | structured/shared state; DB-like operations |
 | Examples | local file/document tools, readers | community sites, admin consoles |
+
+**Deciding rules of this chapter:**
+
+1. The class applies **per deployment**: one codebase can ship both
+   variants (same frontend installed as shell and served in a browser),
+   and each delivery follows its own class rules.
+2. Ambiguous audience ⇒ treat it as **web-first** (anything served over
+   a network to people other than today's user).
+3. **Default development strategy**: when database-like operations are
+   involved (structured records, shared or concurrent state), develop
+   **dockerized-web-first** and wrap the very same frontend for desktop
+   use (pywebview) where a desktop shell adds value. Purely local,
+   file-centric tools may start desktop-first.
 
 Sections below are marked *(desktop)*, *(web)*, *(Tk)*, or *(web-tech)*;
 unmarked rules apply to both classes.
 
 ## Principles
 
-1. **Keyboard-first** *(desktop, default)* — every action reachable
-   without the mouse: single keys for high-frequency operations
+1. **Keyboard-first** *(desktop-first deployments)* — every action
+   reachable without the mouse: single keys for high-frequency operations
    (e.g., number/letter keys to file or step through items), `Ctrl+`
    combos for meta actions, `Esc` closes/cancels. Every binding is
    listed in the help overlay (see below) and mirrored in a README table.
-2. **Touch & pointer first** *(web, default)* — every primary action
-   works one-handed on a phone: hit targets ≥ 44px, visible text labels
-   over icon-only buttons, hover never carries information, and bare
-   single-key handlers exist only inside explicitly focused shortcut
+2. **Touch & pointer first** *(web-first deployments)* — every primary
+   action works one-handed on a phone: hit targets ≥ 44px, visible text
+   labels over icon-only buttons, hover never carries information, and
+   bare single-key handlers exist only inside explicitly focused shortcut
    scopes (never global page listeners fighting the browser).
-3. **Minimal chrome** *(default)* — content is the interface: thin
-   topbars, pane layouts over dialog mazes, no decorative headers.
+3. **Minimal chrome, density by app type** *(default)* — content is the
+   interface: thin topbars, pane layouts over dialog mazes. **Dashboard-
+   style web apps may scroll with generous whitespace. Workflow-driven
+   apps aim for desktop-GUI information density**: compact views,
+   controls visible without scrolling — attempted in web UIs just as in
+   native ones.
 4. **Instant feedback** *(default)* — previews render on selection,
    filters apply while typing, background work shows a persistent status
    indicator — never a frozen window.
-5. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
+5. **States are designed** *(default)* — no blank screens: loading shows
+   skeletons/spinners, empty data shows a helpful empty state with the
+   next action, errors render inline near their cause.
+6. **First-run works** *(default)* — a fresh install is usable without
+   setup: sensible defaults everywhere, setup flows only for decisions
+   that genuinely need the user.
+7. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
    includes; vendor everything or use system stacks. Web-first apps
    additionally tolerate slow links: no megabyte heroes, lazy-load
    media.
-6. **State persists** *(desktop, default)* — window geometry, panel
+8. **State persists** *(desktop, default)* — window geometry, panel
    sizes, open document, scroll position, and theme survive relaunch
    (sidecar JSON / profile file). Web-first persists per account what
    the task implies (drafts, view options).
-7. **Undo beats confirmation** *(default)* — prefer reversible actions
+9. **Undo beats confirmation** *(default)* — prefer reversible actions
    with undo over confirm-dialog spam; true destructive ops confirm
    explicitly.
 
@@ -62,18 +86,39 @@ All look-and-feel values live as CSS custom properties on `:root`;
 themes switch tokens only via `[data-theme]` attributes — components
 never hardcode colors.
 
-- **Semantic names**: `--bg --bg-elev --bg-side --text --text-dim
-  --border --accent --accent-soft --mark --code-bg --shadow`
-  (a proven starter set — extend per app).
-- **Mandatory themes**: light and dark, plus follow-system; extras
-  optional (e.g. sepia). Each sets `color-scheme`.
-- **Accent variants** derive from `--accent` via `color-mix()` for
-  soft/hover/selection states — no second hardcoded palette.
-- **Fluid type scale**: `clamp()`-based `--step--1 … --step-4` plus one
-  spacing var and one radius var; rem-based so OS text scaling works.
-- **System font stacks**: `ui-sans-serif/system-ui…` for UI,
-  `ui-monospace…` for code — no bundled webfonts unless a brand
-  requires it.
+### Themes (optional feature)
+
+Theming is not mandatory; ship it when users benefit from it. Worked-example shape:
+
+- tokens grouped under `[data-theme="light"]`, `[data-theme="dark"]`,
+  …, each block also setting `color-scheme`
+- a follow-system variant resolves via `prefers-color-scheme`
+- adding a new standard theme later = appending one more attribute
+  block; nothing else in the app changes
+
+### Starter token set
+
+Semantic names, extended per app as needed:
+
+- surfaces: `--bg` · `--bg-elev` · `--bg-side`
+- text: `--text` · `--text-dim`
+- structure: `--border`
+- accent: `--accent` + `--accent-soft` (derived via `color-mix()`)
+- status: `--ok` · `--warn` · `--danger` (+ soft variants)
+- content: `--mark` · `--mark-active` · `--code-bg`
+- depth: `--shadow`
+
+Accent/status soft variants derive from their base via `color-mix()` —
+no second hardcoded palette anywhere.
+
+### Type, spacing, fonts
+
+- Fluid type scale: `clamp()`-based steps `--step--1 … --step-4`
+- One spacing var (`--space`) and one radius var (`--radius`)
+- rem-based sizing so OS text scaling works
+- System font stacks: `ui-sans-serif / system-ui / Segoe UI …` for UI,
+  `ui-monospace …` for code — no bundled webfonts unless branding
+  genuinely requires it
 
 ## Interaction standards
 
@@ -86,7 +131,7 @@ never hardcode colors.
   reflows the app behind it. Reachable from any state, including open
   panels. The same list is mirrored in the README; adding or changing a
   binding updates both in the same commit.
-- **Search**: filter/highlight as-you-type with match count and
+- **Search everywhere** *(default)*: any view over lists, tables, or item collections offers filter/highlight as-you-type with match count and
   next/previous navigation (`F3`/`Shift+F3`); no reloads, no modals.
 - **Media previews inline**: images/video/PDF/text render inside the
   pane (iframe/object/pre) instead of shelling out.
