@@ -2,7 +2,7 @@
 title: GUI Design
 type: reference
 tags: [conventions, development, gui, ux]
-status: draft
+status: accepted
 created: 2026-08-24
 updated: 2026-08-24
 ---
@@ -56,7 +56,7 @@ unmarked rules apply to both classes.
    with undo over confirm-dialog spam; true destructive ops confirm
    explicitly.
 
-## Visual tokens *(web)*
+## Visual tokens *(web-tech)*
 
 All look-and-feel values live as CSS custom properties on `:root`;
 themes switch tokens only via `[data-theme]` attributes — components
@@ -96,7 +96,7 @@ never hardcode colors.
   during refactors (RAT rule); long operations run off the main thread
   with progress + cancel.
 
-## Icons
+## Icons *(web-tech)*
 
 - House default: **Lucide**, vendored as individual inline SVGs under
   `vendor/icons/` — inline SVG inherits `currentColor`, so icons theme
@@ -141,6 +141,23 @@ One item is non-negotiable because Tk itself demands it:
   one settings truth.
 - *(pattern)* Reusable widgets live in a shared ui package so sibling
   apps stay visually consistent.
+
+## Tooltips *(default)*
+
+1. Tooltips **supplement labels, never replace them** — anything that
+   exists only on hover is invisible on touch screens and to keyboard
+   users.
+2. Short and stable: one short sentence max; no interactive content
+   inside a tooltip.
+3. Buttons with keybindings include the binding in their tooltip
+   (`Paste path (Ctrl+V)`); the help overlay stays the complete
+   reference.
+4. Critical or urgent information never lives in a tooltip.
+5. *(web-tech)* Native `title` attributes for lightweight hints;
+   custom-styled tooltip components only when styling genuinely demands
+   it, and they must appear on keyboard focus too, not just hover.
+6. *(Tk)* Use one shared tooltip helper (RAT's `shared/ui/tooltips.py`
+   pattern) so timing and styling stay consistent app-wide.
 
 ## Accessibility baseline *(rule)*
 
