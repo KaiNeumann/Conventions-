@@ -68,15 +68,21 @@ unmarked rules apply to both classes.
 6. **First-run works** *(default)* — a fresh install is usable without
    setup: sensible defaults everywhere, setup flows only for decisions
    that genuinely need the user.
-7. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
+7. **Automatable by design** *(default)* — an app's operations are
+   drivable without its GUI: a headless CLI (where it makes sense) plus
+   an automation API (HTTP for served apps; an importable core
+   otherwise). The GUI is one client among several, never the only
+   interface — which forces business logic into a core that all shells
+   share.
+8. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
    includes; vendor everything or use system stacks. Web-first apps
    additionally tolerate slow links: no megabyte heroes, lazy-load
    media.
-8. **State persists** *(desktop, default)* — window geometry, panel
+9. **State persists** *(desktop, default)* — window geometry, panel
    sizes, open document, scroll position, and theme survive relaunch
    (sidecar JSON / profile file). Web-first persists per account what
    the task implies (drafts, view options).
-9. **Undo beats confirmation** *(default)* — prefer reversible actions
+10. **Undo beats confirmation** *(default)* — prefer reversible actions
    with undo over confirm-dialog spam; true destructive ops confirm
    explicitly.
 
