@@ -50,7 +50,7 @@ the push. Broken code never reaches the remote.
   feedback is worth the setup; the Forgejo gate (layer 3) remains the
   authoritative check either way.
 - Hook scripts are Python or PowerShell — no bash-only constructs
-  (Windows-first rule from [`09-cross-platform.md`](09-cross-platform.md)).
+  (Windows-first rule from [`10-cross-platform.md`](10-cross-platform.md)).
 - Hooks are advisory-by-nature (`--no-verify` exists). Bypassing a hook
   requires explicit human instruction.
 - Repos that ship hooks MUST document activation in their README (one

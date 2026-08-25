@@ -11,7 +11,7 @@ updated: 2026-08-24
 
 For when a desktop app makes sense. One part of the "one core, many
 shells" model — the same core also ships as web app
-([`07-packaging-web.md`](07-packaging-web.md)) and usually a headless CLI
+([`08-packaging-web.md`](08-packaging-web.md)) and usually a headless CLI
 (see [`05-languages.md`](05-languages.md)). Proven approaches: a
 mature Tkinter desktop and a pywebview-over-static-frontend viewer.
 
@@ -54,5 +54,5 @@ macOS is treated as preview tier unless explicitly supported — say so in
 the README instead of silently shipping broken builds.
 
 Cross-platform constraints that apply here: see
-[`09-cross-platform.md`](09-cross-platform.md). Release automation: see
-[`10-ci.md`](10-ci.md).
+[`10-cross-platform.md`](10-cross-platform.md). Release automation: see
+[`11-releases.md`](11-releases.md).

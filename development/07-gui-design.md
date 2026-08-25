@@ -10,7 +10,7 @@ updated: 2026-08-24
 # GUI Design
 
 Applies to GUI work of both kinds — see
-[`08-packaging-desktop.md`](08-packaging-desktop.md) for packaging
+[`09-packaging-desktop.md`](09-packaging-desktop.md) for packaging
 tracks. First decide the **app class**; it changes the interaction
 model more than any framework choice.
 

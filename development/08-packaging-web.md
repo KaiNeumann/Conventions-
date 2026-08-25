@@ -11,9 +11,9 @@ updated: 2026-08-24
 
 Default delivery mode for anything multi-user or server-bound. One part
 of the "one core, many shells" model — siblings:
-[`08-packaging-desktop.md`](08-packaging-desktop.md),
-[`09-cross-platform.md`](09-cross-platform.md),
-[`10-ci.md`](10-ci.md).
+[`09-packaging-desktop.md`](09-packaging-desktop.md),
+[`10-cross-platform.md`](10-cross-platform.md),
+[`11-releases.md`](11-releases.md).
 
 ## Dockerized web app (default, with inline rules)
 
@@ -41,5 +41,5 @@ Applies when a project ships as a Dockerized web app.
 
 *(default)* Per-push CI runs tests only. Docker image builds and
 publishes happen on `v*` tags or manual dispatch — never in the
-per-push hot path ([`11-task-automation.md`](11-task-automation.md),
+per-push hot path ([`12-task-automation.md`](12-task-automation.md),
 Open decisions #1).

@@ -9,8 +9,8 @@ updated: 2026-08-24
 
 # Releases
 
-Push-triggered CI lives in [`11-task-automation.md`](11-task-automation.md);
-image build gating in [`07-packaging-web.md`](07-packaging-web.md).
+Push-triggered CI lives in [`12-task-automation.md`](12-task-automation.md);
+image build gating in [`08-packaging-web.md`](08-packaging-web.md).
 This file covers what happens when a version ships.
 
 ## Release flow (pattern)
@@ -20,8 +20,8 @@ This file covers what happens when a version ships.
    [`03-project-structure.md`](03-project-structure.md).
 2. Tagged commit (`v<semver>`) triggers tag-gated jobs: docker builds
    publish to the Forgejo container registry
-   ([`07-packaging-web.md`](07-packaging-web.md)); the canonical packager
-   produces binaries per [`08-packaging-desktop.md`](08-packaging-desktop.md)
+   ([`08-packaging-web.md`](08-packaging-web.md)); the canonical packager
+   produces binaries per [`09-packaging-desktop.md`](09-packaging-desktop.md)
    (staged, versioned artifacts such as `App_v0.15.exe` + `.zip` /
    `.tar.gz`).
 3. Artifacts attach to the forge release; release notes summarize

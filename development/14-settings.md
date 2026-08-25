@@ -11,8 +11,8 @@ updated: 2026-08-24
 
 Apps persist configuration and user state in files that humans can read,
 edit, back up, and copy between machines. This extends the persistence
-principles in [`13-gui-design.md`](13-gui-design.md) and the no-env-var
-boundary in [`09-cross-platform.md`](09-cross-platform.md).
+principles in [`07-gui-design.md`](07-gui-design.md) and the no-env-var
+boundary in [`10-cross-platform.md`](10-cross-platform.md).
 
 ## Location *(default)*
 
@@ -75,4 +75,4 @@ one shared code path. No parallel config mechanisms per shell.
 1. Every settings file has a documented schema (README or spec file);
    agents validate after editing instead of assuming success.
 2. Env-var overrides remain reserved for containers and test harnesses
-   ([`09-cross-platform.md`](09-cross-platform.md)).
+   ([`10-cross-platform.md`](10-cross-platform.md)).
