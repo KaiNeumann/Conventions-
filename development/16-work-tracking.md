@@ -2,7 +2,7 @@
 title: Work Tracking
 type: reference
 tags: [conventions, development, todos]
-status: draft
+status: accepted
 created: 2026-08-25
 updated: 2026-08-25
 ---
@@ -37,7 +37,7 @@ issue instead of the details.
 
 ## Bugs
 
-- **[BUG][P1] Upload stalls above 2 GiB - OPEN**
+- **[P1][BUG] Upload stalls above 2 GiB - OPEN**
   Repro: queue two 3 GiB files over Tor. Expected: sequential run.
   Actual: second task stays RUNNING forever. Workaround: none.
   Suspect: stream buffer reuse. Refs: src/transfer/queue.py
@@ -55,15 +55,34 @@ issue instead of the details.
 
 ## Entry anatomy *(rule)*
 
+**Shared headline format** - TODO entries and remote issue titles use
+the same shape, so scanning either surface feels identical:
+
+```
+[P<priority>][<kind>][<area>] Imperative summary
+```
+
+Example: `[P1][BUG][transfer] Upload stalls above 2 GiB`
+
 1. Tags up front: priority `[P1]` ship-blocker / `[P2]` should-fix /
-   `[P3]` nice-to-have, plus kind (`BUG`) where it matters.
-2. Imperative title ending in the current status: `OPEN`, `IN
-   PROGRESS`, `BLOCKED`, `DONE`.
-3. A body that answers the three cold-start questions - the ones every
+   `[P3]` nice-to-have is required; **kind** (`BUG`, `FEATURE`, `DOCS`,
+   ...) and **area** (component, module, or top-level folder - e.g.
+   `transfer`, `wiki`, `cli`) are optional and must stay consistent per
+   repo. Area values mirror the repository's own structure so filtering
+   by folder comes for free.
+2. Imperative summary - stable across the item's life; never reworded
+   to express status.
+3. Status differs per surface: TODO entries append it to the headline
+   (`- OPEN`, `- IN PROGRESS`, `- BLOCKED`, `- DONE`, `- REJECTED`);
+   remote issues carry status natively via labels/issue state.
+4. A body that answers the three cold-start questions - the ones every
    fresh agent session would otherwise ask:
    - What exactly is broken / to be built? (repro steps or scope)
    - When is it done? (*Done when:* criteria)
    - Where does the work land? (file/module refs)
+
+Terminal statuses are `DONE` and `REJECTED`; both move to the Archive
+tail instead of being deleted.
 
 ## Rules
 
