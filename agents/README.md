@@ -14,7 +14,7 @@ template plus the reasoning behind every section.
 
 | File | Purpose |
 |---|---|
-| [`AGENTS.template.md`](AGENTS.template.md) | Copy into a project root as `AGENTS.md`, fill the `<placeholders>`, specialize |
+| [`01-AGENTS.template.md`](01-AGENTS.template.md) | Copy into a project root as `AGENTS.md`, fill the `<placeholders>`, specialize |
 | [`02-mcp-servers.md`](02-mcp-servers.md) | Accepted MCP servers, admission criteria, removal policy |
 | [`03-agent-skills.md`](03-agent-skills.md) | Skill format, inventory (own + adopted), promotion path |
 | `README.md` (this file) | Content walkthrough and rationale |
@@ -29,9 +29,10 @@ template plus the reasoning behind every section.
    belong in this repository first, then propagate out
    ([rule of origin](../development/README.md)).
 
-> Naming note: the template lives as `AGENTS.template.md` so that
+> Naming note: the template keeps its `AGENTS.template.md` suffix so
 > harnesses auto-loading any `AGENTS.md` in a directory tree do not
-> mistake the conventions repo for a project.
+> mistake the conventions repo for a project; the `01-` prefix only
+> marks its place in this area's reading order.
 
 ## Section-by-section rationale
 

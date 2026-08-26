@@ -170,7 +170,7 @@ table in [`15-licensing.md`](15-licensing.md) and SPDX-declare in
 ## `AGENTS.md` / `README.md`
 
 `AGENTS.md` starts from the standard template
-[`../agents/AGENTS.template.md`](../agents/AGENTS.template.md) - copy,
+[`../agents/01-AGENTS.template.md`](../agents/01-AGENTS.template.md) - copy,
 fill the placeholders, specialize (rationale:
 [`../agents/README.md`](../agents/README.md)); required sections in
 [`06-documentation.md`](06-documentation.md); CI-enabled repos
