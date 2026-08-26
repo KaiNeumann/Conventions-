@@ -28,6 +28,10 @@ One sentence: what it does, for whom, and the one differentiator.
 
 ![screenshot or demo](docs/media/demo.png)
 
+## Features
+Scannable bullet list of key capabilities — differentiators first,
+concrete claims, no marketing fluff.
+
 ## Why
 Short motivation from the reader's perspective.
 
