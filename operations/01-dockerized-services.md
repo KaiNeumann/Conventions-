@@ -2,7 +2,7 @@
 title: Dockerized Services
 type: reference
 tags: [conventions, operations, docker]
-status: draft
+status: accepted
 created: 2026-08-25
 updated: 2026-08-25
 ---
@@ -25,9 +25,35 @@ it.
 3. Image tags: track a pinned major line (`image:13`) or `latest` where
    update-watch tooling should see freshness; digests for release-critical
    images.
-4. `restart: unless-stopped` on every service.
+4. `restart: unless-stopped` on every service. Subtlety, on purpose: a
+   manual stop survives host reboots - use `start`, not just reboot,
+   after intentional downtime.
 5. Resource bounds (`mem_limit`, `cpus`) set per service so one stack
    cannot starve the rest.
+
+## Third-party images *(default)*
+
+Consumed unmodified: configuration happens through env, volumes, and
+command only - no local forks or patched copies without a documented
+decision. Adoption is deliberate: project/source vetted, major tag
+pinned.
+
+Because we adapt every stack to our routing anyway, upstream sample
+compose files are never used as-is - and hardening is applied
+regardless of what the vendor ships:
+
+```yaml
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # cap_add: only the single capabilities the image documents as needed
+```
+
+- `privileged: true` and `network_mode: host` are justified exceptions,
+  each documented next to the stack.
+- Read-only root filesystems plus tmpfs mounts wherever the image
+  tolerates it.
 
 ## Routing & authentication *(default)*
 
@@ -67,6 +93,22 @@ it.
    files; nothing sensitive baked into images or compose files.
 3. Every stack documents what in its state must be backed up, and how
    often.
+
+## Logging *(default)*
+
+1. Containers write logs to **stdout/stderr** - collected by the docker
+   daemon and readable via `docker logs`. No log files inside volumes.
+2. Line format follows [`../development/13-logging.md`](../development/13-logging.md):
+   ISO timestamp with offset, level, filterable identifiers.
+3. Rotation is bounded per service through the daemon driver:
+
+```yaml
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+```
 
 ## Lifecycle *(default)*
 

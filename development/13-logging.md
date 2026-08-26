@@ -17,6 +17,9 @@ same rules.
 
 1. All runtime logs live under **`logs/`** in the app's data or profile
    directory - never scattered next to code, never in temp dirs.
+   Containerized deployments log to **stdout/stderr** instead
+   (daemon-collected, size-bounded rotation) - see the operations
+   conventions; the format rules below still apply to those lines.
 2. `logs/` is always gitignored and dockerignored (standard-file
    templates already do).
 3. File naming *(default)*: `logs/<app>.log`, plain append mode;
