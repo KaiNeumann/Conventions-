@@ -60,9 +60,10 @@ updated: 2026-08-24
 
 ## Issues and housekeeping
 
-1. *(default)* Use Forgejo/Codeberg issues for TODOs that outlive a
-   session; keep a short `TODO-backlog.md` in-repo for agent-visible
-   work items.
+1. *(default)* Use Forgejo/Codeberg issues for public reports and items
+   needing discussion history; keep the working queue in a repo-local
+   tracking file - structure per
+   [`16-work-tracking.md`](16-work-tracking.md).
 2. *(rule)* **No personal data, no usernames** in issue titles, bodies,
    comments, or quoted logs - use `<user>` placeholders.
 3. *(rule)* API tokens for issue tooling come via `--token-file`, never
