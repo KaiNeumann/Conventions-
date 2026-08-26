@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, documentation]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-26
 ---
 
 # Documentation Standards
@@ -144,10 +144,14 @@ blader/humanizer and anti-ai-writing):
 Meta-rule: one pattern alone proves nothing, clusters count. And never
 change facts while restyling.
 
-*(default)* Repository Markdown stays **pure ASCII outside fenced code
-blocks** (box-drawing trees and arrows belong inside fences). Pure ASCII
-is immune to the encoding accidents this repo has seen and keeps files
-shell-safe.
+*(default)* Repository Markdown is **UTF-8 without BOM**. Umlauts,
+accented Latin, ligatures (æ, œ, ß), and common scientific symbols are
+fine in prose. Banned everywhere: BOM, non-breaking/zero-width spaces.
+Box-drawing trees and arrows stay inside fenced code blocks (monospace
+rendering, not encoding).
+
+*(rule)* CI rejects invalid UTF-8 and BOMs (one-line `iconv -f utf-8
+-t utf-8 <file>` round-trip check).
 
 ## Up-to-dateness *(rule)*
 
