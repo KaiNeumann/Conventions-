@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, gui, ux]
 status: accepted
 created: 2026-08-24
-updated: 2026-08-24
+updated: 2026-08-25
 ---
 
 # GUI Design
@@ -229,6 +229,18 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 5. *(web-tech)* Native `title` attributes for lightweight hints;
    custom-styled tooltip components only when styling genuinely demands
    it, and they must appear on keyboard focus too, not just hover.
+7. **Open delay ~200 ms** *(default)* - a hover is never intentional by
+   itself; cursors cross triggers in transit. Below ~150 ms the tooltip
+   fires during casual travel; above ~250 ms an intentional hover feels
+   broken. Leaving the trigger before the delay elapses cancels the open
+   entirely - sweeping the page opens nothing.
+8. **Warm-window skip** *(default)* - when a tooltip closes, keep the
+   surface *warm* for ~300 ms: hovering the next trigger inside that
+   window opens **instantly, skipping the entrance animation**, because
+   moving between related triggers *is* deliberate. Every open resets
+   the cooldown; expiry returns the surface to cold and the ~200 ms wait
+   applies again. Close delay stays 0 ms. Keyboard focus shows tooltips
+   immediately (no delay) - focus is always intentional.
 6. *(Tk)* Use one shared tooltip helper (a shared tooltip-helper module
    pattern) so timing and styling stay consistent app-wide.
 
