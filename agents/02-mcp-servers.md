@@ -35,16 +35,33 @@ A new server is added only when **all** hold:
 5. Token economics positive: the context/results it returns must cost
    less than the alternative.
 
-## Evaluated - not adopted
+| Server | Provides | Why kept |
+|---|---|---|
+| `codegraph` | Code knowledge graph: symbols, call paths, blast radius per file | Query-before-read replaces grep/read loops - large token savings on every code task |
+| `context7` | Up-to-date library documentation on demand | Stops hallucinated APIs; cheaper than web searches during coding |
+| `playwright` *(project-scoped)* | Browser automation: navigation, screenshots, form interaction | Browser verification, visual checks, and web-app testing without leaving the agent loop |
 
-| Server | Verdict | Revisit when |
+## Candidates *(default)*
+
+Evaluated positively - adoption awaits the trigger noted below.
+
+| Server | Assessment | Adopt when |
 |---|---|---|
 | `codebase-memory-mcp` (MIT, local-only) | Redundant core with `codegraph` (same category: repo-wide symbol/call-graph indexing). Non-redundant edges: semantic vector code search, git-diff impact classification, ADR management tooling | Semantic code search, pre-push blast-radius checks, or ADR tooling become recurring needs; or working polyglot at monorepo scale beyond codegraph's language coverage |
+
+## Rejected *(rule)*
+
+Explicitly assessed and decided against - recorded with reasons so
+decisions are never re-litigated casually. Re-evaluation happens only
+when the rejection reasons change.
+
+*(none recorded yet)*
 
 ## Rules
 
 1. Servers are added only via documented harness configuration -
    never ad-hoc in a session.
-2. Project-specific additions are recorded in that project's README.
-3. Unused or abandoned servers get removed at review time; the table
-   above stays the single truth.
+2. Project-specific additions (e.g. a scoped playwright setup) are
+   recorded in that project's README.
+3. Unused or abandoned servers get removed at review time; the
+   sanctioned table stays the single truth.
