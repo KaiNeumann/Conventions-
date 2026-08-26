@@ -64,4 +64,4 @@ when the rejection reasons change.
 2. Project-specific additions (e.g. a scoped playwright setup) are
    recorded in that project's README.
 3. Unused or abandoned servers get removed at review time; the
-   sanctioned table stays the single truth.
+   accepted table stays the single truth.
