@@ -14,7 +14,7 @@ may use, why they earn their place, and how new ones get admitted.
 Servers are provided through the agent harness configuration; no
 per-project MCP setups exist today.
 
-## Accepted servers
+## Accepted
 
 | Server | Provides | Why kept |
 |---|---|---|
