@@ -2,7 +2,7 @@
 title: MCP Servers
 type: reference
 tags: [conventions, agents, mcp]
-status: draft
+status: accepted
 created: 2026-08-25
 updated: 2026-08-25
 ---
