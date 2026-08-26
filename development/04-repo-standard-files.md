@@ -157,6 +157,10 @@ TOR_PROXY=socks5h://127.0.0.1:9050
 
 Real `.env` and `secrets/` are gitignored, always.
 
+## Conventions version *(rule)*
+
+When scaffolding or updating a repo from these standards, record the conventions version it was aligned against in its AGENTS.md - later upgrades can then diff against that baseline.
+
 ## `LICENSE`
 
 Every repo declares its license explicitly — pick from the decision

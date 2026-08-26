@@ -4,6 +4,8 @@ Rules for AI agents working in this repository. Copy this file into a
 project, fill every `<placeholder>`, delete the guidance comments — then
 keep it under 200 lines. Humans benefit from the same discipline.
 
+Conventions baseline: <conventions repository> v<version> - see its `CHANGELOG.md`.
+
 ## Safety gates (non-negotiable)
 
 Read these before doing anything else. Violating one means stop and ask,

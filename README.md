@@ -3,8 +3,9 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
+version: 1.0.0
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-08-25
 ---
 
 # Conventions
@@ -90,6 +91,12 @@ Unmarked prose is descriptive context, not a rule.
   explicit UTF-8 (never shell-default encodings) and are followed by a
   mojibake scan (`[\u00C0-\u00FF\u0152\u0153\u20AC\uFFFD]` must find
   nothing).
+- **Versioning** *(rule)*: the repository version lives in the
+  frontmatter above, follows SemVer (major = breaking *(rule)* changes
+  or chapter removals · minor = new rules/defaults/chapters · patch =
+  wording), is recorded in `CHANGELOG.md`, and every release is tagged
+  `v<version>`. External documents that follow these conventions cite
+  the version they were written against.
 
 ## License
 
