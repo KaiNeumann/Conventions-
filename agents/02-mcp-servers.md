@@ -35,6 +35,12 @@ A new server is added only when **all** hold:
 5. Token economics positive: the context/results it returns must cost
    less than the alternative.
 
+## Evaluated - not adopted
+
+| Server | Verdict | Revisit when |
+|---|---|---|
+| `codebase-memory-mcp` (MIT, local-only) | Redundant core with `codegraph` (same category: repo-wide symbol/call-graph indexing). Non-redundant edges: semantic vector code search, git-diff impact classification, ADR management tooling | Semantic code search, pre-push blast-radius checks, or ADR tooling become recurring needs; or working polyglot at monorepo scale beyond codegraph's language coverage |
+
 ## Rules
 
 1. Servers are added only via documented harness configuration -
