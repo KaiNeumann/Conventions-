@@ -39,5 +39,5 @@ Frontmatter stays YAML per [`01-frontmatter.md`](01-frontmatter.md).
    toolchain.
 2. *(default)* Prefer constructs that degrade gracefully; the last
    column shows what plain renderers display instead.
-3. *(rule)* Do not paste raw HTML beyond the sanctioned inline tags;
+3. *(rule)* Do not paste raw HTML beyond the allowed inline tags;
    anything structural belongs in Markdown.

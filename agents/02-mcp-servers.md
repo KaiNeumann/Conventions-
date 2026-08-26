@@ -9,12 +9,12 @@ updated: 2026-08-25
 
 # MCP Servers
 
-Evaluated and sanctioned Model Context Protocol servers - what agents
+Accepted Model Context Protocol servers - what agents
 may use, why they earn their place, and how new ones get admitted.
 Servers are provided through the agent harness configuration; no
 per-project MCP setups exist today.
 
-## Sanctioned servers
+## Accepted servers
 
 | Server | Provides | Why kept |
 |---|---|---|

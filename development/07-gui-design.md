@@ -170,7 +170,7 @@ no second hardcoded palette anywhere.
 - House default: **Lucide**, vendored as individual inline SVGs under
   `vendor/icons/` - inline SVG inherits `currentColor`, so icons theme
   themselves with `--text`/`--accent` automatically.
-- Font Awesome (self-hosted, never CDN) is the sanctioned fallback when
+- Font Awesome (self-hosted, never CDN) is the approved fallback when
   brand logos or exotic pictograms are needed; its CC-BY attribution
   goes into `THIRD_PARTY_NOTICES.md`.
 - Every icon is labeled: `aria-label` when interactive, `aria-hidden`

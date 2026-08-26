@@ -72,7 +72,7 @@ regardless of what the vendor ships:
    every exception is documented next to the stack.
 2. Host mounts are read-only wherever possible.
 3. The docker socket is never mounted into application containers; a
-   least-privilege socket proxy is the only sanctioned path when
+   least-privilege socket proxy is the only approved path when
    control APIs are needed.
 
 ## Networking *(default)*
