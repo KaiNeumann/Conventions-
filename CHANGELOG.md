@@ -13,6 +13,37 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.1.0] - 2026-08-25
+
+### Added
+
+- GUI design chapter: app-class decision table (desktop-first vs
+  web-first, per deployment), ten principles (keyboard-first, touch and
+  pointer first, density by app type, designed states, first-run,
+  automatability, vendored assets, local-first and installable, state
+  persistence, undo over confirmation), visual tokens with status
+  colors and optional theming, interaction standards (help overlay
+  rule, search everywhere, drag & drop, tooltip timing with warm-window
+  skip, declarative implementations), Lucide icons plus app identity
+  mark, accessibility baseline
+- Logging chapter: `logs/<app>.log` discipline, ISO timestamps with
+  filterable identifiers (shape free per app), noise control
+- Settings chapter: portable sidecar vs profile location, resilient
+  loading, portability-aware sensitive-value protection, one settings
+  truth
+- Agents area: `AGENTS.template.md` plus section-by-section rationale
+- Prose style rules (anti-AI-tell writing) and repo-wide pure-ASCII
+  normalization outside code fences
+- Outsider-first README standard with feature highlights
+
+### Changed
+
+- Development chapters renumbered into lifecycle clusters
+  (Foundations / Craft / Design / Delivery / Operate & govern);
+  `10-ci` refocused and renamed to `11-releases`
+- Standalone policy enforced: portfolio names removed from all
+  convention texts
+
 ## [1.0.0] - 2026-08-25
 
 Initial complete structure.
