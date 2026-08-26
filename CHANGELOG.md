@@ -13,6 +13,36 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.2.0] - 2026-08-25
+
+### Added
+
+- Operations area with dockerized-services standards: standalone compose
+  stacks, edge routing with default SSO, non-root and socket
+  restrictions, segmented networking, stdout-first container logging,
+  lifecycle rules; third-party image hardening subsection
+  (no-new-privileges, cap-drop-all with explicit adds, host network as
+  documented exception)
+- Work tracking chapter: TODO.md queue structure, entry anatomy with
+  priority/kind/area headline tags, cold-start body requirements,
+  promotion rules to remote issues
+- Agents chapters: MCP servers (accepted / candidates / rejected
+  taxonomy, admission criteria, codebase-memory-mcp evaluation) and
+  agent skills (format rules, inventory snapshot including playwright,
+  promotion path, third-party adoption review, decision block
+  skill vs AGENTS.md vs command)
+
+### Changed
+
+- Encoding rule refined: UTF-8 without BOM plus no invisible
+  characters, replacing the pure-ASCII-only wording
+- MCP vocabulary unified ("accepted" instead of "sanctioned")
+
+### Fixed
+
+- Development index deduplicated after chapter renumbering; comma
+  spacing artifacts from the character normalization sweep removed
+
 ## [1.1.0] - 2026-08-25
 
 ### Added
