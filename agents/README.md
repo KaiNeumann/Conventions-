@@ -45,8 +45,7 @@ gate at the bottom is a gate that was already violated.
 ### Automation contract
 
 The largest recurring cost in agent-driven development is hand-running
-verification that CI performs anyway. Stating the contract (push
-triggers CI ,  no local pre-runs except debugging ,  fix from log tails)
+verification that CI performs anyway. Stating the contract (push triggers CI - no local pre-runs except debugging - fix from log tails)
 converts that cost into a rule. See
 [`../development/12-task-automation.md`](../development/12-task-automation.md).
 
