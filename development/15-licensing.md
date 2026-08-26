@@ -30,7 +30,7 @@ Additional rules:
    root once public. *Undeclared = undecided*, and undeclared means
    all-rights-reserved whether you meant it or not.
 2. Repos whose prose differs from their code carry a one-line footer:
-   `License: code GPL-3.0 ,  docs CC-BY-SA-4.0`.
+   `License: code GPL-3.0, docs CC-BY-SA-4.0`.
 3. Shipped binaries bundle third-party material: include
    `THIRD_PARTY_NOTICES.md`.
 4. Relicensing a public repository is a significant event: human

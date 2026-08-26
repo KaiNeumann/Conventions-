@@ -94,7 +94,7 @@ Unmarked prose is descriptive context, not a rule.
   nothing).
 - **Versioning** *(rule)*: the repository version lives in the
   frontmatter above, follows SemVer (major = breaking *(rule)* changes
-  or chapter removals ,  minor = new rules/defaults/chapters ,  patch =
+  or chapter removals, minor = new rules/defaults/chapters, patch =
   wording), is recorded in `CHANGELOG.md`, and every release is tagged
   `v<version>`. External documents that follow these conventions cite
   the version they were written against.

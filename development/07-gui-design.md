@@ -118,12 +118,12 @@ Theming is not mandatory; ship it when users benefit from it. Worked-example sha
 
 Semantic names, extended per app as needed:
 
-- surfaces: `--bg` ,  `--bg-elev` ,  `--bg-side`
-- text: `--text` ,  `--text-dim`
+- surfaces: `--bg`, `--bg-elev`, `--bg-side`
+- text: `--text`, `--text-dim`
 - structure: `--border`
 - accent: `--accent` + `--accent-soft` (derived via `color-mix()`)
-- status: `--ok` ,  `--warn` ,  `--danger` (+ soft variants)
-- content: `--mark` ,  `--mark-active` ,  `--code-bg`
+- status: `--ok`, `--warn`, `--danger` (+ soft variants)
+- content: `--mark`, `--mark-active`, `--code-bg`
 - depth: `--shadow`
 
 Accent/status soft variants derive from their base via `color-mix()` -

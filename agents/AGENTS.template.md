@@ -45,7 +45,7 @@ Every push triggers CI (<workflow name>).
 
 - <What lives where: canonical packages/modules, entry points.>
 - <Deprecated or frozen zones - do not build on them.>
-- Canonical commands: check `<command>` ,  run `<command>` ,  package
+- Canonical commands: check `<command>`, run `<command>`, package
   `<command>`.
 
 ## Known gotchas
