@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, standards]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-24
+updated: 2026-08-25
 ---
 
 # Repo Standard Files
@@ -14,6 +14,23 @@ New repos start with these files, copied from here — contents below are
 never pushed without a `.gitignore` that covers its generated artifacts,
 and real secrets/`.env` never enter git (see
 [`01-git.md`](01-git.md)).
+
+## Temporary artifacts *(rule)*
+
+1. Development artifacts, evidence, and throwaway files — test output,
+   screenshots, API dumps, scratch scripts, downloaded samples — are
+   **never written into the user's home directory** (`~`,
+   `%USERPROFILE%`, Desktop, Documents).
+2. They live exclusively in **`temp/`** at the project root. The
+   directory is always gitignored (see baseline below), always
+   disposable, and safe to delete at any time.
+3. **Clean `temp/` frequently.** Anything worth keeping moves to its
+   proper home (a test, an example, documentation) or is deleted —
+   `temp/` must never turn into a second project.
+4. Persistent application state follows [`15-settings.md`](15-settings.md)
+   (sidecar/profile); only disposable junk goes into `temp/`.
+5. Agents: never write scratch files outside the project; when working
+   without a project context, ask where to put them.
 
 ## `.editorconfig`
 
@@ -80,7 +97,7 @@ __pycache__/
 *.egg-info/
 
 # Tooling / agent state
-.tmp/
+temp/
 .sisyphus/
 .playwright-mcp/
 .codegraph/
@@ -116,6 +133,7 @@ Add per-project entries on top; delete what does not apply.
 __pycache__
 build
 dist
+temp
 *.db
 *.sqlite
 data/
@@ -142,14 +160,14 @@ Real `.env` and `secrets/` are gitignored, always.
 ## `LICENSE`
 
 Every repo declares its license explicitly — pick from the decision
-table in [`12-licensing.md`](12-licensing.md) and SPDX-declare in
+table in [`15-licensing.md`](15-licensing.md) and SPDX-declare in
 `pyproject.toml` / `package.json` when those manifests exist.
 
 ## `AGENTS.md` / `README.md`
 
 Required content defined in [`06-documentation.md`](06-documentation.md);
 CI-enabled repos additionally carry the automation contract there
-([`11-task-automation.md`](11-task-automation.md)).
+([`12-task-automation.md`](12-task-automation.md)).
 
 ## Rule of origin
 
