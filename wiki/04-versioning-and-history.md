@@ -10,7 +10,7 @@ updated: 2026-08-24
 # Versioning and History
 
 Applies to vaults that are git-versioned (the default). Git history is the
-changelog — do not maintain a parallel one.
+changelog - do not maintain a parallel one.
 
 ## History discipline (rule)
 
@@ -20,7 +20,7 @@ changelog — do not maintain a parallel one.
 2. **Bump `updated`** on substantive edits; never touch `created`.
 3. Conflicts: rebase locally before pushing; when resolving, content
    correctness wins over either side's wording. When unsure which version
-   is right — ask the human, don't merge blind.
+   is right - ask the human, don't merge blind.
 
 ## Commit habits (default)
 
@@ -42,4 +42,4 @@ changelog — do not maintain a parallel one.
 2. Outdated notes get `status: deprecated` plus a link to the replacement,
    deleted once the replacement is accepted.
 3. Truly wrong/dangerous content (secrets, wrong safety info) is removed
-   immediately, not deprecated — deletion with human sign-off.
+   immediately, not deprecated - deletion with human sign-off.

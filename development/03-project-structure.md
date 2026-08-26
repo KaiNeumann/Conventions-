@@ -69,16 +69,16 @@ repo/
 
 Rules:
 1. One canonical import namespace (`src.shared.runtime.*`); legacy
-   namespaces are unsupported — never reintroduce aliases.
-2. Overlay/external plugin folders override specific namespaces only —
+   namespaces are unsupported - never reintroduce aliases.
+2. Overlay/external plugin folders override specific namespaces only -
    no global `sys.path` hacks.
 
 ## Growth rule (default)
 
-Start simple — stdlib-only micro apps **may** keep entry modules at
+Start simple - stdlib-only micro apps **may** keep entry modules at
 repo root (small-tool pattern). Move into `src/` once a
 second module or packaging appears; split into the standard layout when
-two top-level concerns exist. Promote structure when it hurts — don't
+two top-level concerns exist. Promote structure when it hurts - don't
 pre-build empty scaffolding.
 
 ## Naming discipline (rule)

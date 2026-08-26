@@ -10,7 +10,7 @@ updated: 2026-08-23
 # Obsidian Setup
 
 Obsidian is the concrete editor for wikis. The vault is a plain folder of
-Markdown files — git and agents work on the files, Obsidian is a view on
+Markdown files - git and agents work on the files, Obsidian is a view on
 top.
 
 ## Vault in git (default)
@@ -18,7 +18,7 @@ top.
 A vault following these conventions is a git repository; the vault root is
 the repo root.
 
-1. Commit `.obsidian/` selectively (snippet below) — this part is rule:
+1. Commit `.obsidian/` selectively (snippet below) - this part is rule:
    machine-local state never enters git.
 
 ```gitignore
@@ -29,7 +29,7 @@ the repo root.
 .trash/
 ```
 
-2. Use the **Obsidian Git** community plugin *or* plain git in a terminal —
+2. Use the **Obsidian Git** community plugin *or* plain git in a terminal -
    pick one per vault and say so in the vault `README.md`.
 
 ## Plugins (default)
@@ -37,9 +37,9 @@ the repo root.
 1. Core plugins only where needed: backlinks, outgoing links, templates,
    outline, search.
 2. Community plugins stay minimal and justified:
-   - *Dataview* or built-in *Bases* — dynamic views (see
+   - *Dataview* or built-in *Bases* - dynamic views (see
      [`06-dynamic-views.md`](06-dynamic-views.md))
-   - *Obsidian Git* — versioning
+   - *Obsidian Git* - versioning
 3. Every vault documents its enabled plugins in its `README.md`, so agents
    know what syntax is safe to emit.
 
@@ -53,8 +53,8 @@ the repo root.
 
 ## Portability (rule)
 
-1. No CDN links, no external services required to read notes — the vault
+1. No CDN links, no external services required to read notes - the vault
    renders offline (same rule as Markview: vendor or go without).
 2. Supporting files are stored **inside the vault as page bundles**
-   ([`02-notes-and-structure.md`](02-notes-and-structure.md)) — never
+   ([`02-notes-and-structure.md`](02-notes-and-structure.md)) - never
    hot-linked, never scattered into a central attachments dump.

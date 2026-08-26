@@ -7,11 +7,11 @@ releases are tagged `v<version>`.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 versioning follows [Semantic Versioning](https://semver.org/):
 
-- **MAJOR** — breaking changes to *(rule)* sections, removed or renamed
+- **MAJOR** - breaking changes to *(rule)* sections, removed or renamed
   chapters/files
-- **MINOR** — new chapters, new *(rule)*/*(default)* sections,
+- **MINOR** - new chapters, new *(rule)*/*(default)* sections,
   non-binding additions
-- **PATCH** — clarifications, wording, formatting
+- **PATCH** - clarifications, wording, formatting
 
 ## [1.0.0] - 2026-08-25
 

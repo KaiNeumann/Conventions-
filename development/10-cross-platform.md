@@ -9,7 +9,7 @@ updated: 2026-08-24
 
 # Cross-Platform Rules
 
-Bind across all delivery modes (web, desktop, CLI — see
+Bind across all delivery modes (web, desktop, CLI - see
 [`08-packaging-web.md`](08-packaging-web.md),
 [`09-packaging-desktop.md`](09-packaging-desktop.md)) and complement the
 language-level standards in [`05-languages.md`](05-languages.md).

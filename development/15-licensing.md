@@ -19,24 +19,24 @@ project.
 |---|---|---|
 | Private infra & personal tools | **All rights reserved** (explicitly declared) | Security topology and personal context; publishing later becomes a conscious act with a fresh license choice |
 | Libraries, skills, templates others **build upon** | **MIT** | Permissive maximizes reuse; copyleft obligations repel exactly the casual embedding these exist for |
-| Standalone apps/tools a community **uses or forks** | **GPL-3.0** | End users are unaffected; re-developers must keep forks open — commons protection without user friction |
+| Standalone apps/tools a community **uses or forks** | **GPL-3.0** | End users are unaffected; re-developers must keep forks open - commons protection without user friction |
 | Network-served apps others could **host** | **AGPL-3.0** | Closes the SaaS loophole. Also the default for professional-service/portfolio apps: sole copyright holder keeps service freedom plus the dual-licensing option (permissive would burn it forever) |
 | Prose: docs, wiki, conventions, design docs | **CC-BY-SA-4.0** | Code licenses fit prose badly; attribution + share-alike |
 
 Additional rules:
 
-1. Every repository **MUST** declare its license explicitly — SPDX
+1. Every repository **MUST** declare its license explicitly - SPDX
    identifier in `pyproject.toml` / `package.json`, `LICENSE` file at
    root once public. *Undeclared = undecided*, and undeclared means
    all-rights-reserved whether you meant it or not.
 2. Repos whose prose differs from their code carry a one-line footer:
-   `License: code GPL-3.0 · docs CC-BY-SA-4.0`.
+   `License: code GPL-3.0 ,  docs CC-BY-SA-4.0`.
 3. Shipped binaries bundle third-party material: include
    `THIRD_PARTY_NOTICES.md`.
 4. Relicensing a public repository is a significant event: human
    sign-off required, announced in the repo's README or changelog.
 5. German/EU moral rights (Urheberrecht) are non-waivable but fully
-   compatible with every license named here — no extra clauses needed.
+   compatible with every license named here - no extra clauses needed.
 
 ## Mechanics
 
@@ -54,14 +54,14 @@ No per-file license headers; the LICENSE file plus declarations suffice.
 
 ## Target state for existing repos
 
-Mapping decided 2026-08-24 — migrations happen as ordinary tasks, not
+Mapping decided 2026-08-24 - migrations happen as ordinary tasks, not
 automatically:
 
 | Repo(s) | Today | Target |
 |---|---|---|
 | Private infra & personal tool repos | undeclared | declare all-rights-reserved |
-| Documentation pools (pure prose meant for propagation) | varies | CC-BY-SA-4.0 — the prose rule wins over private-set classification |
-| Public community tool (previously source-available) | Proprietary | GPL-3.0 — users gain freedom, forks stay open; exposure unchanged when source was already public |
+| Documentation pools (pure prose meant for propagation) | varies | CC-BY-SA-4.0 - the prose rule wins over private-set classification |
+| Public community tool (previously source-available) | Proprietary | GPL-3.0 - users gain freedom, forks stay open; exposure unchanged when source was already public |
 | Community standalone tools | undeclared | GPL-3.0 |
 | Network-served community app | AGPL-3.0 | conforms |
 | Skills/templates others build upon | undeclared | MIT |

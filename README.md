@@ -14,13 +14,13 @@ Working conventions for Kai and AI agents, applied across all projects.
 One subfolder per area. Each area has a `README.md` index; numbered files
 give the reading order.
 
-## Purpose — and non-purpose
+## Purpose - and non-purpose
 
 This repo is a **documentation pool**: the reference for our conventions,
 written for humans and agents to read and consult.
 
 - **Verbose is fine when it serves a purpose.** Rationale, background,
-  examples, alternatives considered, war stories — all belong here.
+  examples, alternatives considered, war stories - all belong here.
   Brevity is not a goal in itself; clarity and completeness of context
   are. An entry should answer *what*, *why*, and *when*, not just issue
   imperatives.
@@ -28,14 +28,14 @@ written for humans and agents to read and consult.
   distillations that agents load at project start (`AGENTS.md`
   templates, skills, kickoff prompts) are separate artifacts. They are
   extracted FROM this pool, one-directionally, later. When writing here,
-  do not pre-compress for an imagined loader — write the full picture;
+  do not pre-compress for an imagined loader - write the full picture;
   extraction picks what it needs.
 
 Practical consequences:
 
 1. Every convention entry records **why**, not only what.
 2. Agent-facing summaries live in the consuming project (its
-   `AGENTS.md`), pointing here for depth — never the reverse.
+   `AGENTS.md`), pointing here for depth - never the reverse.
 3. A bare rule list with no recorded why is a gap: either add the why or
    mark the entry as extraction-ready material.
 
@@ -43,9 +43,9 @@ Practical consequences:
 
 | Area | Scope |
 |---|---|
-| [`wiki/`](wiki/README.md) | Knowledge base / wiki work: frontmatter, Obsidian, versioning, human–agent collaboration, dynamic views |
+| [`wiki/`](wiki/README.md) | Knowledge base / wiki work: frontmatter, Obsidian, versioning, human-agent collaboration, dynamic views |
 | [`development/`](development/README.md) | Software development: git, lifecycle, project structure, standard files, languages, documentation, packaging/deployment |
-| [`agents/`](agents/README.md) | Standard `AGENTS.md` template for repositories plus content rationale — copied into projects and specialized |
+| [`agents/`](agents/README.md) | Standard `AGENTS.md` template for repositories plus content rationale - copied into projects and specialized |
 
 ## Rule tiers
 
@@ -54,7 +54,7 @@ Every section in a conventions file is marked with its tier:
 | Tier | Meaning | Deviating |
 |---|---|---|
 | **(rule)** | Binding everywhere. Safety, integrity, data-loss prevention, agent guardrails. Written as MUST/NEVER. | Only by explicit decision, recorded here in this repo. |
-| **(default)** | Standard for **new** projects. Existing projects adopt when convenient. | Allowed — note the deviation in the project's `README.md`/`AGENTS.md`, that's it. |
+| **(default)** | Standard for **new** projects. Existing projects adopt when convenient. | Allowed - note the deviation in the project's `README.md`/`AGENTS.md`, that's it. |
 | **(pattern)** | A proven solution from an existing project, documented for reuse. No obligation. | Free. Copy when useful. |
 
 Unmarked prose is descriptive context, not a rule.
@@ -66,10 +66,10 @@ Unmarked prose is descriptive context, not a rule.
 2. **Projects opt in by reference.** A project's `AGENTS.md` points here;
    project-specific conventions live in the project and win over
    defaults from this repo.
-3. **Changes are git commits.** Propose → discuss → commit. Agents may
-   edit drafts; humans accept. Tier changes (default → rule) need
+3. **Changes are git commits.** Propose -> discuss -> commit. Agents may
+   edit drafts; humans accept. Tier changes (default -> rule) need
    explicit human sign-off.
-4. **Rules stay unambiguous and verifiable** — a convention nobody can
+4. **Rules stay unambiguous and verifiable** - a convention nobody can
    follow or check is a wish. The prose around rules may be as verbose
    as useful (see [Purpose](#purpose--and-non-purpose)).
 
@@ -93,7 +93,7 @@ Unmarked prose is descriptive context, not a rule.
   nothing).
 - **Versioning** *(rule)*: the repository version lives in the
   frontmatter above, follows SemVer (major = breaking *(rule)* changes
-  or chapter removals · minor = new rules/defaults/chapters · patch =
+  or chapter removals ,  minor = new rules/defaults/chapters ,  patch =
   wording), is recorded in `CHANGELOG.md`, and every release is tagged
   `v<version>`. External documents that follow these conventions cite
   the version they were written against.
@@ -101,6 +101,6 @@ Unmarked prose is descriptive context, not a rule.
 ## License
 
 Code: none (this repo contains no software). Documentation and
-conventions text: **CC-BY-SA-4.0** — attribute
+conventions text: **CC-BY-SA-4.0** - attribute
 (the author), share adaptations under the same
 license. See `LICENSE`.

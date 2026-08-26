@@ -13,7 +13,7 @@ Every note in a vault following these conventions starts with a YAML
 frontmatter block (`---` delimited). Frontmatter is the machine-readable
 layer that powers search, linking, and dynamic views.
 
-The **key set below is the default schema** — a vault MAY extend or trim
+The **key set below is the default schema** - a vault MAY extend or trim
 it, but must document its schema in the vault `README.md`. The handling
 rules (valid YAML, preserve keys, no secrets) are rules.
 
@@ -35,15 +35,15 @@ updated: 2026-08-23
 | `created` | Date the note was created, ISO 8601 (`YYYY-MM-DD`). Set once, never edit. |
 | `updated` | Date of last substantive change. Bump on content edits. |
 
-Optional keys — add only when a view or workflow consumes them:
+Optional keys - add only when a view or workflow consumes them:
 
-- `tags: [topic, …]` — lowercase-hyphen, never duplicating `type`
-- `realm: Kai \| Family \| Shared` — access scope mirroring realm
+- `tags: [topic, ...]` - lowercase-hyphen, never duplicating `type`
+- `realm: Kai \| Family \| Shared` - access scope mirroring realm
   folders; agent/RAG tooling filters on it **before** reading a note
-- `status: draft \| accepted \| deprecated` — for decisions and specs
-- `source: <url or path>` — where external content came from
-- `project: <name>` — link to a project note
-- `aliases: [...]` — alternative names for linking
+- `status: draft \| accepted \| deprecated` - for decisions and specs
+- `source: <url or path>` - where external content came from
+- `project: <name>` - link to a project note
+- `aliases: [...]` - alternative names for linking
 
 ## Handling (rule)
 
@@ -57,5 +57,5 @@ Optional keys — add only when a view or workflow consumes them:
 4. Schema changes (new key, new `type` value) are changes to this
    conventions file first, then to the notes.
 
-This conventions repository itself follows this schema — it is the
+This conventions repository itself follows this schema - it is the
 reference implementation, not a special case.

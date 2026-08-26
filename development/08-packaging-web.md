@@ -1,5 +1,5 @@
 ---
-title: Packaging — Dockerized Web Apps
+title: Packaging - Dockerized Web Apps
 type: reference
 tags: [conventions, development, docker]
 status: accepted
@@ -7,10 +7,10 @@ created: 2026-08-23
 updated: 2026-08-24
 ---
 
-# Packaging — Dockerized Web Apps
+# Packaging - Dockerized Web Apps
 
 Default delivery mode for anything multi-user or server-bound. One part
-of the "one core, many shells" model — siblings:
+of the "one core, many shells" model - siblings:
 [`09-packaging-desktop.md`](09-packaging-desktop.md),
 [`10-cross-platform.md`](10-cross-platform.md),
 [`11-releases.md`](11-releases.md).
@@ -23,7 +23,7 @@ Applies when a project ships as a Dockerized web app.
    for release images.
 2. *(rule)* Final image runs as **non-root user**.
 3. *(rule)* State in **named volumes** (`rss-data`, `pg-data`) or
-   bind-mounted `data/` — never inside the container layer.
+   bind-mounted `data/` - never inside the container layer.
 4. *(default)* Every service exposes `/healthz`; compose has healthchecks.
 5. *(default)* `docker-compose.yml` is the deployment unit; long-lived
    settings via mounted config files, secrets via `secrets/` mount or
@@ -40,6 +40,6 @@ Applies when a project ships as a Dockerized web app.
 ## Build gating
 
 *(default)* Per-push CI runs tests only. Docker image builds and
-publishes happen on `v*` tags or manual dispatch — never in the
+publishes happen on `v*` tags or manual dispatch - never in the
 per-push hot path ([`12-task-automation.md`](12-task-automation.md),
 Open decisions #1).

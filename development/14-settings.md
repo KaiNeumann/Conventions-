@@ -17,7 +17,7 @@ boundary in [`10-cross-platform.md`](10-cross-platform.md).
 ## Location *(default)*
 
 1. **Portable apps** (run from a folder/exe): sidecar file(s) **next to
-   the executable** — a `<app>.json` sidecar. Copying
+   the executable** - a `<app>.json` sidecar. Copying
    the folder copies the app *with* its settings.
 2. **Installed apps**: settings in the per-user profile directory
    (`%APPDATA%\<app>\`, `~/.config/<app>/`). Never write next to program
@@ -27,7 +27,7 @@ boundary in [`10-cross-platform.md`](10-cross-platform.md).
 4. Multi-app repositories may share one `common` settings file beside
    per-app files.
 5. Sidecar naming and format are free per app but **MUST be documented
-   in the README** — agents and scripts locate settings through that
+   in the README** - agents and scripts locate settings through that
    documentation.
 
 ## Format *(default)*
@@ -41,14 +41,14 @@ boundary in [`10-cross-platform.md`](10-cross-platform.md).
 
 ## Resilience *(rule)*
 
-1. Missing file ⇒ start with built-in defaults; never require setup to
+1. Missing file => start with built-in defaults; never require setup to
    reach a working state.
-2. Corrupt or invalid values ⇒ fall back to the default for that key,
-   **log a warning**, and keep the rest — never refuse to start over one
+2. Corrupt or invalid values => fall back to the default for that key,
+   **log a warning**, and keep the rest - never refuse to start over one
    bad key.
 3. Unknown keys are preserved on rewrite (forward compatibility across
    versions).
-4. After every write, the file must still parse — writes are atomic
+4. After every write, the file must still parse - writes are atomic
    (temp file + rename).
 
 ## Sensitive values *(rule)*
@@ -56,9 +56,9 @@ boundary in [`10-cross-platform.md`](10-cross-platform.md).
 1. Passwords, tokens, and similar credentials are **never stored
    plaintext** inside regular settings files.
 2. **Portability-aware choice**:
-   - Installed apps → prefer the OS credential store/keychain.
-   - Portable sidecar apps → app-level encryption with a master password
-     (encrypted blob + unlock prompt) — an OS store would
+   - Installed apps -> prefer the OS credential store/keychain.
+   - Portable sidecar apps -> app-level encryption with a master password
+     (encrypted blob + unlock prompt) - an OS store would
      break folder-copy portability.
 3. Minimum fallback everywhere: a separate credential file with
    restrictive permissions, excluded from backups/exports.

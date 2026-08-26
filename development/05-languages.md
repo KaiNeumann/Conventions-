@@ -9,7 +9,7 @@ updated: 2026-08-23
 
 # Language Standards
 
-Everything in this file is **default** — the stack we start new projects
+Everything in this file is **default** - the stack we start new projects
 with. Deviate freely when the project calls for it; note the deviation in
 the project README/AGENTS.md. The inline *(rule)* tags mark the few
 portability/safety points that bind everywhere.
@@ -18,7 +18,7 @@ portability/safety points that bind everywhere.
 
 1. **Version**: current stable as floor (`requires-python = ">=3.11"`),
    build/bundle on the exact minor used in production images (e.g. 3.12).
-2. **Packaging**: `pyproject.toml` only, once a project is packaged —
+2. **Packaging**: `pyproject.toml` only, once a project is packaged -
    unpackaged stdlib micro apps are exempt until then
    ([`03-project-structure.md`](03-project-structure.md) flat-root
    allowance). Backends seen in practice:
@@ -26,8 +26,8 @@ portability/safety points that bind everywhere.
    repo.
 3. **Dependencies**: ranged pins `>=x.y,<next-major`. Extras groups:
    `dev` (pytest, linters, build), plus optional runtime extras (`web`,
-   `ui`, `ocr`, …) so base installs stay lean.
-   *(rule)* **Declared dev dependencies** — test/dev tooling lives in
+   `ui`, `ocr`, ...) so base installs stay lean.
+   *(rule)* **Declared dev dependencies** - test/dev tooling lives in
    tracked files (`requirements-dev.txt`, `[dev]` extra); pipelines
    install from tracked files only, never ad-hoc installs in CI steps.
 4. **Layout**: `src/` layout, pytest with `testpaths` configured in
@@ -49,7 +49,7 @@ portability/safety points that bind everywhere.
 1. **Default**: React + Vite + Tailwind CSS, strict `tsconfig`
 . Pinned exact versions in `package.json`.
 2. **Offline/small tools**: vendored zero-build static SPA (Markview
-   pattern) — no CDN, no required build step, dependencies committed
+   pattern) - no CDN, no required build step, dependencies committed
    under `vendor/`.
 3. Scripts every frontend must define: `dev`, `build`, `preview`, `test`.
 4. No `any` suppression of type errors; no `@ts-ignore`.
@@ -66,7 +66,7 @@ portability/safety points that bind everywhere.
 
 ## Choosing a language (default)
 
-1. Script/tool/backend/GUI → Python.
-2. Browser UI → TypeScript (React/Vite) or zero-build vanilla JS for
+1. Script/tool/backend/GUI -> Python.
+2. Browser UI -> TypeScript (React/Vite) or zero-build vanilla JS for
    offline tools.
-3. Everything else → justify in the project README before starting.
+3. Everything else -> justify in the project README before starting.

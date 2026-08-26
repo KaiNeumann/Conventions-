@@ -16,7 +16,7 @@ This file covers what happens when a version ships.
 ## Release flow (pattern)
 
 1. Bump the version **in code** (single source, e.g. a `VERSION`
-   constant) — see the single-source rule in
+   constant) - see the single-source rule in
    [`03-project-structure.md`](03-project-structure.md).
 2. Tagged commit (`v<semver>`) triggers tag-gated jobs: docker builds
    publish to the Forgejo container registry

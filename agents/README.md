@@ -36,7 +36,7 @@ template plus the reasoning behind every section.
 ### Safety gates first *(rule)*
 
 Agents read instructions top-down and act immediately. Anything that
-must constrain behavior has to appear before any task description —
+must constrain behavior has to appear before any task description -
 secret handling, destructive commands, project-specific red lines. A
 gate at the bottom is a gate that was already violated.
 
@@ -44,7 +44,7 @@ gate at the bottom is a gate that was already violated.
 
 The largest recurring cost in agent-driven development is hand-running
 verification that CI performs anyway. Stating the contract (push
-triggers CI · no local pre-runs except debugging · fix from log tails)
+triggers CI ,  no local pre-runs except debugging ,  fix from log tails)
 converts that cost into a rule. See
 [`../development/12-task-automation.md`](../development/12-task-automation.md).
 
@@ -52,7 +52,7 @@ converts that cost into a rule. See
 
 Environment assumptions (OS/shell), portability (`pathlib`, no hardcoded
 paths), encoding discipline, `temp/` usage, venv usage, and the testing
-policy remove whole classes of guesswork — every one of these was once a
+policy remove whole classes of guesswork - every one of these was once a
 recurring failure mode.
 
 ### Architecture pointers
@@ -64,7 +64,7 @@ zones prevents building on dead code.
 ### Known gotchas
 
 Traps that were expensive once (quoting rules, encoding, ordering
-constraints) will be expensive again for the next agent — recorded as
+constraints) will be expensive again for the next agent - recorded as
 wrong/right pairs, not prose.
 
 ### Privacy
