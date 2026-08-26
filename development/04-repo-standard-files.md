@@ -165,8 +165,12 @@ table in [`15-licensing.md`](15-licensing.md) and SPDX-declare in
 
 ## `AGENTS.md` / `README.md`
 
-Required content defined in [`06-documentation.md`](06-documentation.md);
-CI-enabled repos additionally carry the automation contract there
+`AGENTS.md` starts from the standard template
+[`../agents/AGENTS.template.md`](../agents/AGENTS.template.md) — copy,
+fill the placeholders, specialize (rationale:
+[`../agents/README.md`](../agents/README.md)); required sections in
+[`06-documentation.md`](06-documentation.md); CI-enabled repos
+additionally carry the automation contract there
 ([`12-task-automation.md`](12-task-automation.md)).
 
 ## Rule of origin

@@ -44,6 +44,7 @@ Practical consequences:
 |---|---|
 | [`wiki/`](wiki/README.md) | Knowledge base / wiki work: frontmatter, Obsidian, versioning, human–agent collaboration, dynamic views |
 | [`development/`](development/README.md) | Software development: git, lifecycle, project structure, standard files, languages, documentation, packaging/deployment |
+| [`agents/`](agents/README.md) | Standard `AGENTS.md` template for repositories plus content rationale — copied into projects and specialized |
 
 ## Rule tiers
 

@@ -25,7 +25,7 @@ idea → plan → implement → verify → document → commit → deploy
    "later".
 4. **Verify** — quick local sanity on touched files (compile/lint);
    authoritative verification is the CI result on push
-   ([`11-task-automation.md`](11-task-automation.md)). Local full-suite
+   ([`12-task-automation.md`](12-task-automation.md)). Local full-suite
    runs happen only in repos without CI or while debugging a red
    pipeline. Agents report evidence (command/CI output), not claims.
 5. **Document** — README/AGENTS.md/docs updated in the same change if
@@ -34,7 +34,7 @@ idea → plan → implement → verify → document → commit → deploy
 6. **Commit** — per [git conventions](01-git.md); small atomic commits with evidence
    reviewed (`git status --short --ignored`).
 7. **Deploy** — docker compose rebuild / packager run per packaging
-   conventions ([web](07-packaging-web.md), [desktop](08-packaging-desktop.md));
+   conventions ([web](08-packaging-web.md), [desktop](09-packaging-desktop.md));
    verify healthz after deploy.
 
 ## Definition of done (rule)

@@ -78,11 +78,19 @@ unmarked rules apply to both classes.
    includes; vendor everything or use system stacks. Web-first apps
    additionally tolerate slow links: no megabyte heroes, lazy-load
    media.
-9. **State persists** *(desktop, default)* — window geometry, panel
+9. **Local-first & installable** *(web, default)* - core function works
+   **offline after first load**: app shell and assets are cached
+   (service worker), cached content stays readable without connectivity,
+   and locally entered data persists on the device until a real backend
+   justifies sync. Regular-use web apps ship installable manifests -
+   name, identity icon, standalone display - so they land on the home
+   screen like native apps. Connectivity is an enhancement, never a
+   prerequisite for the UI itself.
+10. **State persists** *(desktop, default)* — window geometry, panel
    sizes, open document, scroll position, and theme survive relaunch
    (sidecar JSON / profile file). Web-first persists per account what
    the task implies (drafts, view options).
-10. **Undo beats confirmation** *(default)* — prefer reversible actions
+11. **Undo beats confirmation** *(default)* — prefer reversible actions
    with undo over confirm-dialog spam; true destructive ops confirm
    explicitly.
 
