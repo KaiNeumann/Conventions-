@@ -15,7 +15,9 @@ template plus the reasoning behind every section.
 | File | Purpose |
 |---|---|
 | [`AGENTS.template.md`](AGENTS.template.md) | Copy into a project root as `AGENTS.md`, fill the `<placeholders>`, specialize |
-| [`README.md`](README.md) (this file) | Content walkthrough and rationale |
+| [`02-mcp-servers.md`](02-mcp-servers.md) | Sanctioned MCP servers, admission criteria, removal policy |
+| [`03-agent-skills.md`](03-agent-skills.md) | Skill format, inventory (own + adopted), promotion path |
+| `README.md` (this file) | Content walkthrough and rationale |
 
 ## Lifecycle
 
