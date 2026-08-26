@@ -34,6 +34,7 @@ instead of re-deriving instructions every session. Accurate and cheap.
 | `env-probe` | own ([skills collection](https://github.com/…)) | One-call OS/shell/encoding/tooling snapshot so agents stop guessing | shared skills repository |
 | `model-config` | own (same repository) | Project-scoped harness/model routing setup and audit | shared skills repository |
 | `security-research`, `security-review` | adopted third-party | Security assessment workflows | harness cache (installed copies) |
+| `playwright` | built-in harness skill | Browser automation: navigation, screenshots, form interaction, visual verification of web UIs; pairs with project-scoped playwright MCP setups | built into the harness |
 
 Locations: the **shared skills repository** is the source of truth for
 own skills; the harness global directory holds what every session needs;
