@@ -59,26 +59,30 @@ unmarked rules apply to both classes.
    apps aim for desktop-GUI information density**: compact views,
    controls visible without scrolling — attempted in web UIs just as in
    native ones.
-4. **Instant feedback** *(default)* — previews render on selection,
+4. **Declarative before scripted** *(default)* - prefer what the
+   platform expresses natively (semantic HTML, CSS, built-in widgets,
+   standard library) over JavaScript or framework re-implementations of
+   the same behavior. Script only the parts the platform cannot express.
+5. **Instant feedback** *(default)* — previews render on selection,
    filters apply while typing, background work shows a persistent status
    indicator — never a frozen window.
-5. **States are designed** *(default)* — no blank screens: loading shows
+6. **States are designed** *(default)* — no blank screens: loading shows
    skeletons/spinners, empty data shows a helpful empty state with the
    next action, errors render inline near their cause.
-6. **First-run works** *(default)* — a fresh install is usable without
+7. **First-run works** *(default)* — a fresh install is usable without
    setup: sensible defaults everywhere, setup flows only for decisions
    that genuinely need the user.
-7. **Automatable by design** *(default)* — an app's operations are
+8. **Automatable by design** *(default)* — an app's operations are
    drivable without its GUI: a headless CLI (where it makes sense) plus
    an automation API (HTTP for served apps; an importable core
    otherwise). The GUI is one client among several, never the only
    interface — which forces business logic into a core that all shells
    share.
-8. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
+9. **Vendored assets** *(rule)* — no CDN fonts, icon packs, or script
    includes; vendor everything or use system stacks. Web-first apps
    additionally tolerate slow links: no megabyte heroes, lazy-load
    media.
-9. **Local-first & installable** *(web, default)* - core function works
+10. **Local-first & installable** *(web, default)* - core function works
    **offline after first load**: app shell and assets are cached
    (service worker), cached content stays readable without connectivity,
    and locally entered data persists on the device until a real backend
@@ -86,11 +90,11 @@ unmarked rules apply to both classes.
    name, identity icon, standalone display - so they land on the home
    screen like native apps. Connectivity is an enhancement, never a
    prerequisite for the UI itself.
-10. **State persists** *(desktop, default)* — window geometry, panel
+11. **State persists** *(desktop, default)* — window geometry, panel
    sizes, open document, scroll position, and theme survive relaunch
    (sidecar JSON / profile file). Web-first persists per account what
    the task implies (drafts, view options).
-11. **Undo beats confirmation** *(default)* — prefer reversible actions
+12. **Undo beats confirmation** *(default)* — prefer reversible actions
    with undo over confirm-dialog spam; true destructive ops confirm
    explicitly.
 
@@ -241,6 +245,14 @@ converged on, mostly transferable to any single-threaded UI toolkit:
    the cooldown; expiry returns the surface to cold and the ~200 ms wait
    applies again. Close delay stays 0 ms. Keyboard focus shows tooltips
    immediately (no delay) - focus is always intentional.
+9. **Prefer declarative implementations** *(web-tech, default)* - the
+   whole pattern works **without JavaScript**: `popover="hint"` +
+   `interestfor` with CSS anchor positioning (`position-area`,
+   `position-try` edge flips) and `interest-delay-start` /
+   `interest-delay-end` for delay and warm-window (the warm state via
+   `.area:has(:popover-open) { interest-delay-start: 0s }`). Wrap in
+   `@supports not (interest-delay-start: 0s)` fallbacks where support
+   lags. Script only what the platform cannot express.
 6. *(Tk)* Use one shared tooltip helper (a shared tooltip-helper module
    pattern) so timing and styling stay consistent app-wide.
 

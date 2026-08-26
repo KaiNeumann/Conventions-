@@ -14,26 +14,60 @@ AGENTS.md (agents, safety + context), docs/ (depth).
 
 ## README.md (every repo) (default)
 
-Structure (matches existing repos):
+The README is the **storefront**: it introduces the project to
+outsiders and answers *what / why / how-to-try* within the first
+screenful. Development history, architecture deep-dives, and annotated
+project trees belong in `docs/` — linked, not inlined.
 
-```markdown
+Structure (cognitive funnel: broadest first, narrowing for the
+committed reader):
+
+````markdown
 # Name
-One paragraph: what it is, for whom.
+One sentence: what it does, for whom, and the one differentiator.
 
-## Features            ← bullet list, concrete
-## Quick Start         ← copy-paste-runnable (local AND docker)
-## Configuration       ← table: setting | purpose | default
-## Project Structure   ← annotated tree
-## Architecture        ← diagram or flow description (when non-trivial)
-## Development         ← install, test, lint commands
-## Troubleshooting     ← known failure modes (when they exist)
-## Security Notes      ← when security-relevant
+![screenshot or demo](docs/media/demo.png)
+
+## Why
+Short motivation from the reader's perspective.
+
+## Quick Start
+≤5 copy-paste commands; visible result in under a minute.
+
+## Usage
+Examples of the main flows (commands, screenshots).
+
+## Configuration
+Table: setting | purpose | default — user-facing settings only.
+
+## Limitations & FAQ
+Honest limits up front.
+
+## Documentation
+Links into docs/: architecture, operations, decision records,
+development guide.
+
+## Contributing & Development
+Build/test/lint commands in brief; full details in docs/.
+
 ## License
-```
+SPDX name and owner.
+````
 
-*(rule)* Quickstart commands are tested and claims match reality ("zero
-dependencies", "offline" must be true).
+Optional sections where they earn their place: badges, Troubleshooting,
+Security Notes, an Architecture diagram (only when the architecture is
+the pitch).
 
+Rules:
+
+- *(rule)* Quickstart commands are tested in a clean environment;
+  claims match reality ("zero dependencies", "offline" must be true).
+- *(rule)* The first screenful answers what/why/how-to-try; show the
+  app early (screenshot or demo).
+- *(default)* As short as possible — details migrate into `docs/`
+  aggressively; link instead of inline.
+- *(default)* Written for an outside reader, not for the authors'
+  memory.
 ## AGENTS.md (rule for agent-worked repos)
 
 Every repo an agent regularly works in **MUST** have an `AGENTS.md` —
