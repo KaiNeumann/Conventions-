@@ -2,7 +2,7 @@
 title: Agent Skills
 type: reference
 tags: [conventions, agents, skills]
-status: draft
+status: accepted
 created: 2026-08-25
 updated: 2026-08-25
 ---
@@ -26,13 +26,13 @@ instead of re-deriving instructions every session. Accurate and cheap.
 4. License field set (MIT by default); unknown frontmatter fields are
    ignored by loaders but kept minimal anyway.
 
-## Inventory
+## Inventory *(snapshot - the shared skills repository is the source of truth for own skills)*
 
 | Skill(s) | Origin | Purpose | Location |
 |---|---|---|---|
 | `ponytail`, `-audit`, `-review`, `-debt`, `-help` | own | Lazy-senior style enforcement: scope cuts, over-engineering audits, debt ledger | harness global skills dir |
-| `env-probe` | own ([skills collection](https://github.com/…)) | One-call OS/shell/encoding/tooling snapshot so agents stop guessing | shared skills repository |
-| `model-config` | own (same repository) | Project-scoped harness/model routing setup and audit | shared skills repository |
+| `env-probe` | own, shared skills repository | One-call OS/shell/encoding/tooling snapshot so agents stop guessing | shared skills repository |
+| `model-config` | own, same repository | Project-scoped harness/model routing setup and audit | shared skills repository |
 | `security-research`, `security-review` | adopted third-party | Security assessment workflows | harness cache (installed copies) |
 | `playwright` | built-in harness skill | Browser automation: navigation, screenshots, form interaction, visual verification of web UIs; pairs with project-scoped playwright MCP setups | built into the harness |
 
@@ -54,6 +54,20 @@ earning its trigger surface.
    scripts.
 3. Installed copies live in the managed cache; re-review on major
    updates.
+
+## Skill, AGENTS.md, or command? *(default)*
+
+The same behavior can ship three ways - pick by *when* it should fire:
+
+| Fires when | Ship as |
+|---|---|
+| Always, on every relevant action | a rule line in `AGENTS.md` |
+| On demand, triggered by described intent | a skill |
+| Only when explicitly invoked by name | a command |
+
+A skill that ends up being invoked explicitly every time is really a
+command; a rule needed only inside one workflow belongs in that
+workflow's skill body.
 
 ## Writing quality *(default)*
 
