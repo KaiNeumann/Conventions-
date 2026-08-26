@@ -169,10 +169,11 @@ table in [`15-licensing.md`](15-licensing.md) and SPDX-declare in
 
 ## `AGENTS.md` / `README.md`
 
-`AGENTS.md` starts from the standard template
-[`../agents/01-AGENTS.template.md`](../agents/01-AGENTS.template.md) - copy,
-fill the placeholders, specialize (rationale:
-[`../agents/README.md`](../agents/README.md)); required sections in
+`AGENTS.md` is created per the chapter
+[`../agents/01-agents-md.md`](../agents/01-agents-md.md) - start from
+the copyable template [`../agents/AGENTS.md.template`](../agents/AGENTS.md.template),
+fill the placeholders (rationale:
+[`../agents/README.md`](../agents/README.md)); required sections also in
 [`06-documentation.md`](06-documentation.md); CI-enabled repos
 additionally carry the automation contract there
 ([`12-task-automation.md`](12-task-automation.md)).
