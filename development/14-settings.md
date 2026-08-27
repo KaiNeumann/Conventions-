@@ -64,11 +64,20 @@ boundary in [`10-cross-platform.md`](10-cross-platform.md).
    restrictive permissions, excluded from backups/exports.
 4. Encryption keys are never derived from anything committed to the
    repo.
+5. Prompts, workflow exports, and checked-in configuration contain no
+   credentials. Workflows receive secrets through environment injection,
+   mounted secret files, or a secret manager.
 
 ## One settings truth *(rule)*
 
 GUI, CLI, and web UI read and write the **same** settings store through
 one shared code path. No parallel config mechanisms per shell.
+
+## Policy as configuration *(default)*
+
+Policies that affect permissions, provider or model selection, routing,
+retention, or retry limits live in inspectable configuration rather than
+hidden prompt text. The configuration records the policy; code enforces it.
 
 ## Automation & agents *(default)*
 

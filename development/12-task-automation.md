@@ -21,6 +21,10 @@ exists for a repo, agents **MUST NOT** hand-run the full verify loop on
 routine commits: commit -> push -> read failure summaries. Hand-running the
 suite is for debugging a failure or when no automation exists yet.
 
+Automate repeatable mechanics such as checks, file moves, downloads, and
+condition checks. Keep ambiguous classification or consequential decisions
+visible until there is evidence to express them as deterministic policy.
+
 ## Three layers
 
 ### 1. Task entry point (default)
@@ -34,6 +38,14 @@ build - for example `tools/check.py`, `just check`, or `make check`.
   portable given our Windows-first reality (no make/WSL dependency).
 - The command exits non-zero on any failure and prints a short summary -
   designed so an agent can act on the tail of the output alone.
+
+### CLI before MCP (default)
+
+When an application capability needs to be used by people, scripts, or
+agents, expose a documented CLI before adding an MCP server. A CLI is
+discoverable, scriptable, testable, and token-efficient. Add MCP only when
+its tool discovery or session semantics provide a concrete benefit; it calls
+the same underlying capability rather than owning separate logic.
 
 ### 2. Local pre-push hook (optional)
 

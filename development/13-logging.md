@@ -51,6 +51,9 @@ filterable**:
    - structured enough for machines (`key=value` pairs or JSON fields).
 4. One line per event when possible; services preferring JSON emit one
    object per line with the same fields.
+5. Background work carries a stable job or correlation identifier in every
+   related entry (`job=42`, `trace=...`), so one operation's history is
+   filterable as a unit.
 
 ## Noise control *(rule)*
 
@@ -60,6 +63,9 @@ filterable**:
    count instead of re-printing).
 3. No secrets, tokens, or personal data in any level - placeholders
    follow the privacy rules ([`01-git.md`](01-git.md)).
+4. Background failures are explicit: log the job identifier, attempt,
+   terminal error, and resulting state. Persistent job state owns retry and
+   recovery; logs explain what happened and never silently swallow a failure.
 
 ## GUI & agent behavior *(default)*
 
