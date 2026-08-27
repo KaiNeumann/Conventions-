@@ -53,6 +53,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 14. [`14-settings.md`](14-settings.md) - settings location (portable sidecar vs profile), resilience, sensitive-value encryption, one settings truth
 15. [`15-licensing.md`](15-licensing.md) - license selection by repo category, SPDX mechanics, migration guidance
 16. [`16-work-tracking.md`](`16-work-tracking.md`) - TODO.md queue structure, known-bug entries, promotion to remote issues
+17. [`17-architecture.md`](17-architecture.md) - provider boundaries, pipelines, formats, and AI integration
 
 ## Core principles
 
