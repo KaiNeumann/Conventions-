@@ -30,6 +30,9 @@ it.
    after intentional downtime.
 5. Resource bounds (`mem_limit`, `cpus`) set per service so one stack
    cannot starve the rest.
+6. Containers represent separately deployable concerns, not ordinary code
+   modules. A small application stays a small stack until an observed
+   operational need justifies splitting it.
 
 ## Third-party images *(default)*
 
@@ -93,6 +96,9 @@ regardless of what the vendor ships:
    files; nothing sensitive baked into images or compose files.
 3. Every stack documents what in its state must be backed up, and how
    often.
+4. Mount paths distinguish configuration, irreplaceable state, source
+   originals, and disposable cache. Container logs remain on stdout/stderr;
+   they are not a persistent data volume.
 
 ## Logging *(default)*
 
@@ -117,3 +123,6 @@ regardless of what the vendor ships:
    major-version bumps get a compatibility check first.
 3. Deprecating a service means removing its stack, route, auth entry,
    and state in one cleanup change.
+4. A clean host can be provisioned and restored from version-controlled
+   deployment material plus backed-up persistent state. Document external
+   prerequisites and manual exceptions next to the stack.
