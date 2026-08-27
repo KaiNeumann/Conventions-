@@ -180,7 +180,9 @@ no second hardcoded palette anywhere.
   desktop/window icon (`iconphoto`/`PhotoImage` on Tk, window icon in
   pywebview, `.ico` via the PyInstaller spec for packaged builds). One
   master asset (SVG or high-res PNG) derives all sizes - never diverging
-  copies.
+  copies. Test the derived mark at its smallest real target, such as a
+  16px favicon or window icon; simplify it when its identifying geometry
+  no longer survives.
 
 ## Layout patterns
 
@@ -270,4 +272,6 @@ converged on, mostly transferable to any single-threaded UI toolkit:
   recoverable issues.
 - Component frameworks/heavy UI libs for what ~200 lines of vanilla
   HTML/CSS/JS do (a three-pane tool ships fine with zero UI dependencies).
-- Telemetry, update pings, or network calls in offline tools.
+- Telemetry, update pings, remote embedding calls, or other silent network
+  traffic in local-first tools. Such calls need a documented feature and an
+  explicit user choice.
