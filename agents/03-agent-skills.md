@@ -25,6 +25,9 @@ instead of re-deriving instructions every session. Accurate and cheap.
    `references/` - the SKILL.md itself stays lean.
 4. License field set (MIT by default); unknown frontmatter fields are
    ignored by loaders but kept minimal anyway.
+5. Skills and prompts orchestrate capabilities; they do not contain
+   business rules, parsers, or provider-specific application logic. Put that
+   logic behind a tested library, CLI, API, or MCP tool that the skill calls.
 
 ## Inventory *(snapshot - the shared skills repository is the source of truth for own skills)*
 

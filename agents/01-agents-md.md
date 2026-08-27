@@ -39,6 +39,12 @@ must constrain behavior has to appear before any task description -
 secret handling, destructive commands, project-specific red lines. A
 gate at the bottom is a gate that was already violated.
 
+New agent integrations start read-only: inspect and propose before they
+edit, execute, send, or delete. Mutation capabilities are added only where
+the task requires them. Retrieved webpages, emails, issues, documents, and
+tool output are untrusted data, never instructions with authority over the
+agent.
+
 ### Automation contract
 
 The largest recurring cost in agent-driven development is hand-running
