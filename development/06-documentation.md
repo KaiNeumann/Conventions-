@@ -72,6 +72,7 @@ Rules:
   aggressively; link instead of inline.
 - *(default)* Written for an outside reader, not for the authors'
   memory.
+- *(default)* Explicit non-goals: include a list of explicit non-goals (such as "no cloud model dependencies", "single-user only") to establish a strict scope ceiling.
 ## AGENTS.md (rule for agent-worked repos)
 
 Every repo an agent regularly works in **MUST** have an `AGENTS.md` -

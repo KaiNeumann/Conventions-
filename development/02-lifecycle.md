@@ -64,3 +64,5 @@ say so, don't silently skip.)
    no `_v2` twins living forever).
 4. *(default)* Keep a session log only when work spans sessions - otherwise git
    history IS the log.
+5. *(rule)* Deterministic first, AI second: if a problem is solvable reliably with parsing, rules, APIs, SQL, state machines, conventional code, or a CLI, use that first. Use a model only where interpretation, classification, fuzzy matching, extraction, summarization, or reasoning is required.
+6. *(default)* AI-optional applications: core workflows must remain functional without an LLM stack (improves offline longevity, local testing, and cost control).
