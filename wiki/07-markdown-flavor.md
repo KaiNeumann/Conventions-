@@ -9,7 +9,7 @@ updated: 2026-08-28
 
 # Markdown Flavor
 
-House dialect: CommonMark + GitHub-flavored Markdown **plus** the
+House dialect: [CommonMark](https://spec.commonmark.org/) + [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/) **plus** the
 extensions our toolchain renders natively (the Markview set at
 https://git.kaiuweneumann.de/kai/MarkdownViewer). Write
 within this dialect so every consumer - Obsidian, Markview,
