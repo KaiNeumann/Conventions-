@@ -87,6 +87,9 @@ regardless of what the vendor ships:
    needs them - service-to-service traffic uses network aliases.
 3. Sensitive egress (scraping, automation) routes through dedicated
    gateway containers on segmented networks.
+4. When a service genuinely needs a published host port, choose and
+   document an unused project port in `8000-8999`. Do not use `8080` by
+   default.
 
 ## State & secrets *(default)*
 
