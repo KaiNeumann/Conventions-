@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, agents, skills]
 status: accepted
 created: 2026-08-25
-updated: 2026-08-25
+updated: 2026-08-28
 ---
 
 # Agent Skills
@@ -29,23 +29,23 @@ instead of re-deriving instructions every session. Accurate and cheap.
    business rules, parsers, or provider-specific application logic. Put that
    logic behind a tested library, CLI, API, or MCP tool that the skill calls.
 
-## Inventory *(snapshot - the shared skills repository is the source of truth for own skills)*
+## Inventory *(snapshot - the [shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills) is the source of truth for own skills)*
 
 | Skill(s) | Origin | Purpose | Location |
 |---|---|---|---|
 | `ponytail`, `-audit`, `-review`, `-debt`, `-help` | own | Lazy-senior style enforcement: scope cuts, over-engineering audits, debt ledger | harness global skills dir |
-| `env-probe` | own, shared skills repository | One-call OS/shell/encoding/tooling snapshot so agents stop guessing | shared skills repository |
-| `model-config` | own, same repository | Project-scoped harness/model routing setup and audit | shared skills repository |
+| `env-probe` | own, [shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills) | One-call OS/shell/encoding/tooling snapshot so agents stop guessing | [shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills) |
+| `model-config` | own, same repository | Project-scoped harness/model routing setup and audit | [shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills) |
 | `security-research`, `security-review` | adopted third-party | Security assessment workflows | harness cache (installed copies) |
 | `playwright` | built-in harness skill | Browser automation: navigation, screenshots, form interaction, visual verification of web UIs; pairs with project-scoped playwright MCP setups | built into the harness |
 
-Locations: the **shared skills repository** is the source of truth for
+Locations: the **[shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills)** is the source of truth for
 own skills; the harness global directory holds what every session needs;
 project-local skill folders are experiments on their way up.
 
 ## Promotion path *(default)*
 
-experiment (project-local) → proven (shared skills repository) →
+experiment (project-local) → proven ([shared skills repository](https://git.kaiuweneumann.de/kai/AgentSkills)) →
 everywhere (harness global). Demotion happens when a skill stops
 earning its trigger surface.
 
