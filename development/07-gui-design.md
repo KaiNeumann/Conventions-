@@ -4,61 +4,75 @@ type: reference
 tags: [conventions, development, gui, ux]
 status: accepted
 created: 2026-08-24
-updated: 2026-08-25
+updated: 2026-08-29
 ---
 
 # GUI Design
 
-Applies to GUI work of both kinds - see
+Applies to every GUI delivery - see
 [`09-packaging-desktop.md`](09-packaging-desktop.md) for packaging
-tracks. First decide the **app class**; it changes the interaction
-model more than any framework choice.
+tracks. Decide **delivery mode** and **interaction profile** separately.
+A browser-delivered application can still be a compact, keyboard-heavy
+productivity tool.
 
-## App class decides
+## Delivery and interaction profile
 
-| | **Desktop-first** | **Web-first** |
+Delivery describes where the interface runs, not how spacious it is:
+
+| Delivery | Typical characteristics |
+|---|---|
+| **Desktop shell** | Installed beside local files, native window integration, commonly one user |
+| **Browser** | Reached through a URL, potentially shared state, responsive across available viewports |
+
+Choose the interaction profile from the work users perform:
+
+| Profile | Use when | Default shape |
 |---|---|---|
-| Runs | installed shell next to the user's files (pywebview/Tkinter) | in a browser tab, reached over a network |
-| Audience | the power user who chose it, daily | mixed, unknown, often phones |
-| Session shape | long, high-frequency operations | short, task-oriented visits |
-| Primary input | keyboard-first | touch & pointer first |
-| Data & persistence | local files on one machine; single writer | structured/shared state; DB-like operations |
-| Examples | local file/document tools, readers | community sites, admin consoles |
+| **Productivity** | Repeated work over records, rules, files, messages, jobs, settings, or admin data | Compact app shell, keyboard and pointer efficient, high information density |
+| **Reading / content** | Reading, reviewing, or presenting long-form content | Comfortable line length, calm navigation, more breathing room around content |
+| **Overview / dashboard** | Monitoring summaries, trends, alerts, and exceptional conditions | Scannable status hierarchy and charts; drill-down leads to dense operational views |
+| **Public / marketing** | Explaining or promoting a product to an unknown audience | Scroll-led narrative, responsive sections, deliberate whitespace |
+| **Touch-first** | The primary workflow happens on phones, tablets, or coarse pointers | Larger targets, fewer simultaneous controls, progressive disclosure |
 
 **Deciding rules of this chapter:**
 
-1. The class applies **per deployment**: one codebase can ship both
-   variants (same frontend installed as shell and served in a browser),
-   and each delivery follows its own class rules.
-2. Ambiguous audience => treat it as **web-first** (anything served over
-   a network to people other than today's user).
-3. **Default development strategy**: when database-like operations are
-   involved (structured records, shared or concurrent state), develop
-   **dockerized-web-first** and wrap the very same frontend for desktop
-   use (pywebview) where a desktop shell adds value. Purely local,
-   file-centric tools may start desktop-first.
+1. *(default)* Record the interaction profile in the project README or
+   design notes. Delivery alone never selects it.
+2. *(default)* Productivity is the default for applications that manage
+   structured items or repeated operations, including browser-based admin
+   tools. Do not call such an application a dashboard merely because it
+   has a web frontend.
+3. *(default)* One responsive application may use a productivity profile
+   on a wide fine-pointer viewport and a touch-first adaptation on a narrow
+   or coarse-pointer viewport.
+4. *(default)* When database-like operations are involved (structured
+   records, shared or concurrent state), develop dockerized-web-first and
+   wrap the same frontend for desktop use where a desktop shell adds value.
+   This delivery choice does not change the interaction profile.
 
 Sections below are marked *(desktop)*, *(web)*, *(Tk)*, or *(web-tech)*;
-unmarked rules apply to both classes.
+unmarked rules apply to every delivery.
 
 ## Principles
 
-1. **Keyboard-first** *(desktop-first deployments)* - every action
-   reachable without the mouse: single keys for high-frequency operations
-   (e.g., number/letter keys to file or step through items), `Ctrl+`
-   combos for meta actions, `Esc` closes/cancels. Every binding is
-   listed in the help overlay (see below) and mirrored in a README table.
-2. **Touch & pointer first** *(web-first deployments)* - every primary
-   action works one-handed on a phone: hit targets >= 44px, visible text
-   labels over icon-only buttons, hover never carries information, and
-   bare single-key handlers exist only inside explicitly focused shortcut
-   scopes (never global page listeners fighting the browser).
-3. **Minimal chrome, density by app type** *(default)* - content is the
-   interface: thin topbars, pane layouts over dialog mazes. **Dashboard-
-   style web apps may scroll with generous whitespace. Workflow-driven
-   apps aim for desktop-GUI information density**: compact views,
-   controls visible without scrolling - attempted in web UIs just as in
-   native ones.
+1. **Keyboard-efficient productivity** *(default)* - every productivity
+   action is reachable without the mouse. Reuse established desktop command
+   semantics where the host permits it: undo/redo, copy/paste, delete, and
+   `Esc` to close or cancel. Desktop shells follow platform conventions;
+   browser delivery never overrides browser or operating-system shortcuts.
+   App-specific and single-key bindings apply only inside an explicitly
+   focused workspace and never while the user is typing in an editable control.
+2. **Adapt targets to input** *(default)* - start from the chosen component
+   framework's density and sizing system, then adapt it to the interaction
+   profile and actual input methods. Fine-pointer productivity views stay
+   compact; touch-first views provide comfortable targets. Hover may reinforce
+   an affordance but never carries required information.
+3. **Minimal chrome, density by profile** *(default)* - content is the
+   interface: thin topbars, compact toolbars, panes, tabs, and tables over
+   card stacks and dialog mazes. Productivity views keep common data and
+   controls visible without scrolling past introductory or setup content.
+   Reading, overview, and public profiles may use more whitespace where it
+   improves their actual task.
 4. **Declarative before scripted** *(default)* - prefer what the
    platform expresses natively (semantic HTML, CSS, built-in widgets,
    standard library) over JavaScript or framework re-implementations of
@@ -132,7 +146,11 @@ no second hardcoded palette anywhere.
 ### Type, spacing, fonts
 
 - Fluid type scale: `clamp()`-based steps `--step--1 ... --step-4`
-- One spacing var (`--space`) and one radius var (`--radius`)
+- Compact spacing scale based on 4px steps: 4, 8, 12, 16, and 24px;
+  productivity screens rarely need larger internal gaps
+- Separate control and container radii; controls stay tighter than panels
+- Density tokens for control and row height derive from the chosen component
+  framework, with profile-specific compact and touch-oriented variants
 - rem-based sizing so OS text scaling works
 - System font stacks: `ui-sans-serif / system-ui / Segoe UI ...` for UI,
   `ui-monospace ...` for code - no bundled webfonts unless branding
@@ -140,17 +158,22 @@ no second hardcoded palette anywhere.
 
 ## Interaction standards
 
-- **Help overlay** *(desktop - rule for keyboard-driven apps)*: `?`
-  toggles an always-available overlay listing **every** keybinding -
+- **Help overlay** *(desktop - rule for keyboard-driven apps)*: an always-visible
+  Help command toggles an overlay listing **every** keybinding -
   **one command/key per line** (key column left, description right),
   grouped by task. Visually calm: no tables-with-borders, no animation,
   muted colors on the standard surface. If the list exceeds the parent
   window's vertical space, the overlay scrolls; it never resizes or
-  reflows the app behind it. Reachable from any state, including open
-  panels. The same list is mirrored in the README; adding or changing a
-  binding updates both in the same commit.
-- **Search everywhere** *(default)*: any view over lists, tables, or item collections offers filter/highlight as-you-type with match count and
-  next/previous navigation (`F3`/`Shift+F3`); no reloads, no modals.
+  reflows the app behind it. A shortcut may supplement the visible command only
+  when it is host-safe and scoped outside editable controls. The overlay remains
+  reachable from any state, including open panels. The same list is mirrored in
+  the README; adding or changing a binding updates both in the same commit.
+- **Search everywhere** *(default)*: any view over lists, tables, or item
+  collections offers filter/highlight as-you-type with match count and visible
+  next/previous controls; no reloads, no modals. Desktop shells may follow the
+  platform's standard Find bindings. Browser delivery preserves browser Find
+  and uses a visible app-search command plus a non-conflicting scoped binding
+  where useful.
 - **Media previews inline**: images/video/PDF/text render inside the
   pane (iframe/object/pre) instead of shelling out.
 - **Drag & drop** *(desktop, default)* - apps whose subject is
@@ -164,6 +187,84 @@ no second hardcoded palette anywhere.
   during refactors (established-visual-language rule); long operations
   run off the main thread
   with progress + cancel.
+
+## Productivity components *(default)*
+
+Use this priority order for structured, repeated work:
+
+1. **Collections: table before cards.** Repeated records with comparable
+   fields use a semantic table. Less regular records use a compact divided
+   list. A card per record is the last choice, reserved for items whose
+   contents genuinely have different structures.
+2. **Tabs for peer views.** Use tabs for a small set of views at the same
+   level, such as Rules / Preview / History. Keep global navigation separate.
+3. **Progressive disclosure for secondary detail.** Use `<details>`,
+   expandable rows, drawers, or side panes for raw payloads, advanced fields,
+   preview tools, and infrequent forms. Do not make every option permanently
+   consume page height.
+4. **Compact toolbars.** Put search, filters, sorting, selection actions,
+   and the primary create action immediately above the collection. Avoid
+   explanatory page introductions when labels and help text already explain
+   the task.
+5. **Forms follow task frequency.** A form that is the page's main task may
+   remain open. A create or edit form beside a primary collection opens
+   inline, in a drawer, or in a compact pane and closes after completion.
+6. **Row actions use icons.** Familiar repeated actions such as edit, enable,
+   preview, copy, and delete use compact icon buttons with an accessible name
+   and tooltip. Show at most two common actions directly; move the rest into
+   an overflow menu. Primary page actions and unfamiliar consequential
+   actions retain visible text.
+7. **Cards need a reason.** Use a card only when its boundary communicates
+   grouping, selection, or elevation. Do not wrap every section, form, or
+   list row in a large rounded container.
+8. **Hierarchy before whitespace.** Establish hierarchy with alignment,
+   typography, dividers, column structure, and restrained surface changes
+   before increasing padding or separating content into cards.
+
+### Tables and large collections
+
+1. **One item per row** *(default)* - a structured collection renders one
+   record per table row, with stable columns for comparable fields. Secondary
+   prose or raw values expand from the row instead of turning every item into
+   a form-sized block.
+2. **Sortable where meaningful** *(default)* - columns users compare or use
+   to find records are sortable from their headers. Show the active direction,
+   preserve it across refreshes, and expose it with `aria-sort`. Do not add
+   sorting to action or free-form detail columns.
+3. **Pagination is operable** *(rule)* - if the interface shows only part of
+   a result set, it also provides controls to reach the rest. Show the visible
+   range and total, previous/next controls, and either page selection or an
+   explicit load-more control. Search is not a substitute for pagination.
+   Preserve filters and sorting while moving between pages; mark the current
+   page with `aria-current` and disable unavailable directions.
+4. **Multi-selection for shared actions** *(default)* - when an operation can
+   sensibly apply to several records, add a leading checkbox column, a header
+   checkbox, and a bulk-action toolbar. Distinguish "select this page" from
+   "select all filtered results" and state the selected count. Show a
+   task-relevant aggregate, such as the selected balance, when it helps users
+   verify the set. Keep single-row actions available without requiring
+   selection.
+5. **Actions have fixed homes** *(default)* - collection actions and bulk
+   actions live in the toolbar above the table; per-record actions live in a
+   consistently aligned trailing column; pagination sits directly below the
+   collection and may repeat above very long tables. Account- or page-level
+   actions belong in the page header or a dedicated settings section, never
+   scattered between records.
+6. **Inline editing stays inline** *(default)* - editable cells either save
+   immediately with visible feedback or expose compact Save/Cancel actions in
+   the edited row. Never place a full-width control and a separate Save button
+   under every record. Multi-row edits use selection plus a bulk editor.
+7. **Wide rows stay compact** *(default)* - keep core fields on one line in
+   wide productivity tables. Truncate with an accessible full-value path or
+   disclose secondary prose from the row rather than letting common columns
+   wrap every record into a tall block.
+8. **Narrow layouts preserve the working set** *(default)* - hide secondary
+   columns behind an expandable row, or allow a constrained horizontal table
+   scroll with the identifying column kept visible. Do not convert every row
+   into a tall card merely because the viewport narrowed.
+9. **Numeric columns support comparison** *(default)* - right-align quantities,
+   currency, and other comparable numbers and use tabular figures
+   (`font-variant-numeric: tabular-nums`) so digits remain vertically aligned.
 
 ## Icons *(web-tech)*
 
@@ -189,10 +290,38 @@ no second hardcoded palette anywhere.
 - **Pane-based** house shape: resizable, collapsible side panel(s) +
   content area; sizes remembered per session (`--left-panel-w`,
   `--resize-w` handles at 5px hit width).
+- **List-detail** productivity shape: a table or compact list owns the main
+  view; selection reveals detail in an adjacent pane or expandable row
+  without navigating away from the working set.
+- **Collection-first ordering**: filters and records appear before preview,
+  setup, diagnostics, or raw data unless one of those is the page's primary
+  task.
 - **Responsive collapse**: below a breakpoint (~860px) panels start
   hidden and toggle via explicit buttons - content wins space.
 - Prefer one window with panes over many windows; wizards only for
   genuinely sequential setup flows.
+
+## Component framework defaults *(pattern)*
+
+Frameworks are implementation starting points, not visual dependencies. The
+interaction, accessibility, density, and collection contracts in this chapter
+remain authoritative:
+
+- **Overview / dashboard** - start with
+  [shadcn/ui](https://ui.shadcn.com/docs) and adapt its components to the
+  project's visual language and interaction profile. Add
+  [TanStack Table](https://tanstack.com/table/latest/docs/overview) when a
+  collection needs advanced sorting, filtering, pagination, selection, or
+  column state.
+- **Productivity** - start with
+  [Fluent UI React v9](https://react.fluentui.dev/). Use its
+  [DataGrid](https://react.fluentui.dev/?path=/docs/components-datagrid--docs)
+  for table-like keyboard interaction and select composite focus when arrow-key
+  row navigation is required.
+
+Use one component system per application. Record the choice and deliberate
+deviations in the project's README or design notes, and verify the result at the
+real target viewport and input method.
 
 ## Desktop toolkit notes *(historical input - adopt selectively)*
 
@@ -223,9 +352,9 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 
 ## Tooltips *(default)*
 
-1. Tooltips **supplement labels, never replace them** - anything that
-   exists only on hover is invisible on touch screens and to keyboard
-   users.
+1. Tooltips supplement visible labels, or explain familiar icon-only actions
+   in repeated productivity controls. Every icon-only action still has an
+   accessible name; its meaning never exists only on hover.
 2. Short and stable: one short sentence max; no interactive content
    inside a tooltip.
 3. Buttons with keybindings include the binding in their tooltip
@@ -235,19 +364,19 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 5. *(web-tech)* Native `title` attributes for lightweight hints;
    custom-styled tooltip components only when styling genuinely demands
    it, and they must appear on keyboard focus too, not just hover.
-7. **Open delay ~200 ms** *(default)* - a hover is never intentional by
+6. **Open delay ~200 ms** *(default)* - a hover is never intentional by
    itself; cursors cross triggers in transit. Below ~150 ms the tooltip
    fires during casual travel; above ~250 ms an intentional hover feels
    broken. Leaving the trigger before the delay elapses cancels the open
    entirely - sweeping the page opens nothing.
-8. **Warm-window skip** *(default)* - when a tooltip closes, keep the
+7. **Warm-window skip** *(default)* - when a tooltip closes, keep the
    surface *warm* for ~300 ms: hovering the next trigger inside that
    window opens **instantly, skipping the entrance animation**, because
    moving between related triggers *is* deliberate. Every open resets
    the cooldown; expiry returns the surface to cold and the ~200 ms wait
    applies again. Close delay stays 0 ms. Keyboard focus shows tooltips
    immediately (no delay) - focus is always intentional.
-9. **Prefer declarative implementations** *(web-tech, default)* - the
+8. **Prefer declarative implementations** *(web-tech, default)* - the
    whole pattern works **without JavaScript**: `popover="hint"` +
    `interestfor` with CSS anchor positioning (`position-area`,
    `position-try` edge flips) and `interest-delay-start` /
@@ -255,7 +384,7 @@ converged on, mostly transferable to any single-threaded UI toolkit:
    `.area:has(:popover-open) { interest-delay-start: 0s }`). Wrap in
    `@supports not (interest-delay-start: 0s)` fallbacks where support
    lags. Script only what the platform cannot express.
-6. *(Tk)* Use one shared tooltip helper (a shared tooltip-helper module
+9. *(Tk)* Use one shared tooltip helper (a shared tooltip-helper module
    pattern) so timing and styling stay consistent app-wide.
 
 ## Accessibility baseline *(rule)*
@@ -270,6 +399,22 @@ converged on, mostly transferable to any single-threaded UI toolkit:
 
 - Confirm-dialog spam, wizard-for-a-single-field, modal error popups for
   recoverable issues.
+- Treating every browser application as a spacious dashboard or mobile-first
+  landing page.
+- One large card per record where a table or compact divided list would expose
+  more information and support comparison.
+- Full-width text buttons repeated on every row; use compact icon buttons with
+  accessible names and an overflow menu.
+- Oversized headings, controls, gaps, and mobile touch targets on wide
+  fine-pointer productivity layouts.
+- Permanent create, preview, or advanced-settings panels pushing the primary
+  collection below the fold.
+- Truncating a result set with text such as "showing 50 of 1707" but no way to
+  reach the remaining records.
+- Tables without meaningful sorting, or repeated records without
+  multi-selection when the same action commonly applies to several items.
+- Row, bulk, account, and navigation actions mixed into an unaligned stack of
+  text buttons.
 - Component frameworks/heavy UI libs for what ~200 lines of vanilla
   HTML/CSS/JS do (a three-pane tool ships fine with zero UI dependencies).
 - Telemetry, update pings, remote embedding calls, or other silent network
