@@ -13,6 +13,30 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.3.0] - 2026-08-29
+
+### Added
+
+- Architecture and pipeline conventions covering provider boundaries,
+  acquisition, extraction, normalization, validation, and AI integration
+- GUI productivity patterns for tables, large collections, list-detail
+  layouts, responsive disclosure, framework starting points, and
+  browser-safe keyboard interaction
+- Agent rationale chapter alongside the copyable `AGENTS.md` template
+
+### Changed
+
+- GUI classification now separates delivery mode from interaction profile;
+  framework density informs sizing without overriding accessibility or task
+  requirements
+- Development lifecycle, automation, logging, and settings guidance now makes
+  deterministic checks and operational boundaries explicit
+- Agent capability boundaries and AgentSkills references clarified
+- Dockerized-service lifecycle boundaries and project host-port reservation
+  documented
+- Wiki Markdown flavor aligned with Markview and linked to CommonMark and GFM
+  references
+
 ## [1.2.0] - 2026-08-25
 
 ### Added
