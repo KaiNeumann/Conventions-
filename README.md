@@ -3,14 +3,14 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
-version: 1.7.0
+version: 1.8.0
 created: 2026-08-23
-updated: 2026-08-29
+updated: 2026-08-30
 ---
 
 # Conventions
 
-Working conventions for Kai and AI agents, applied across all projects.
+Working conventions for users and AI agents, applied across all projects.
 One subfolder per area. Each area has a `README.md` index; numbered files
 give the reading order.
 

@@ -13,6 +13,24 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.8.0] - 2026-08-30
+
+### Added
+
+- Desktop packaging pattern: stable "latest" binary overwritten by the
+  builder plus versioned historical copies
+  (`App-<version>-<YYYYMMDD>-<HHMM>.exe`), keeping `dist\` intact while
+  cleaning `build\`, the build venv, and `src\app\static\dist`
+- Cross-platform defaults: portable (self-contained) desktop artifacts,
+  and cross-compilation as the standard route for target-OS binaries
+
+### Changed
+
+- Windows cross-build strategy promoted from an open decision to an
+  accepted default (Wine-based cross-builds on a Linux runner), now the
+  single consistent story across the packaging, cross-platform, and
+  task-automation chapters
+
 ## [1.7.0] - 2026-08-29
 
 ### Changed

@@ -50,6 +50,25 @@ inventory (contents, size, hash) and run the offline smoke test against
 the produced binary (offline inventory + smoke runner). Ship
 third-party license notices in bundles (`THIRD_PARTY_NOTICES.md`).
 
+### Latest + versioned artifacts (pattern)
+
+Keep **both** a stable "latest" binary and versioned historical
+binaries so the last known-good build is always one path away and old
+builds stay comparable. Lesson learned from a PyInstaller build script:
+
+- Keep `dist\` intact - it holds the stable artifacts.
+- Still delete `build\`, the build venv, and `src\app\static\dist`.
+- Let PyInstaller overwrite `dist\App.exe` as the "latest" build.
+- Copy it to a versioned name, e.g.
+  `dist\App-1.0.0-20260830-1231.exe`
+  (`App-<version>-<YYYYMMDD>-<HHMM>.exe`).
+
+That yields a stable latest EXE plus versioned historical EXEs for
+rollback and side-by-side comparison. This is a `(pattern)`, not a
+mandate - it suits apps where a fixed `latest` filename is convenient
+(e.g. an always-copied shortcut target). For pure release distributions
+the versioned artifacts alone are enough.
+
 macOS is treated as preview tier unless explicitly supported - say so in
 the README instead of silently shipping broken builds.
 

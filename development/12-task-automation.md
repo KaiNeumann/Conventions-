@@ -106,6 +106,20 @@ the full suite on routine changes; failures are fixed from the failing
 step's log tail.* Keep this wording identical across repositories so agents can rely on it. Without this note, agents default to hand-running
 everything and the token savings never materialize.
 
+## Windows cross-build strategy (default)
+
+Windows executables are produced via **Wine-based cross-builds on a
+Linux runner** (Docker + Wine, `tools/build/package.py --win`), so
+producing Windows binaries never depends on owning a Windows machine -
+deliberate given the planned migration away from Windows. Native
+Windows runners are not planned unless cross-builds prove impractical;
+if Wine-based PyInstaller turns out to be too fragile in practice, fall
+back to a native Windows runner rather than silently shipping broken
+builds. This is the one story the packaging docs tell consistently:
+[`09-packaging-desktop.md`](09-packaging-desktop.md) (cross-builds via
+Docker), [`10-cross-platform.md`](10-cross-platform.md) (cross-compilation
+as a default).
+
 ## Packaging entry point (strong recommendation)
 
 Projects that produce artifacts (executables, images) **SHOULD** expose
@@ -144,13 +158,7 @@ python tools/package.py   # = pyinstaller --noconfirm markview.spec
    push; artifact builds (Docker images, binaries) run only on version
    tags (`v*`) or explicit trigger - never per-push, never in the hot
    path.
-2. *(planned)* **Windows .exe strategy:** target is Wine-based
-   cross-builds on a **Linux** runner (Docker + Wine, an approach
-   `tools/build/package.py --win`), so producing Windows binaries never
-   depends on owning a Windows machine - deliberate given the planned
-   migration away from Windows. Native Windows runners are not planned
-   unless cross-builds prove impractical.
-3. *(interim accepted)* While an app is unstable and needs executables
+2. *(interim accepted)* While an app is unstable and needs executables
    for frequent manual testing, building locally on the dev desktop via
    the project's canonical package command is fine - the runner takeover
    happens once the build recipe is proven.
