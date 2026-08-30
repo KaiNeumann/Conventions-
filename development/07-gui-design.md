@@ -287,6 +287,11 @@ Use this priority order for structured, repeated work:
 
 ## Layout patterns
 
+- **Use available width by default**: app shells fill the available browser
+  viewport or desktop window, so panes, tables, and workspaces can use wide
+  displays. Desktop users may resize the window; persist that geometry. This
+  does not require reading/content text columns to span the full shell - limit
+  their measure where readability needs it.
 - **Pane-based** house shape: resizable, collapsible side panel(s) +
   content area; sizes remembered per session (`--left-panel-w`,
   `--resize-w` handles at 5px hit width).
