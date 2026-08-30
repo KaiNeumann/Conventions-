@@ -30,12 +30,15 @@ visible until there is evidence to express them as deterministic policy.
 ### 1. Task entry point (default)
 
 Every project exposes **one canonical command** that runs lint + tests +
-build - for example `tools/check.py`, `just check`, or `make check`.
+build - for example `tools/check.py`, `tools/check.ps1`, `just check`, or
+`make check`.
 
 - Humans, git hooks, CI workflows, and agents all call the same command;
   nothing improvises multi-step loops.
-- Flavor per project is free; Python-based `tools/check.py` is the most
-  portable given our Windows-first reality (no make/WSL dependency).
+- Flavor per project is free. Python-based `tools/check.py` is preferred
+  when portability matters, but Windows-first repositories may use
+  `tools/check.ps1` or `build.ps1` as their canonical command. Their CI
+  runner must support the selected command.
 - The command exits non-zero on any failure and prints a short summary -
   designed so an agent can act on the tail of the output alone.
 
@@ -90,7 +93,7 @@ jobs:
     runs-on: python-ci        # label provided by your registered runner
     steps:
       - uses: https://data.forgejo.org/actions/checkout@v4
-      - run: pip install -e '.[dev]' && tools/check.py
+      - run: pip install -e '.[dev]' && tools/check.py # or pwsh -File tools/check.ps1
       # add a strategy.matrix over Python versions only when a repo
       # actually supports multiple versions
 ```

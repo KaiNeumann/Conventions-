@@ -31,6 +31,9 @@ and real secrets/`.env` never enter git (see
    (sidecar/profile); only disposable junk goes into `temp/`.
 5. Agents: never write scratch files outside the project; when working
    without a project context, ask where to put them.
+6. Existing `tmpdata/` directories migrate once to `temp/`: move their
+   disposable contents, update references, then remove `tmpdata/`. It is
+   not a supported alias for new work.
 
 ## `.editorconfig`
 
@@ -98,6 +101,7 @@ __pycache__/
 
 # Tooling / agent state
 temp/
+.omo/
 .sisyphus/
 .playwright-mcp/
 .codegraph/
@@ -127,7 +131,7 @@ Add per-project entries on top; delete what does not apply.
 ```dockerignore
 .git
 .codegraph
-.omo
+.omo/
 .sisyphus
 .venv
 __pycache__
