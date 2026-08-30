@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, gui, ux]
 status: accepted
 created: 2026-08-24
-updated: 2026-08-29
+updated: 2026-08-30
 ---
 
 # GUI Design
@@ -232,37 +232,45 @@ Use this priority order for structured, repeated work:
    preserve it across refreshes, and expose it with `aria-sort`. Do not add
    sorting to action or free-form detail columns.
 3. **Pagination is operable** *(rule)* - if the interface shows only part of
-   a result set, it also provides controls to reach the rest. Show the visible
-   range and total, previous/next controls, and either page selection or an
-   explicit load-more control. Search is not a substitute for pagination.
-   Preserve filters and sorting while moving between pages; mark the current
-   page with `aria-current` and disable unavailable directions.
-4. **Multi-selection for shared actions** *(default)* - when an operation can
+   a result set **and the user cannot reasonably view the full set** (e.g.,
+   unbounded search results, large catalogs), it also provides controls to
+   reach the rest. Show the visible range and total, previous/next controls,
+   and either page selection or an explicit load-more control. Search is not
+   a substitute for pagination. Preserve filters and sorting while moving
+   between pages; mark the current page with `aria-current` and disable
+   unavailable directions.
+4. **Scrollable tables for live sets** *(default)* - a bounded, live-updating
+   dataset whose sort/filter applies to the full set is better shown as a
+   scrollable table (`max-height` with simple overflow, or virtual scrolling)
+   than paginated, which breaks the live-update flow. Show a total count and
+   visible range ("1-47 of 47") in the toolbar. If the set can grow unbounded,
+   add pagination or virtual scrolling to cap DOM size.
+5. **Multi-selection for shared actions** *(default)* - when an operation can
    sensibly apply to several records, add a leading checkbox column, a header
    checkbox, and a bulk-action toolbar. Distinguish "select this page" from
    "select all filtered results" and state the selected count. Show a
    task-relevant aggregate, such as the selected balance, when it helps users
    verify the set. Keep single-row actions available without requiring
    selection.
-5. **Actions have fixed homes** *(default)* - collection actions and bulk
+6. **Actions have fixed homes** *(default)* - collection actions and bulk
    actions live in the toolbar above the table; per-record actions live in a
    consistently aligned trailing column; pagination sits directly below the
    collection and may repeat above very long tables. Account- or page-level
    actions belong in the page header or a dedicated settings section, never
    scattered between records.
-6. **Inline editing stays inline** *(default)* - editable cells either save
+7. **Inline editing stays inline** *(default)* - editable cells either save
    immediately with visible feedback or expose compact Save/Cancel actions in
    the edited row. Never place a full-width control and a separate Save button
    under every record. Multi-row edits use selection plus a bulk editor.
-7. **Wide rows stay compact** *(default)* - keep core fields on one line in
+8. **Wide rows stay compact** *(default)* - keep core fields on one line in
    wide productivity tables. Truncate with an accessible full-value path or
    disclose secondary prose from the row rather than letting common columns
    wrap every record into a tall block.
-8. **Narrow layouts preserve the working set** *(default)* - hide secondary
+9. **Narrow layouts preserve the working set** *(default)* - hide secondary
    columns behind an expandable row, or allow a constrained horizontal table
    scroll with the identifying column kept visible. Do not convert every row
    into a tall card merely because the viewport narrowed.
-9. **Numeric columns support comparison** *(default)* - right-align quantities,
+10. **Numeric columns support comparison** *(default)* - right-align quantities,
    currency, and other comparable numbers and use tabular figures
    (`font-variant-numeric: tabular-nums`) so digits remain vertically aligned.
 
