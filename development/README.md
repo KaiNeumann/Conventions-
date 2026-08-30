@@ -54,6 +54,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 15. [`15-licensing.md`](15-licensing.md) - license selection by repo category, SPDX mechanics, migration guidance
 16. [`16-work-tracking.md`](`16-work-tracking.md`) - TODO.md queue structure, known-bug entries, promotion to remote issues
 17. [`17-architecture.md`](17-architecture.md) - provider boundaries, pipelines, formats, and AI integration
+18. [`18-architecture-diagrams.md`](18-architecture-diagrams.md) - Mermaid system-context and container-overview diagrams
 
 ## Core principles
 
