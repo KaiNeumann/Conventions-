@@ -13,6 +13,40 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.7.0] - 2026-08-29
+
+### Changed
+
+- Advanced Mermaid syntax now requires a successful render in the active
+  project viewer; vendored source and upstream support are insufficient
+
+## [1.6.0] - 2026-08-29
+
+### Added
+
+- Fixed-column Mermaid placement-matrix convention that separates service
+  ownership from request, proxy, data, and control-flow relationships
+
+## [1.5.0] - 2026-08-29
+
+### Added
+
+- Diagram-set convention for complete architecture overviews: landscape,
+  runtime placement, management and delivery, and request-path views
+
+### Changed
+
+- Architecture-diagram guidance now makes rendered peer equivalence, primary
+  lanes, scope separation, and Mermaid `subgraph` limitations explicit
+
+## [1.4.0] - 2026-08-29
+
+### Added
+
+- Architecture-diagram convention for Mermaid system-context and container
+  overviews: scope, abstraction level, visual vocabulary, readable layouts,
+  security/accessibility context, and diagram-as-code maintenance
+
 ## [1.3.0] - 2026-08-29
 
 ### Added

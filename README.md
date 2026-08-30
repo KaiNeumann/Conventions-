@@ -3,7 +3,7 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
-version: 1.3.0
+version: 1.7.0
 created: 2026-08-23
 updated: 2026-08-29
 ---
