@@ -10,15 +10,16 @@ updated: 2026-08-25
 # Work Tracking
 
 Known bugs, open issues, and todos live where humans **and** agents can
-see them without special access: an in-repo tracking file, backed by
-remote issues once a project outgrows it.
+find them without special access: normally an in-repo tracking file,
+backed by remote issues once a project outgrows it. A small remote-first
+queue is allowed under the exception below.
 
 ## Surfaces *(default)*
 
 | Surface | Use |
 |---|---|
-| `TODO.md` at repo root | Canonical queue: known bugs, todos, ideas. Agent-readable by definition |
-| Remote issues (Forgejo/Codeberg/GitHub) | Public reports, discussion history, cross-machine visibility. Summarize back into `TODO.md` so agents stay informed |
+| `TODO.md` at repo root | Canonical queue: known bugs, todos, ideas. Agent-readable by definition; required as a discovery stub for a remote-first queue |
+| Remote issues (Forgejo/Codeberg/GitHub) | Public reports, discussion history, cross-machine visibility. Summarize back into `TODO.md` so agents stay informed, except for the remote-first stub below |
 | `CHANGELOG.md` | Fixed items get announced here at release, then leave the queue |
 
 Never maintain divergent detail in both places: the remote issue holds
@@ -29,6 +30,26 @@ them.
 remote issue only when it needs public reporting or durable
 discussion - and even then `TODO.md` keeps a one-line pointer to the
 issue instead of the details.
+
+### Small remote-first queues *(default)*
+
+A repository with fewer than five live Forgejo or Codeberg issues may use
+those issues as its sole working queue. It still carries a root `TODO.md`
+so agents can discover the queue without knowing the forge URL:
+
+```markdown
+# TODO
+
+## Remote queue
+
+The working queue lives in Forgejo/Codeberg issues:
+
+- [P2][DOCS][docs] Update deployment guide: <issue URL>
+```
+
+The stub links every live issue and contains no duplicate detail. On creating
+the fifth live issue, restore the normal local queue and summarize each remote
+issue in `TODO.md`. Closed issues do not count toward the threshold.
 
 ## File structure *(default)*
 

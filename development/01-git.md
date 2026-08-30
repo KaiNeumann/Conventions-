@@ -58,11 +58,26 @@ updated: 2026-08-24
 2. Windows worktree is primary; WSL is used deliberately (e.g. SSH git),
    not accidentally.
 
+## Network-mounted worktrees (default)
+
+Git may reject a trusted repository on a network-mounted drive because its
+ownership cannot be verified. After verifying that the repository and mount
+are trusted, add only that exact repository path:
+
+```powershell
+git config --global --add safe.directory "Y:/work/project"
+```
+
+Never trust a whole drive, parent directory, or every repository with
+`safe.directory`; those settings disable a useful ownership safeguard.
+
 ## Issues and housekeeping
 
 1. *(default)* Use Forgejo/Codeberg issues for public reports and items
-   needing discussion history; keep the working queue in a repo-local
-   tracking file - structure per
+   needing discussion history. Keep the working queue in a repo-local
+   tracking file, except that a repository with fewer than five live
+   issues may use its Forgejo/Codeberg issues as its sole queue when its
+   `TODO.md` contains the required remote-queue stub - structure per
    [`16-work-tracking.md`](16-work-tracking.md).
 2. *(rule)* **No personal data, no usernames** in issue titles, bodies,
    comments, or quoted logs - use `<user>` placeholders.
