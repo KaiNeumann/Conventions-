@@ -3,9 +3,9 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
-version: 1.8.0
+version: 1.9.0
 created: 2026-08-23
-updated: 2026-08-30
+updated: 2026-08-31
 ---
 
 # Conventions

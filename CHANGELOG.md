@@ -13,6 +13,15 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [1.9.0] - 2026-08-31
+
+### Added
+
+- Archify diagram chapter (pattern): interactive HTML alternative to
+  Mermaid for shareable, explorable diagrams — when to reach for it,
+  vendored skill location in `agent-skills`, authoring discipline, and a
+  Mermaid-vs-Archify comparison table
+
 ## [1.8.0] - 2026-08-30
 
 ### Added

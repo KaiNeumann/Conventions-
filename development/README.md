@@ -55,6 +55,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 16. [`16-work-tracking.md`](`16-work-tracking.md`) - TODO.md queue structure, known-bug entries, promotion to remote issues
 17. [`17-architecture.md`](17-architecture.md) - provider boundaries, pipelines, formats, and AI integration
 18. [`18-architecture-diagrams.md`](18-architecture-diagrams.md) - Mermaid system-context and container-overview diagrams
+19. [`19-archify.md`](19-archify.md) - Archify interactive-diagram alternative (pattern): when to use it, skill location, authoring discipline
 
 ## Core principles
 
