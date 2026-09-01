@@ -156,6 +156,25 @@ no second hardcoded palette anywhere.
   `ui-monospace ...` for code - no bundled webfonts unless branding
   genuinely requires it
 
+## Modern CSS authoring *(pattern)*
+
+When writing or refactoring CSS, load the **modern-css** skill from the
+agent-skills collection (`skills/modern-css/SKILL.md` in
+`agent-skills`; source: `paulirish/dotfiles` `agents/skills/modern-css`,
+MIT). It is the authoritative reference for *how* to use modern platform
+features - this chapter defines *what* the GUI should look like.
+
+Apply the skill's progressive-enhancement discipline: prefer Baseline
+**Widely/Newly Available** features; gate **Limited Availability** behind
+`@supports` or graceful fallback; always respect `prefers-reduced-motion`
+/ `prefers-contrast`. Prefer platform over JS: container queries over
+page media queries for components, `@layer` for cascade, `oklch` +
+`color-mix()` / relative color for palettes (extends the token set above),
+`popover` + anchor positioning for tooltips/menus, `<dialog>` /
+`details[name]` / `base-select` for interactions, `field-sizing: content`
+and `:user-invalid` for forms, and `light-dark()` / `color-scheme` for
+theme-aware values.
+
 ## Interaction standards
 
 - **Help overlay** *(desktop - rule for keyboard-driven apps)*: an always-visible
