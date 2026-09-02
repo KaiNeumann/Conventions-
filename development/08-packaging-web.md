@@ -20,7 +20,11 @@ of the "one core, many shells" model - siblings:
 Applies when a project ships as a Dockerized web app.
 
 1. *(default)* Base image: official slim (`python:3.12-slim`); pin digest
-   for release images.
+   for release images. The root `Dockerfile` is the **runtime** image and
+   stays at the repo root where every tool expects it; desktop-exe build
+   containers
+   ([`09-packaging-desktop.md`](09-packaging-desktop.md)) are a separate
+   concern and never inflate the runtime image.
 2. *(rule)* Final image runs as **non-root user**.
 3. *(rule)* State in **named volumes** (`rss-data`, `pg-data`) or
    bind-mounted `data/` - never inside the container layer.
@@ -42,4 +46,6 @@ Applies when a project ships as a Dockerized web app.
 *(default)* Per-push CI runs tests only. Docker image builds and
 publishes happen on `v*` tags or manual dispatch - never in the
 per-push hot path ([`12-task-automation.md`](12-task-automation.md),
-Open decisions #1).
+Open decisions #1). Release image builds go through
+`python tools/build.py --docker` (same version source, same inventory as
+the exe build - see [`09-packaging-desktop.md`](09-packaging-desktop.md)).
