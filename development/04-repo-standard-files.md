@@ -111,6 +111,8 @@ temp/
 # Build output (any ecosystem)
 build/
 dist/
+*.exe
+pw-browsers/
 
 # Frontend deps
 node_modules/
