@@ -41,7 +41,37 @@ project/
 - Tracked empty dirs use the gitkeep pattern: ignore `data/*`, keep
   `!data/.gitkeep`.
 
-## Frontend / fullstack (default)
+## Desktop app (web frontend + exe)
+
+The default desktop shape for apps with a web UI (see
+[`09-packaging-desktop.md`](09-packaging-desktop.md)):
+
+```
+project/
+├── src/<package>/        # core + server; entry via python -m <package>
+│   └── static/           # frontend served by web, Docker, AND the exe
+├── packaging/
+│   ├── <app>.spec        # PyInstaller one-file recipe
+│   └── desktop_main.py   # pywebview entry (port, server thread, window)
+├── tools/build.py        # canonical build harness (copied from conventions)
+├── Dockerfile
+└── docker-compose.yml
+```
+
+`desktop_main.py` and the spec are near-identical across projects - copy
+them, don't redesign. Root-level `*.spec` files are the legacy form and
+move into `packaging/` on next touch. Optional `build.ps1` is a two-line
+shim calling `tools/build.py`, never a second home for build logic.
+
+## Frontend: two sanctioned flavors *(default)*
+
+1. **Zero-build static** (default): dependency-free HTML/CSS/JS vendored
+   in `static/`. No npm, no bundler. For local single-user tools this is
+   usually enough - start here.
+2. **Built frontend** (opt-in): `frontend/` with Vite/TS when the app
+   genuinely needs a framework. Build output goes to
+   `src/<package>/static/dist/` so backend, Docker image, and exe serve
+   the same artifact.
 
 ```
 frontend/  (or backend/ + frontend/)
