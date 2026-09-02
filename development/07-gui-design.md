@@ -311,6 +311,7 @@ Use this priority order for structured, repeated work:
   copies. Test the derived mark at its smallest real target, such as a
   16px favicon or window icon; simplify it when its identifying geometry
   no longer survives.
+- **Version label** *(default)*: right beside the app title in the top bar / panel header, show a small muted label with the current version (`v` + semver, e.g. `v1.2.3`) sourced from the single version truth (see [`11-releases.md`](11-releases.md)). Muted `--text-dim`, small type (`--step--1` or similar), bottom-aligned to the title baseline, no interaction or extra chrome.
 
 ## Layout patterns
 
