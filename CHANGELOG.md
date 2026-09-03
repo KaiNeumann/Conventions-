@@ -13,6 +13,14 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [Unreleased]
+
+### Added
+
+- Wiki Markdown flavor: Obsidian-style image sizes (`![alt|400]`,
+  `![alt|400x250]`) with Markview live-preview support and a Pandoc
+  Lua filter for PDF output
+
 ## [1.9.0] - 2026-08-31
 
 ### Added
