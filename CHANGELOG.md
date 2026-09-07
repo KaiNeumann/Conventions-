@@ -15,6 +15,14 @@ versioning follows [Semantic Versioning](https://semver.org/):
 
 ## [Unreleased]
 
+### Changed
+
+- Clarify the wiki publication boundary: authorized personal information may
+  live in restricted private knowledge vaults; public templates use placeholders.
+  Secrets remain prohibited in ordinary notes, and derived outputs inherit access
+  restrictions. This owner-approved clarification was recorded on 2026-09-07;
+  no release or tag has been created.
+
 ### Added
 
 - Wiki Markdown flavor: Obsidian-style image sizes (`![alt|400]`,
