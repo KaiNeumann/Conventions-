@@ -60,6 +60,43 @@ project's normal development-tool mechanism, commit its policy, and invoke it
 from the canonical check command on every supported local and CI platform.
 Projects **MUST NOT** depend on a global installation.
 
+#### Templates that emit structured output *(rule)*
+
+Templates (Jinja2, ERB, Go templates, ...) that generate YAML, JSON, TOML,
+or similar carry a stricter obligation than hand-written files, because a
+template can parse cleanly and still be structurally wrong: a one-space
+indent shift can silently demote a section into the previous section's
+item list, merge groups, or drop entries while remaining valid YAML.
+
+1. **Read before reformatting.** Before touching whitespace, indentation,
+   or block structure in a template, the agent **MUST** inspect the
+   original bytes (`git show HEAD:<path>` or the pre-edit file). Templates
+   are not prose: the existing indentation is load-bearing, and "looks
+   misaligned" is not evidence of an error.
+2. **Baseline render before structural edits.** Before an edit that can
+   change emitted structure, render the template with representative
+   variables and keep the parsed result.
+3. **Structural diff after editing.** After editing, re-render with the
+   same variables and compare the *parsed structures*: same top-level
+   keys/sections in the same order, same membership of lists/groups.
+   Parseability alone does not validate a template edit.
+4. **Expected-absence is failure.** When a validation or render output
+   lacks an element the pre-edit version had (a section, key, card, or
+   entry), that is a failure signal. Agents **MUST NOT** log such output
+   as success or continue past it.
+5. **Encode the check.** Where a template feeds a long-lived surface
+   (dashboard config, compose files, routing config), the structural
+   comparison **SHOULD** live as a repo test so future edits are gated
+   deterministically.
+
+Rationale: a real incident rendered a dashboard config that parsed
+cleanly while an entire server group had been folded into another group's
+item list, because the "fix" for a parse error re-indented a section
+header without reading the original and validation only asserted
+parseability. Cost: repeated deployments, user-visible breakage, and a
+full debug cycle. All three failure points above were present and each
+alone would have prevented it.
+
 ### CLI before MCP (default)
 
 When an application capability needs to be used by people, scripts, or
