@@ -25,6 +25,8 @@ versioning follows [Semantic Versioning](https://semver.org/):
 
 ### Added
 
+- Harness-independent validation for indentation-sensitive files, with shared
+  validation CLI adoption guidance for new and existing projects
 - Wiki Markdown flavor: Obsidian-style image sizes (`![alt|400]`,
   `![alt|400x250]`) with Markview live-preview support and a Pandoc
   Lua filter for PDF output
