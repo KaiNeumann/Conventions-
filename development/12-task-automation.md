@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, ci, automation]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-24
+updated: 2026-09-14
 ---
 
 # Task Automation and CI
@@ -41,6 +41,24 @@ build - for example `tools/check.py`, `tools/check.ps1`, `just check`, or
   runner must support the selected command.
 - The command exits non-zero on any failure and prints a short summary -
   designed so an agent can act on the tail of the output alone.
+
+### Indentation-sensitive validation *(rule)*
+
+Supported indentation-sensitive source and configuration formats **MUST**
+be validated deterministically through the canonical project check command.
+Use an appropriate formatter check, parser, compiler, or linter. Visual
+review, editor formatting, agent harnesses, plugins, skills, and LLM review
+do not count as validation.
+
+YAML validation **MUST** parse the files and enforce checked-in project
+policy. Frontmatter **MUST** satisfy the schema owned by its project or
+document set. Any validation failure **MUST** make the canonical check
+command exit non-zero.
+
+The shared validation CLI is the default implementation. Pin it through the
+project's normal development-tool mechanism, commit its policy, and invoke it
+from the canonical check command on every supported local and CI platform.
+Projects **MUST NOT** depend on a global installation.
 
 ### CLI before MCP (default)
 

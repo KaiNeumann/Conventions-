@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, standards]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-25
+updated: 2026-09-14
 ---
 
 # Repo Standard Files
@@ -54,6 +54,10 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
 [*.md]
 trim_trailing_whitespace = false
 ```
@@ -63,10 +67,7 @@ trim_trailing_whitespace = false
 Web block, when the repo has a frontend:
 
 ```editorconfig
-[*.js]
-[*.ts]
-[*.json]
-[*.yml]
+[*.{js,ts,json}]
 indent_style = space
 indent_size = 2
 ```
@@ -183,6 +184,25 @@ fill the placeholders (rationale:
 [`06-documentation.md`](06-documentation.md); CI-enabled repos
 additionally carry the automation contract there
 ([`12-task-automation.md`](12-task-automation.md)).
+
+## Shared validation CLI adoption *(default)*
+
+For a new project, bootstrap deterministic validation with the other standard
+files: pin the shared validation CLI through the project's normal development
+tooling, commit the project policy, and wire it into the canonical check
+command.
+
+For an existing project, adopt it as a focused migration:
+
+1. Pin the CLI through the project's normal development tooling.
+2. Commit the project policy.
+3. Wire the CLI into the canonical check command.
+4. Run it across the current tree. Fix the findings or record a project
+   deviation.
+
+`AGENTS.md` names the canonical check command but does not replace executable
+validation. The CLI implementation remains in its own source repository;
+projects consume a pinned release rather than copying its implementation.
 
 ## Rule of origin
 
