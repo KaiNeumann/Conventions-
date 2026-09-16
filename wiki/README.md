@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, wiki]
 status: draft
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-09-16
 ---
 
 # Wiki Conventions
@@ -24,7 +24,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 
 1. [`01-frontmatter.md`](01-frontmatter.md) - metadata schema for every note
 2. [`02-notes-and-structure.md`](02-notes-and-structure.md) - atomic notes, naming, folders, links
-3. [`03-obsidian-setup.md`](03-obsidian-setup.md) - Obsidian as the concrete tool
+3. [`03-editor-setup.md`](03-editor-setup.md) - the editor as a view over plain Markdown
 4. [`04-versioning-and-history.md`](04-versioning-and-history.md) - git versioning, documenting changes
 5. [`05-human-agent-collaboration.md`](05-human-agent-collaboration.md) - who does what, safety rules
 6. [`06-dynamic-views.md`](06-dynamic-views.md) - queries over curation (Dataview/Bases)

@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, wiki, markdown]
 status: accepted
 created: 2026-08-24
-updated: 2026-09-03
+updated: 2026-09-16
 ---
 
 # Markdown Flavor
@@ -12,7 +12,7 @@ updated: 2026-09-03
 House dialect: [CommonMark](https://spec.commonmark.org/) + [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/) **plus** the
 extensions our toolchain renders natively (the Markview set at
 https://git.kaiuweneumann.de/kai/MarkdownViewer). Write
-within this dialect so every consumer - Obsidian, Markview,
+within this dialect so every consumer - the editor, Markview,
 Forgejo/GitHub - shows the note as intended.
 
 Reference implementation is the vendored Markview frontend:

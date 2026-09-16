@@ -9,10 +9,10 @@ Work queue per [`development/16-work-tracking.md`](development/16-work-tracking.
 ## Todos
 
 - **[P1][DOCS][wiki] Accept remaining wiki chapters - IN PROGRESS**
-  Done when: `03-obsidian-setup.md` and `06-dynamic-views.md` pass
+  Done when: `03-editor-setup.md` and `06-dynamic-views.md` pass
   interactive review, `wiki/README.md` flips to accepted, and the
   release is tagged v1.2.0.
-  Refs: wiki/03-obsidian-setup.md, wiki/06-dynamic-views.md
+  Refs: wiki/03-editor-setup.md, wiki/06-dynamic-views.md
 
 ## Ideas
 

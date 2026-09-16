@@ -13,7 +13,7 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
-## [Unreleased]
+## [2.0.0] - 2026-09-16
 
 ### Changed
 
@@ -22,6 +22,13 @@ versioning follows [Semantic Versioning](https://semver.org/):
   Secrets remain prohibited in ordinary notes, and derived outputs inherit access
   restrictions. This owner-approved clarification was recorded on 2026-09-07;
   no release or tag has been created.
+- Make the wiki editor chapter editor-agnostic: rename
+  `wiki/03-obsidian-setup.md` to `wiki/03-editor-setup.md` and remove the
+  remaining "Obsidian is the concrete tool" framing from the wiki area,
+  the area index, and the dynamic-views and markdown-flavor chapters. The
+  conventions now describe the editor as a view over a plain Markdown
+  folder and no longer name a single editor. (A chapter rename is a
+  breaking change.)
 
 ### Added
 

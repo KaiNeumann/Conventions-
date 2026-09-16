@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, wiki, structure]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-24
+updated: 2026-09-16
 ---
 
 # Notes and Structure
@@ -32,8 +32,8 @@ topics are not.
 1. Notes stay readable without wiki software - plain Markdown renders on
    Forgejo/GitHub and in any editor. Default to standard Markdown links
    for cross-note links.
-2. Wikilinks (`[[...]]`) are acceptable in Obsidian-only vaults; pick per
-   vault and document the choice in its `README.md`.
+2. Wikilinks (`[[...]]`) are acceptable in vaults whose editor renders
+   them; pick per vault and document the choice in its `README.md`.
 3. External URLs and files outside the vault always use standard
    Markdown links.
 

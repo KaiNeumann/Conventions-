@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, wiki, views]
 status: draft
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-09-16
 ---
 
 # Dynamic Views
@@ -22,12 +22,12 @@ when curation lists or "what's new" questions appear, not before.
 
 ## Tools (default)
 
-- **Bases** (Obsidian core) - table views over note properties. Preferred
-  when it covers the need.
-- **Dataview** (community plugin) - when Bases is not enough (grouping,
-  complex filters).
-- A vault without community plugins uses Bases/core search; note the
-  choice in the vault `README.md`.
+- **Editor-native property views** (e.g. Obsidian Bases) - table views
+  over note properties. Preferred when it covers the need.
+- **Dataview** (community plugin) - when native views are not enough
+  (grouping, complex filters).
+- A vault without community plugins uses the editor's native search and
+  property views; note the choice in the vault `README.md`.
 
 ## Standard views (default)
 
