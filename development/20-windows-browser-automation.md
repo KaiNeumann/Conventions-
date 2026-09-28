@@ -2,7 +2,7 @@
 title: Windows Browser Automation
 type: reference
 tags: [conventions, development, windows, browser-automation, security]
-status: draft
+status: accepted
 created: 2026-09-28
 updated: 2026-09-28
 ---

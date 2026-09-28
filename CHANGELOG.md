@@ -24,7 +24,9 @@ versioning follows [Semantic Versioning](https://semver.org/):
   Chromium hardening across every launch site including live-test
   harnesses, proxy-credential stripping at the sink, machine-level
   containment, a debugging playbook, and a war story covering a hardening
-  fix that was correct but was not the cause
+  fix that was correct but was not the cause. The chapter's two *(rule)*
+  sections were owner-approved on 2026-09-28, so the file ships as
+  `status: accepted`.
 
 ## [2.0.0] - 2026-09-16
 
