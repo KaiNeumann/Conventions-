@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, wiki, metadata]
 status: accepted
 created: 2026-08-23
-updated: 2026-09-14
+updated: 2026-09-28
 ---
 
 # Frontmatter
@@ -47,7 +47,7 @@ Optional keys - add only when a view or workflow consumes them:
 
 ## Handling (rule)
 
-1. Frontmatter **MUST** be [valid YAML](../development/12-task-automation.md#indentation-sensitive-validation)
+1. Frontmatter **MUST** be [valid YAML](../development/12-task-automation.md#indentation-sensitive-validation-rule)
    and satisfy its owning schema. Beware YAML quoting gotchas: in single-quoted
    strings `\` is literal (no escapes). Prefer double quotes when values
    contain `:`, `#`, or `\`.

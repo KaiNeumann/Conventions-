@@ -3,7 +3,7 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
-version: 2.2.0
+version: 2.2.1
 created: 2026-08-23
 updated: 2026-09-28
 ---
@@ -72,7 +72,7 @@ Unmarked prose is descriptive context, not a rule.
    explicit human sign-off.
 4. **Rules stay unambiguous and verifiable** - a convention nobody can
    follow or check is a wish. The prose around rules may be as verbose
-   as useful (see [Purpose](#purpose--and-non-purpose)).
+   as useful (see [Purpose](#purpose---and-non-purpose)).
 
 ## File conventions for this repo
 

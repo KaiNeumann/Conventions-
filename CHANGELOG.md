@@ -13,6 +13,20 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.2.1] - 2026-09-28
+
+### Fixed
+
+- Four broken references found by a repo-wide link and anchor check:
+  the `Purpose` self-link in the root `README.md` pointed at
+  `#purpose--and-non-purpose` instead of `#purpose---and-non-purpose`;
+  the standard-files chapter linked `15-settings.md`, which does not
+  exist (settings is `14-settings.md`); the development index linked
+  `` `16-work-tracking.md` `` with the backticks inside the link target,
+  which breaks the link; and the frontmatter chapter anchored to
+  `#indentation-sensitive-validation` instead of the actual heading
+  `#indentation-sensitive-validation-rule`.
+
 ## [2.2.0] - 2026-09-28
 
 ### Added

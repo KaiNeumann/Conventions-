@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development, standards]
 status: accepted
 created: 2026-08-23
-updated: 2026-09-14
+updated: 2026-09-28
 ---
 
 # Repo Standard Files
@@ -27,7 +27,7 @@ and real secrets/`.env` never enter git (see
 3. **Clean `temp/` frequently.** Anything worth keeping moves to its
    proper home (a test, an example, documentation) or is deleted -
    `temp/` must never turn into a second project.
-4. Persistent application state follows [`15-settings.md`](15-settings.md)
+4. Persistent application state follows [`14-settings.md`](14-settings.md)
    (sidecar/profile); only disposable junk goes into `temp/`.
 5. Agents: never write scratch files outside the project; when working
    without a project context, ask where to put them.
