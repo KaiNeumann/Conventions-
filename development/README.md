@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, development]
 status: accepted
 created: 2026-08-23
-updated: 2026-08-25
+updated: 2026-09-28
 ---
 
 # Development Conventions
@@ -56,6 +56,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 17. [`17-architecture.md`](17-architecture.md) - provider boundaries, pipelines, formats, and AI integration
 18. [`18-architecture-diagrams.md`](18-architecture-diagrams.md) - Mermaid system-context and container-overview diagrams
 19. [`19-archify.md`](19-archify.md) - Archify interactive-diagram alternative (pattern): when to use it, skill location, authoring discipline
+20. [`20-windows-browser-automation.md`](20-windows-browser-automation.md) - driving real browsers on Windows without locking the operator's account: evidence discipline, lane hardening, machine-level containment, debugging playbook
 
 ## Core principles
 

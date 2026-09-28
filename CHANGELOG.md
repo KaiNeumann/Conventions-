@@ -13,6 +13,19 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.1.0] - 2026-09-28
+
+### Added
+
+- Windows browser automation chapter: the account-lockout hazard for
+  automated browser work, attribution discipline for the Security log
+  (elevation, distinguishing "unreadable" from "no events", elevated
+  collector artifacts, unconditional account-name redaction), shared
+  Chromium hardening across every launch site including live-test
+  harnesses, proxy-credential stripping at the sink, machine-level
+  containment, a debugging playbook, and a war story covering a hardening
+  fix that was correct but was not the cause
+
 ## [2.0.0] - 2026-09-16
 
 ### Changed
