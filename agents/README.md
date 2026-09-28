@@ -4,14 +4,15 @@ type: reference
 tags: [conventions, agents]
 status: accepted
 created: 2026-08-25
-updated: 2026-08-25
+updated: 2026-09-28
 ---
 
 # Agents
 
 Standards for working with AI agents in repositories: how to create an
-`AGENTS.md`, which MCP servers are accepted / candidate / rejected, and
-how agent skills are formatted, inventoried, and promoted.
+`AGENTS.md`, the shared interaction protocol, which MCP servers are
+accepted / candidate / rejected, and how agent skills are formatted,
+inventoried, and promoted.
 
 | File | Purpose |
 |---|---|
@@ -19,6 +20,7 @@ how agent skills are formatted, inventoried, and promoted.
 | [`AGENTS.md.template`](AGENTS.md.template) | Copyable starting point - fill placeholders, rename to `AGENTS.md` |
 | [`02-mcp-servers.md`](02-mcp-servers.md) | Accepted / candidate / rejected MCP servers |
 | [`03-agent-skills.md`](03-agent-skills.md) | Skill format, inventory (own + adopted), promotion path |
+| [`04-agent-communication-protocol.md`](04-agent-communication-protocol.md) | Shared task-control and communication protocol for agents: goal retention, clarification, scope, density, completion |
 
 Improvements to the generic parts flow back into this repository first
 (rule of origin).

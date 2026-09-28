@@ -13,6 +13,22 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.2.0] - 2026-09-28
+
+### Added
+
+- Agent interaction protocol chapter in the agents area, adopted from a
+  standalone protocol document: task-start acknowledgement, goal
+  retention, clarification before assumption, scope-creep stop, smallest
+  sufficient change, communication density, failure handling,
+  user-interruption priority, completion reporting, the default decision
+  order, and the `AGENTS.md` integration pattern. Each section carries a
+  tier marker and its rationale; sections 1-10 and 13 are *(rule)*,
+  sections 11-12 are *(default)*. The chapter and its tier assignment
+  were owner-approved on 2026-09-28, so the file ships as
+  `status: accepted`. Review points are tracked in `TODO.md`: about one
+  month after adoption, then again after three.
+
 ## [2.1.0] - 2026-09-28
 
 ### Added
