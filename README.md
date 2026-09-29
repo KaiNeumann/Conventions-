@@ -3,9 +3,9 @@ title: Conventions
 type: reference
 tags: [conventions]
 status: accepted
-version: 2.2.1
+version: 2.3.0
 created: 2026-08-23
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
 # Conventions
@@ -44,7 +44,7 @@ Practical consequences:
 | Area | Scope |
 |---|---|
 | [`wiki/`](wiki/README.md) | Knowledge base / wiki work: frontmatter, editor setup, versioning, human-agent collaboration, dynamic views |
-| [`development/`](development/README.md) | Software development: git, lifecycle, project structure, standard files, languages, documentation, packaging/deployment |
+| [`development/`](development/README.md) | Software development: git, lifecycle, planning and scope control, project structure, standard files, languages, documentation, packaging/deployment |
 | [`operations/`](operations/README.md) | Running containerized services on owned infrastructure: compose conventions, routing/auth, users, lifecycle |
 | [`agents/`](agents/README.md) | Working with AI agents: the `AGENTS.md` standard, the shared interaction protocol, MCP servers, skills |
 

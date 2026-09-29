@@ -13,6 +13,37 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.3.0] - 2026-09-29
+
+### Added
+
+- Planning chapter in the development area, `development/21-planning.md`,
+  covering plan files as a scope boundary. Sections: when a plan file is
+  required and where it lives; plan anatomy (goal, scope boundary with a
+  mandatory out-of-scope list, phases with acceptance criteria, deliberate
+  omissions, acceptance gates); the rule that the plan file is the only
+  scope authority and a session-local work list is a view of it; the decision
+  checkpoint requiring a dated, cited scope override; evidence rules for the
+  gate table, including a status vocabulary and the rule that a gate names a
+  command and is not marked met on the implementer's own summary; one plan
+  per session with a handoff at the boundary; plan lifecycle; anti-patterns;
+  and review criteria. Filed as `status: accepted`, so the *(rule)* sections
+  bind.
+
+### Changed
+
+- `development/02-lifecycle.md`: the plan stage now points at the planning
+  chapter and asks for an out-of-scope list and command-named gates instead
+  of a bullet list inside an issue.
+- `development/02-lifecycle.md`: iteration discipline item 4 reversed. It
+  previously advised keeping a session log only when work spanned sessions
+  and treating git history as the log otherwise, which is the wrong default
+  for agent work: git history records what changed, not what was decided or
+  still open. It now advises one plan per session and handing off at a
+  boundary.
+- `development/README.md`: chapter 21 added to the reading order.
+- `README.md`: development area scope now names planning and scope control.
+
 ## [2.2.1] - 2026-09-28
 
 ### Fixed

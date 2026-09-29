@@ -17,9 +17,11 @@ idea → plan → implement → verify → document → commit → deploy
 
 1. **Idea** - capture it (issue or `TODO-backlog.md`), one line is enough.
    Don't build it yet.
-2. **Plan** - for anything beyond a trivial fix: bullet list of steps +
-   acceptance criteria in the issue/TODO item. Agents state the plan
-   before touching code.
+2. **Plan** - for anything beyond a trivial fix: a plan file with an
+   explicit out-of-scope list, phases with acceptance criteria, and gates
+   that name the command proving them. See
+   [`21-planning.md`](21-planning.md). A bullet list inside an issue is
+   enough only for work that fits in one sitting.
 3. **Implement** - smallest change that satisfies the plan. Follow
    project-structure and language conventions. Tests alongside code, not
    "later".
@@ -62,7 +64,11 @@ say so, don't silently skip.)
    migrate users/data -> delete in a later commit ([naming
    discipline](03-project-structure.md):
    no `_v2` twins living forever).
-4. *(default)* Keep a session log only when work spans sessions - otherwise git
-   history IS the log.
+4. *(default)* One plan, one working session. When work has to cross into
+   another release, application, or problem class, hand off instead of
+   continuing; long sessions erode scope faster than they save time. Git
+   history records *what changed*, not *what was decided or still open*, so
+   it is not a substitute for a plan
+   ([planning](21-planning.md#one-plan-one-session-default)).
 5. *(rule)* Deterministic first, AI second: if a problem is solvable reliably with parsing, rules, APIs, SQL, state machines, conventional code, or a CLI, use that first. Use a model only where interpretation, classification, fuzzy matching, extraction, summarization, or reasoning is required.
 6. *(default)* AI-optional applications: core workflows must remain functional without an LLM stack (improves offline longevity, local testing, and cost control).

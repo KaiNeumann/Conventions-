@@ -57,6 +57,7 @@ extracted from here (see [`../README.md`](../README.md), "Purpose").
 18. [`18-architecture-diagrams.md`](18-architecture-diagrams.md) - Mermaid system-context and container-overview diagrams
 19. [`19-archify.md`](19-archify.md) - Archify interactive-diagram alternative (pattern): when to use it, skill location, authoring discipline
 20. [`20-windows-browser-automation.md`](20-windows-browser-automation.md) - driving real browsers on Windows without locking the operator's account: evidence discipline, lane hardening, machine-level containment, debugging playbook
+21. [`21-planning.md`](21-planning.md) - plan files as the scope boundary: when a plan is required, its anatomy, plan authority over session-local work lists, recorded scope overrides, command-backed acceptance gates, plan lifecycle
 
 ## Core principles
 
