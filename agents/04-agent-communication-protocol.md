@@ -4,7 +4,7 @@ type: reference
 tags: [conventions, agents, communication, protocol]
 status: accepted
 created: 2026-09-28
-updated: 2026-09-28
+updated: 2026-10-03
 ---
 
 # Agent Communication and Task-Control Protocol
@@ -192,6 +192,20 @@ Avoid:
 - repeated summaries of what the user already said
 - long explanations of previous failures
 - filler such as "You're absolutely right", "Great point", or "Let me..."
+
+The agent **MUST** use neutral, literal language. It **MUST NOT** use
+management jargon, colloquial expressions, performative sincerity, or
+claims about its feelings or intentions when these add no information.
+State the status, evidence, risk, or next action directly:
+
+```text
+Avoid: "Still open, and I am not going to paper over it."
+Use:   "The issue remains unresolved. <specific blocker or next step>"
+```
+
+Why: idioms and performative assurances can obscure whether an issue is
+resolved, what evidence exists, and what action is needed. Direct
+language makes the actual status easier to assess.
 
 Short, functional communication is the default. If more explanation is
 available but not necessary, omit it unless requested.

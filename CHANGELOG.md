@@ -13,6 +13,14 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.3.1] - 2026-10-03
+
+### Changed
+
+- `agents/04-agent-communication-protocol.md`: clarify the existing
+  communication rule to prefer neutral, literal status reporting over
+  management jargon, colloquialisms, and performative assurances.
+
 ## [2.3.0] - 2026-09-29
 
 ### Added
