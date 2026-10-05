@@ -13,6 +13,26 @@ versioning follows [Semantic Versioning](https://semver.org/):
   non-binding additions
 - **PATCH** - clarifications, wording, formatting
 
+## [2.4.0] - 2026-10-05
+
+### Added
+
+- `development/02-lifecycle.md`: new `User data protection` *(rule)*
+  section. User data (database entries, files, runtime state) MUST be
+  backed up with a known restore path before any delete, move, or
+  manipulation; archives and other input data are immutable; metadata
+  MUST NOT be deleted on the unverified assumption that the original
+  data is gone (check mount, path, permissions first); work on
+  productive apps MUST start by verifying the actual system, database,
+  volume, and identity in effect.
+- `development/02-lifecycle.md`: `User data protection` *(rule)*
+  extended. Productive user data MUST live in databases, volumes, and
+  identities separate from test and development data, unreachable by
+  default from test runs; tests use synthetic or copied data, never
+  the productive store. The Why carries an anonymized war story: a
+  redeploy with an unreadable library mount let a startup scan prune
+  3,951 rows of irreplaceable metadata with no backup on the server.
+
 ## [2.3.1] - 2026-10-03
 
 ### Changed
